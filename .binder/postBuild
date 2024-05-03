@@ -1,4 +1,5 @@
-!/bin/bash
+#!/bin/bash
+
 # Fail fast
 #set -o errexit
 #set -o nounset
