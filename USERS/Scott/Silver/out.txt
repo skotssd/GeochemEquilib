@@ -1,0 +1,207 @@
+   Input file: runphreeqc.txt
+  Output file: out.txt
+Database file: simplestAgCl.dat
+
+------------------
+Reading data base.
+------------------
+
+	LLNL_AQUEOUS_MODEL_PARAMETERS
+	NAMED_EXPRESSIONS
+	SOLUTION_MASTER_SPECIES ###########################################
+	SOLUTION_SPECIES ####################################################
+	PHASES #############################################################################
+	END
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	SOLUTION_SPECIES
+	H2O + 0.01e- = H2O-0.01
+	log_k   -9.0
+	SOLUTION 1
+	       pe      13.75
+	       pH      7
+	       temp      25
+	units mol/kgw
+	Ag 1e-05 
+	Cl 1e-05 
+	Na 1e-05 
+	KNOBS
+	iterations 200
+	EQUILIBRIUM_PHASES 1
+	AgCls   0.0   0
+	       Fix_H+ -7          NaOH 10.0
+	force_equality true
+	       Fix_pe -13.75          O2
+	force_equality true
+	SELECTED_OUTPUT
+	file selected.out
+	selected_out true
+	user_punch true
+	high_precision true
+	reset false
+	simulation false
+	state false
+	distance false
+	time false
+	step false
+	ph false
+	pe false
+	reaction false
+	temperature false
+	alkalinity false
+	ionic_strength false
+	water false
+	charge_balance false
+	percent_error false
+	molalities Ag+ Cl-  
+	equilibrium_phases AgCls  
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Ag                1.000e-05   1.000e-05
+	Cl                1.000e-05   1.000e-05
+	Na                1.000e-05   1.000e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =  13.750    
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   1.505e-05
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -1.000e-07
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   1.010e-05
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  33.55
+                               Iterations  =   2
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552735e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma    cm³/mol
+
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O-0.01        7.286e-10   7.286e-10    -9.138    -9.138    -0.000     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     (0)  
+Ag(1)         1.000e-05
+   Ag+             1.000e-05   1.000e-05    -5.000    -5.000    -0.000     (0)  
+Cl(-1)        1.000e-05
+   Cl-             1.000e-05   1.000e-05    -5.000    -5.000    -0.000     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.609   -44.609     0.000     (0)  
+Na            1.000e-05
+   Na+             1.000e-05   1.000e-05    -5.000    -5.000    -0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  AgCls            -0.25    -10.00   -9.75  AgCl
+  Fix_H+           -7.00     -7.00    0.00  H+
+  Fix_pe          -13.75    -13.75    0.00  e-
+  H2(g)           -41.50    -44.61   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+-----------------------------------------
+Beginning of batch-reaction calculations.
+-----------------------------------------
+
+Reaction step 1.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+AgCls            -0.25   -10.00     -9.75    0.000e+00           0   0.000e+00
+Fix_H+           -7.00    -7.00      0.00
+	 NaOH               is reactant       1.000e+01   1.000e+01   0.000e+00
+Fix_pe          -13.75   -13.75      0.00
+	 O2                 is reactant       1.000e+01   1.000e+01   0.000e+00
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Ag                1.000e-05   1.000e-05
+	Cl                1.000e-05   1.000e-05
+	Na                1.000e-05   1.000e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000      Charge balance
+                                       pe  =  13.750      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   1.505e-05
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -1.000e-07
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   1.010e-05
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  33.55
+                               Iterations  =   1
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552735e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma    cm³/mol
+
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O-0.01        7.286e-10   7.286e-10    -9.138    -9.138    -0.000     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     (0)  
+Ag(1)         1.000e-05
+   Ag+             1.000e-05   1.000e-05    -5.000    -5.000    -0.000     (0)  
+Cl(-1)        1.000e-05
+   Cl-             1.000e-05   1.000e-05    -5.000    -5.000    -0.000     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.609   -44.609     0.000     (0)  
+Na            1.000e-05
+   Na+             1.000e-05   1.000e-05    -5.000    -5.000    -0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  AgCls            -0.25    -10.00   -9.75  AgCl
+  Fix_H+           -7.00     -7.00    0.00  H+
+  Fix_pe          -13.75    -13.75    0.00  e-
+  H2(g)           -41.50    -44.61   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+----------------------------------
+End of Run after 0.002244 Seconds.
+----------------------------------
+

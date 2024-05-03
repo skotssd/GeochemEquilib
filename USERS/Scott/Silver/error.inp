@@ -1,0 +1,85 @@
+SOLUTION_RAW                 1 
+  -temp                      25
+  -pressure                  1
+  -potential                 0
+  -total_h                   111.0506504044
+  -total_o                   55.527347617614
+  -cb                        -0.0009899963350564
+  -density                   1.0000688797207
+  -totals
+    Ag(1)                    1e-05
+    Ag(2)                    1.4183070717565e-25
+    Cl(-1)                   0.001
+    Cl(1)                    1.1364368899371e-19
+    Cl(5)                    1.7277030705787e-25
+    Cl(7)                    1.926733977087e-25
+    O(0)                     0.0020224172497609
+  -pH                        7
+  -pe                        13.75
+  -mu                        0.00050510067150664
+  -ah2o                      0.99996563601779
+  -mass_water                1
+  -soln_vol                  1
+  -total_alkalinity          -3.6722295557769e-09
+  -activities
+    Ag(1)                    -5.0112642438216
+    Ag(2)                    -24.892703080166
+    Cl(-1)                   -3.0112234619918
+    Cl(1)                    -19.619729050022
+    Cl(3)                    -29.122841881634
+    Cl(5)                    -24.773713756888
+    Cl(7)                    -24.726361105956
+    E                        -13.75
+    H(0)                     -44.600450843583
+    O(0)                     -2.9951058825345
+  -gammas
+EQUILIBRIUM_PHASES_RAW       1 
+  # EXCHANGE_MODIFY candidates; use new_def=true #
+  -new_def                   0
+  -component                 Chlorargyrite
+      # EQUILIBRIUM_PHASES_MODIFY candidate identifiers #
+      -si                    0
+      -moles                 0
+      -force_equality        0
+      -dissolve_only         0
+      -precipitate_only      0
+      # PPassemblage workspace variables #
+      -si_org                0
+      -delta                 0
+      -initial_moles         0
+      -totals                
+  -component                 Fix_H+
+      # EQUILIBRIUM_PHASES_MODIFY candidate identifiers #
+      -add_formula           NaOH
+      -si                    -7
+      -moles                 10
+      -force_equality        1
+      -dissolve_only         0
+      -precipitate_only      0
+      # PPassemblage workspace variables #
+      -si_org                -7
+      -delta                 0
+      -initial_moles         0
+      -totals                
+  -component                 Fix_pe
+      # EQUILIBRIUM_PHASES_MODIFY candidate identifiers #
+      -add_formula           O2
+      -si                    -13.75
+      -moles                 10
+      -force_equality        1
+      -dissolve_only         0
+      -precipitate_only      0
+      # PPassemblage workspace variables #
+      -si_org                -13.75
+      -delta                 0
+      -initial_moles         0
+      -totals                
+  -eltList                   # List of all elements in phases and alternate reactions
+    Ag                       1
+    Cl                       1
+    H                        2
+    Na                       1
+    O                        3
+    e                        1
+  # PPassemblage workspace variables #
+  -assemblage_totals
