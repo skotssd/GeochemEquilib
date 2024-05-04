@@ -138,3 +138,45 @@ Please note that updating to Notebook 7 might break some of your extensions.
 [I 21:14:26.398 NotebookApp] New terminal with automatic name: 1
 [I 21:14:26.768 NotebookApp] Kernel started: 759609de-bb64-41da-bff1-69332081ba37, name: octave
 [W 21:14:27.808 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7f8ebce48610>
+[W 15:13:55.328 NotebookApp] Collisions detected in /home/jovyan/.jupyter/jupyter_notebook_config.py and /home/jovyan/.jupyter/jupyter_notebook_config.json config files. /home/jovyan/.jupyter/jupyter_notebook_config.json has higher priority: {
+      "NotebookApp": {
+        "password": "'' ignored, using 'argon2:$argon2id$v=19$m=10240,t=10,p=8$ZCdmC1awm9snIbWEfqYcPA$CiKkZnMhWVZlaW0jW6h+dXmHhSZgrGKuPQJ8p9zuZ58'"
+      }
+    }
+
+  _   _          _      _
+ | | | |_ __  __| |__ _| |_ ___
+ | |_| | '_ \/ _` / _` |  _/ -_)
+  \___/| .__/\__,_\__,_|\__\___|
+       |_|
+                       
+Read the migration plan to Notebook 7 to learn about the new features and the actions to take if you are using extensions.
+
+https://jupyter-notebook.readthedocs.io/en/latest/migrate_to_notebook7.html
+
+Please note that updating to Notebook 7 might break some of your extensions.
+
+[I 15:13:55.988 NotebookApp] Loading IPython parallel extension
+[W 15:13:56.954 NotebookApp] Loading JupyterLab as a classic notebook (v6) extension.
+[W 2024-05-04 15:13:56.959 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2024-05-04 15:13:56.959 LabApp] 'token' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2024-05-04 15:13:56.959 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2024-05-04 15:13:56.959 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2024-05-04 15:13:56.968 LabApp] JupyterLab extension loaded from /srv/conda/envs/notebook/lib/python3.10/site-packages/jupyterlab
+[I 2024-05-04 15:13:56.968 LabApp] JupyterLab application directory is /srv/conda/envs/notebook/share/jupyter/lab
+[I 15:13:56.974 NotebookApp] Serving notebooks from local directory: /home/jovyan
+[I 15:13:56.974 NotebookApp] Jupyter Notebook 6.5.6 is running at:
+[I 15:13:56.974 NotebookApp] http://d7fe81bfb56f:8888/
+[I 15:13:56.974 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 15:13:56.979 NotebookApp] No web browser found: could not locate runnable browser.
+[W 15:14:17.015 NotebookApp] 404 GET /api/me?1714835656856 (172.31.0.1) 155.430000ms referer=https://jupyter9.clearnasdss.synology.me/lab
+[I 2024-05-04 15:14:20.176 LabApp] Build is up to date
+[I 15:14:20.556 NotebookApp] New terminal with automatic name: 1
+[I 15:14:21.000 NotebookApp] Kernel started: bc1a22f4-a8d5-4b55-9e2e-ef29a5aa5938, name: octave
+[W 15:14:22.130 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7f118f9776a0>
+[W 15:14:22.836 NotebookApp] Got events for closed stream <zmq.eventloop.zmqstream.ZMQStream object at 0x7f118f8fd9f0>
+[W 15:14:38.110 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7f118fa7b610>
+[I 15:16:08.734 NotebookApp] Uploading file to /runPHREEQC/phreeqc
+[I 15:16:11.266 NotebookApp] Saving file at /runPHREEQC/phreeqc
+[I 15:16:38.004 NotebookApp] Saving file at /USERS/Scott/Silver/AgCltest.ipynb
+[I 15:18:38.040 NotebookApp] Saving file at /USERS/Scott/Silver/AgCltest.ipynb
