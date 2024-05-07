@@ -1,3 +1,279 @@
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-19);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpdfuw86hm", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=2; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-5; ClT=1e-5; pH=7; 
+inorganicTOTALS=[AgT ClT];
+inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmp13t8c04f", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=1; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmplhnljiy5", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmpl7g0vkik", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmp8oz_ivk4", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-19);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmp5gor85ev", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=2; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-5; ClT=1e-5; pH=7; 
+inorganicTOTALS=[AgT ClT];
+inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpfue43zdb", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=1; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmpnvd4xy1w", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmphyltu0cn", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmp3ul_93o9", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-19);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpdir2dmea", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=2; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+inorganicTOTALS=[AgT ClT];
+inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpqa6as1ou", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=1; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmpz60gocpg", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmp86bac0o1", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmpgw65vjqj", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-19);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmptcuqctja", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=2; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+inorganicTOTALS=[AgT ClT];
+inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmp5qrp3bd_", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=0; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmpao17swkx", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmpc609tjbj", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmp12f6o1if", "png", "Figure", -1, -1, 0, 0)
+# Octave 6.4.0, Sat May 04 15:51:19 2024 UTC <jovyan@d7fe81bfb56f>
 PS1('PEXPECT_PROMPT>'); PS2('PEXPECT_PROMPT_')
 version
 graphics_toolkit
@@ -20,8 +296,8 @@ clear; format short e
 warning off
 %graphics_toolkit ("notebook"); 
 %graphics_toolkit ("plotly"); 
-graphics_toolkit("gnuplot")
-_make_figures("/tmp/tmp_yc6_ymf", "png", "Figure", -1, -1, 0, 0)
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpvl5jaoaq", "png", "Figure", -1, -1, 0, 0)
 % MODEL USING TABLEAU (different gradients or log versus linear variables)
 %graphics_toolkit("notebook")
 %model with just inorganic speciation
@@ -33,7 +309,7 @@ database=[];
 flag3=0; % flag3 1 for show warnings. 0 no warnings
 flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
 flag5=0; %if=1 use stored initial guess for including solids
-AgT=1e-5; ClT=1e-5; pH=7; 
+AgT=1e-4; ClT=1e-4; pH=7; 
 inorganicTOTALS=[AgT ClT];
 inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
 TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
@@ -42,11 +318,11 @@ tic;
 [Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
 tableautime=toc;
 Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
-_make_figures("/tmp/tmpcp8cbx0h", "png", "Figure", -1, -1, 0, 0)
+_make_figures("/tmp/tmpdtd4wtep", "png", "Figure", -1, -1, 0, 0)
 % MODEL USING PHREEQC
 minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
 %database=['llnl_nosolubleAgCl.dat']; 
-acid=['NaOH']; show=1; T=25;
+acid=['NaOH']; show=0; T=25;
 %database=['AgCl.dat']; 
 database=['simplestAgCl.dat']; 
 tic
@@ -54,18 +330,18 @@ tic
 PHREEQCtime=toc;
 AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
 AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
-_make_figures("/tmp/tmp88hri3xm", "png", "Figure", -1, -1, 0, 0)
+_make_figures("/tmp/tmpe8dbqrd6", "png", "Figure", -1, -1, 0, 0)
 % exact model
 Ksp=10^-9.7453;
 % check SI
-IAP=AgT*ClT
+IAP=AgT*ClT;
 Agexact=AgT; Clexact=ClT; AgClsexact=0;
 if IAP>=Ksp
 a=1; b=ClT-AgT; c=-Ksp;
 t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
 Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
 end
-_make_figures("/tmp/tmp3bncxcr4", "png", "Figure", -1, -1, 0, 0)
+_make_figures("/tmp/tmppnwi4ikc", "png", "Figure", -1, -1, 0, 0)
 % compare models
 Agcompare=[Ag AgPHREEQC Agexact]
 Clcompare=[Cl ClPHREEQC Clexact]
@@ -73,224 +349,12 @@ AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
 Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
 Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
 timecompare=[tableautime PHREEQCtime]
-_make_figures("/tmp/tmp07ic2k68", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC'];
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-_make_figures("/tmp/tmp_jhf8x7_", "png", "Figure", -1, -1, 0, 0)
-% MODEL USING TABLEAU (different gradients or log versus linear variables)
-%graphics_toolkit("notebook")
-%model with just inorganic speciation
-%geochemical model
-% input the constants and solution chemistry
-flag1=2; %flag1 for concentration based search vector (1) or for log based search vector (2).
-flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
-database=[]; 
-flag3=0; % flag3 1 for show warnings. 0 no warnings
-flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
-flag5=0; %if=1 use stored initial guess for including solids
-AgT=1e-5; ClT=1e-5; pH=7; 
-inorganicTOTALS=[AgT ClT];
-inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
-TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
-pH=pH; pe=20.75-pH; 
-tic;
-[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
-tableautime=toc;
-Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
-_make_figures("/tmp/tmp570ifks6", "png", "Figure", -1, -1, 0, 0)
-% MODEL USING PHREEQC
-minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
-%database=['llnl_nosolubleAgCl.dat']; 
-acid=['NaOH']; show=1; T=25;
-%database=['AgCl.dat']; 
-database=['simplestAgCl.dat']; 
-tic
-[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
-PHREEQCtime=toc;
-AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
-AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
-_make_figures("/tmp/tmpyzrxdhwq", "png", "Figure", -1, -1, 0, 0)
-% exact model
-Ksp=10^-9.7453;
-% check SI
-IAP=AgT*ClT
-Agexact=AgT; Clexact=ClT; AgClsexact=0;
-if IAP>=Ksp
-a=1; b=ClT-AgT; c=-Ksp;
-t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
-Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
-end
-_make_figures("/tmp/tmpmyeeiekh", "png", "Figure", -1, -1, 0, 0)
-% compare models
-Agcompare=[Ag AgPHREEQC Agexact]
-Clcompare=[Cl ClPHREEQC Clexact]
-AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
-Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
-Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
-timecompare=[tableautime PHREEQCtime]
-_make_figures("/tmp/tmp1m3gmw2k", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-_make_figures("/tmp/tmpg_0andmj", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-runphreeqc
-_make_figures("/tmp/tmpej0hl707", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-! runphreeqc
-_make_figures("/tmp/tmpvnkr057v", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-!phreeqc
-_make_figures("/tmp/tmpsyfouqak", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-!/home/jovyan/phreeqc
-_make_figures("/tmp/tmpjdya2gnf", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-! sh '/home/jovyan/phreeqc'
-_make_figures("/tmp/tmpcqf7ua7k", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-! /home/jovyan/phreeqc
-_make_figures("/tmp/tmpyvdhubo9", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-path
-_make_figures("/tmp/tmpqoea6bon", "png", "Figure", -1, -1, 0, 0)
-# Octave 6.4.0, Fri May 03 21:05:26 2024 UTC <jovyan@8cbb9b44b63c>
+_make_figures("/tmp/tmpuqzm64v8", "png", "Figure", -1, -1, 0, 0)
+# Octave 6.4.0, Mon May 06 13:46:00 2024 UTC <jovyan@d7fe81bfb56f>
 PS1('PEXPECT_PROMPT>'); PS2('PEXPECT_PROMPT_')
 version
 graphics_toolkit
-more off; source ~/.octaverc; cd("/home/jovyan/USERS/Scott/Silver");PS1('PEXPECT_PROMPT>'); PS2('PEXPECT_PROMPT_')
+more off; source ~/.octaverc; cd("/home/jovyan/USERS/Ayat");PS1('PEXPECT_PROMPT>'); PS2('PEXPECT_PROMPT_')
 addpath("/srv/conda/envs/notebook/lib/python3.10/site-packages/octave_kernel")
 graphics_toolkit('gnuplot')
 set(0, 'defaultfigurevisible', 'off');
@@ -299,93 +363,6 @@ set(0, 'defaultfigurevisible', 'off');
 txt=pwd;
 n=length(txt);
 rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-path
-_make_figures("/tmp/tmpmrjl7b9r", "png", "Figure", -1, -1, 0, 0)
-% MODEL USING TABLEAU (different gradients or log versus linear variables)
-%graphics_toolkit("notebook")
-%model with just inorganic speciation
-%geochemical model
-% input the constants and solution chemistry
-flag1=2; %flag1 for concentration based search vector (1) or for log based search vector (2).
-flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
-database=[]; 
-flag3=0; % flag3 1 for show warnings. 0 no warnings
-flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
-flag5=0; %if=1 use stored initial guess for including solids
-AgT=1e-5; ClT=1e-5; pH=7; 
-inorganicTOTALS=[AgT ClT];
-inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
-TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
-pH=pH; pe=20.75-pH; 
-tic;
-[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
-tableautime=toc;
-Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
-_make_figures("/tmp/tmpialq8lkw", "png", "Figure", -1, -1, 0, 0)
-% MODEL USING PHREEQC
-minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
-%database=['llnl_nosolubleAgCl.dat']; 
-acid=['NaOH']; show=1; T=25;
-%database=['AgCl.dat']; 
-database=['simplestAgCl.dat']; 
-tic
-[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
-PHREEQCtime=toc;
-AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
-AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
-_make_figures("/tmp/tmp50obvfuo", "png", "Figure", -1, -1, 0, 0)
-% exact model
-Ksp=10^-9.7453;
-% check SI
-IAP=AgT*ClT
-Agexact=AgT; Clexact=ClT; AgClsexact=0;
-if IAP>=Ksp
-a=1; b=ClT-AgT; c=-Ksp;
-t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
-Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
-end
-_make_figures("/tmp/tmpnp91cahr", "png", "Figure", -1, -1, 0, 0)
-% compare models
-Agcompare=[Ag AgPHREEQC Agexact]
-Clcompare=[Cl ClPHREEQC Clexact]
-AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
-Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
-Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
-timecompare=[tableautime PHREEQCtime]
-_make_figures("/tmp/tmpm9prl230", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
-PHREEQCpath=[rootpath,'/runPHREEQC']
-addpath(PHREEQCpath);
-JEQUILIBpath=[rootpath,'/JEQUILIB'];
-addpath(JEQUILIBpath);
-% clear data and number format
-clear; format short e
-% turn off warnings
-warning off
-%graphics_toolkit ("notebook"); 
-%graphics_toolkit ("plotly"); 
-%graphics_toolkit("gnuplot")
-_make_figures("/tmp/tmpzc_igtsk", "png", "Figure", -1, -1, 0, 0)
-% setup environment
-% set path to equilibrium solver
-txt=pwd;
-n=length(txt);
-rootpath=txt; rootpath=txt(1:n-19);
 PHREEQCpath=[rootpath,'/runPHREEQC'];
 addpath(PHREEQCpath);
 JEQUILIBpath=[rootpath,'/JEQUILIB'];
@@ -397,32 +374,49 @@ warning off
 %graphics_toolkit ("notebook"); 
 %graphics_toolkit ("plotly"); 
 %graphics_toolkit("gnuplot")
-_make_figures("/tmp/tmpylzxbiub", "png", "Figure", -1, -1, 0, 0)
+_make_figures("/tmp/tmp3mn5who0", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-18);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpmbqeh3m1", "png", "Figure", -1, -1, 0, 0)
 % MODEL USING TABLEAU (different gradients or log versus linear variables)
 %graphics_toolkit("notebook")
 %model with just inorganic speciation
 %geochemical model
 % input the constants and solution chemistry
-flag1=2; %flag1 for concentration based search vector (1) or for log based search vector (2).
-flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
-database=[]; 
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
 flag3=0; % flag3 1 for show warnings. 0 no warnings
 flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
 flag5=0; %if=1 use stored initial guess for including solids
-AgT=1e-5; ClT=1e-5; pH=7; 
-inorganicTOTALS=[AgT ClT];
-inorganicTOTALS(inorganicTOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
-TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
 pH=pH; pe=20.75-pH; 
 tic;
 [Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
 tableautime=toc;
 Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
-_make_figures("/tmp/tmpmh9t6_1u", "png", "Figure", -1, -1, 0, 0)
+_make_figures("/tmp/tmp0vvbu1qm", "png", "Figure", -1, -1, 0, 0)
 % MODEL USING PHREEQC
 minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
 %database=['llnl_nosolubleAgCl.dat']; 
-acid=['NaOH']; show=1; T=25;
+acid=['NaOH']; show=0; T=25;
 %database=['AgCl.dat']; 
 database=['simplestAgCl.dat']; 
 tic
@@ -430,18 +424,117 @@ tic
 PHREEQCtime=toc;
 AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
 AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
-_make_figures("/tmp/tmp71mnnlcx", "png", "Figure", -1, -1, 0, 0)
+_make_figures("/tmp/tmp70l3ozy3", "png", "Figure", -1, -1, 0, 0)
 % exact model
 Ksp=10^-9.7453;
 % check SI
-IAP=AgT*ClT
+IAP=AgT*ClT;
 Agexact=AgT; Clexact=ClT; AgClsexact=0;
 if IAP>=Ksp
 a=1; b=ClT-AgT; c=-Ksp;
 t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
 Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
 end
-_make_figures("/tmp/tmpi2zt3s6d", "png", "Figure", -1, -1, 0, 0)
+_make_figures("/tmp/tmpqk8y0ith", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-18);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpkrblr5or", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmp4_9iptnp", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-18);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmp4a226dna", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmp4ti1spzq", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=0; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmpefvru8zw", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT;
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmpragbvdx7", "png", "Figure", -1, -1, 0, 0)
 % compare models
 Agcompare=[Ag AgPHREEQC Agexact]
 Clcompare=[Cl ClPHREEQC Clexact]
@@ -449,5 +542,459 @@ AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
 Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
 Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
 timecompare=[tableautime PHREEQCtime]
-_make_figures("/tmp/tmpngjypvdy", "png", "Figure", -1, -1, 0, 0)
-# Octave 6.4.0, Fri May 03 21:14:06 2024 UTC <jovyan@8cbb9b44b63c>
+_make_figures("/tmp/tmpzz6afsju", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-18);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpt_fs9l1b", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=1; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpa_h7t713", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=0; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmpmbnn2zgx", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT;
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmpw2lp15ml", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmpped_ior2", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-18);
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpiae0pgee", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmp2as6sh_t", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=0; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmp3cfucklh", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT;
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmpk5s5cm67", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmphbba_hid", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd;
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-18)
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpurz4lm8w", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-18)
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpzrtsr43e", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-4)
+PHREEQCpath=[rootpath,'/runPHREEQC'];
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB'];
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpf86_xr1b", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpeopkwcwf", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=0; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmppyugcz58", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT;
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmp_u_c5oie", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmpzqn5qtvl", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-4)
+PHREEQCpath=[rootpath,'/runPHREEQC']
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB']
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmptbcxul6v", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpyjit5qbr", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpdnlmn433", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-5)
+PHREEQCpath=[rootpath,'/runPHREEQC']
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB']
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmpymlyrxx2", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpfi8goeui", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=0; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+PHREEQCtime=toc;
+AgPHREEQC=solutionspeciesconcs(1); ClPHREEQC=solutionspeciesconcs(2); AgClsPHREEQC=solidconcs(1);
+AgmasserrorPHREEQC=AgT-AgPHREEQC-AgClsPHREEQC; ClmasserrorPHREEQC=ClT-ClPHREEQC-AgClsPHREEQC;
+_make_figures("/tmp/tmpbdywl64l", "png", "Figure", -1, -1, 0, 0)
+% exact model
+Ksp=10^-9.7453;
+% check SI
+IAP=AgT*ClT;
+Agexact=AgT; Clexact=ClT; AgClsexact=0;
+if IAP>=Ksp
+a=1; b=ClT-AgT; c=-Ksp;
+t=roots([a b c]); t=t(t>0); t=real(t(imag(t)==0));
+Agexact=t; AgClsexact=AgT-Ag; Clexact=ClT-AgClsexact;
+end
+_make_figures("/tmp/tmpp0xupsqm", "png", "Figure", -1, -1, 0, 0)
+% compare models
+Agcompare=[Ag AgPHREEQC Agexact]
+Clcompare=[Cl ClPHREEQC Clexact]
+AgClcompare=[AgCls AgClsPHREEQC AgClsexact]
+Agmasserrorcompare=[Agmasserror AgmasserrorPHREEQC]
+Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
+timecompare=[tableautime PHREEQCtime]
+_make_figures("/tmp/tmpdv1pvnta", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-5)
+PHREEQCpath=[rootpath,'/runPHREEQC']
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB']
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmps_s56hcr", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmp0gkg2xrk", "png", "Figure", -1, -1, 0, 0)
+% setup environment
+% set path to equilibrium solver
+txt=pwd
+n=length(txt);
+rootpath=txt; rootpath=txt(1:n-11)
+PHREEQCpath=[rootpath,'/runPHREEQC']
+addpath(PHREEQCpath);
+JEQUILIBpath=[rootpath,'/JEQUILIB']
+addpath(JEQUILIBpath);
+% clear data and number format
+clear; format short e
+% turn off warnings
+warning off
+%graphics_toolkit ("notebook"); 
+%graphics_toolkit ("plotly"); 
+%graphics_toolkit("gnuplot")
+_make_figures("/tmp/tmph0x01i0y", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING TABLEAU (different gradients or log versus linear variables)
+%graphics_toolkit("notebook")
+%model with just inorganic speciation
+%geochemical model
+% input the constants and solution chemistry
+flag1=1; %flag1 for concentration based search vector (1) or for log based search vector (2).
+flag2=2; %flag2 for numerical derivatives (2) or analtyical derivatives (1)
+%database=[]; 
+flag3=0; % flag3 1 for show warnings. 0 no warnings
+flag4=0; %if=1 solve tableau one line at a time to get a good initial guess (no solids). really challenging probs only
+flag5=0; %if=1 use stored initial guess for including solids
+AgT=1e-4; ClT=1e-4; pH=7; 
+TOTALS=[AgT ClT];
+TOTALS(TOTALS==0)=1e-16; % get rid of zero values, b/c div by zero error
+%TOTALS=[inorganicTOTALS]; %TOTALS=inorganicTOTALS;
+pH=pH; pe=20.75-pH; 
+tic;
+[Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5);
+tableautime=toc;
+Agmasserror=MASSERR(1); Clmasserror=MASSERR(2);
+_make_figures("/tmp/tmpsiq6z80k", "png", "Figure", -1, -1, 0, 0)
+% MODEL USING PHREEQC
+minerals=[{'AgCls'}]; totalvector=[AgT; ClT; ClT]; totalnames=[{'Ag'}; {'Cl'}; {'Na'}]; speciesexport=[{'Ag+'}; {'Cl-'}];
+%database=['llnl_nosolubleAgCl.dat']; 
+acid=['NaOH']; show=0; T=25;
+%database=['AgCl.dat']; 
+database=['simplestAgCl.dat']; 
+tic
+[solutionspeciesconcs, speciesnames, solidconcs, solidnames]=runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
+_make_figures("/tmp/tmpv_1tlkc9", "png", "Figure", -1, -1, 0, 0)
+# Octave 6.4.0, Mon May 06 16:45:40 2024 UTC <jovyan@d7fe81bfb56f>

@@ -28,3 +28,44 @@ cp gitconfig.txt /home/jovyan/.git/config
 cat config
 PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
 export TERM=dumb PAGER=cat
+cd .jupyter
+cat jupyter_notebook_config.py
+cd ..
+jupyter notebook password
+exit
+cd .ssh
+mv /home/jovyan/runPHREEQC/phreeqc /srv/conda/bin/phreeqc
+chmod +x /srv/conda/bin/phreeqc
+nano .gitignore
+ls
+cat .gitignore
+ssh-keygen -t ed25519 -C ssmith@wlu.caa
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+git add .
+git commit -m "first from new"
+git config --global user.email "ssmith@wlu.ca"
+git config --global user.name "Scott Smith"
+git commit -m "first from new"
+git push origin main
+cd .config
+ls
+cd .git
+ls
+cat config
+cd ..
+ls
+pwd
+cp gitconfig.txt /home/jovyan/.git/config
+git push origin main
+cp gitconfig.txt /home/jovyan/.git/config
+git push origin main
+PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
+export TERM=dumb PAGER=cat
+PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
+export TERM=dumb PAGER=cat
+PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
+export TERM=dumb PAGER=cat
+PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
+export TERM=dumb PAGER=cat
