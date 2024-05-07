@@ -1,13 +1,17 @@
-# Created by Octave 6.4.0, Tue May 07 15:20:00 2024 UTC <jovyan@d7fe81bfb56f>
+# Created by Octave 7.3.0, Tue May 07 11:38:56 2024 EDT <ssmith@DSS-Arco-Desktop>
 # name: oKSOLUTION
 # type: matrix
-# rows: 5
+# rows: 9
 # columns: 1
  0
  0
  0
  0
  -14
+ 3.2970999999999999
+ 5.2988999999999997
+ 5.1310000000000002
+ 3.8050000000000002
 
 
 # name: oKSOLID
@@ -17,13 +21,17 @@
 
 # name: oASOLUTION
 # type: matrix
-# rows: 5
+# rows: 9
 # columns: 4
  1 0 0 0
  0 1 0 0
  0 0 1 0
  0 0 0 1
  -1 0 0 0
+ 0 0 1 1
+ 0 0 1 2
+ 0 0 1 3
+ 0 0 1 4
 
 
 # name: oASOLID
