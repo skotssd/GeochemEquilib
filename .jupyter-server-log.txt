@@ -575,3 +575,47 @@ Please note that updating to Notebook 7 might break some of your extensions.
 [I 2024-05-07 13:44:18.720 LabApp] Build is up to date
 [W 13:44:19.268 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7f3fd9d4f970>
 [I 13:44:41.095 NotebookApp] New terminal with automatic name: 2
+[W 13:45:11.887 NotebookApp] 404 GET /api/me?1715089511868 (172.31.0.1) 4.460000ms referer=https://jupyter9.clearnasdss.synology.me/lab
+[W 13:45:12.736 NotebookApp] 404 GET /api/me?1715089512718 (172.31.0.1) 4.650000ms referer=https://jupyter9.clearnasdss.synology.me/lab/workspaces/auto-4?reset
+[I 2024-05-07 13:45:14.778 LabApp] Build is up to date
+[W 13:45:37.299 NotebookApp] 404 GET /api/me?1715089537282 (172.31.0.1) 2.770000ms referer=https://jupyter9.clearnasdss.synology.me/lab
+[W 13:45:38.098 NotebookApp] 404 GET /api/me?1715089538079 (172.31.0.1) 3.990000ms referer=https://jupyter9.clearnasdss.synology.me/lab/workspaces/auto-X?reset
+[I 2024-05-07 13:45:40.777 LabApp] Build is up to date
+[I 14:00:33.180 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:02:33.266 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:04:33.476 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:08:33.600 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:10:33.681 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:12:33.757 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:14:33.848 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:16:33.938 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:18:34.031 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:20:34.263 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[W 14:25:02.867 NotebookApp] WebSocket ping timeout after 119969 ms.
+[W 14:25:02.928 NotebookApp] WebSocket ping timeout after 119979 ms.
+[I 14:25:07.870 NotebookApp] Starting buffering for e68d848b-ee6e-440d-ab29-2ff21608b076:0732707f-9d5c-4f55-b227-14eebdddc655
+[I 14:25:07.931 NotebookApp] Starting buffering for 3b97e88f-497d-42bb-977c-362b3c80ed26:f26046eb-6ed5-4392-9df7-5d2d7cbdbf78
+[I 14:39:29.025 NotebookApp] Restoring connection for e68d848b-ee6e-440d-ab29-2ff21608b076:0732707f-9d5c-4f55-b227-14eebdddc655
+[I 14:41:21.903 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:43:21.999 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:45:22.080 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:49:22.191 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[I 14:51:22.278 NotebookApp] Saving file at /USERS/Ayat/SilverChlorideexample.ipynb
+[W 15:02:29.027 NotebookApp] WebSocket ping timeout after 119979 ms.
+[I 15:02:34.028 NotebookApp] Starting buffering for e68d848b-ee6e-440d-ab29-2ff21608b076:0732707f-9d5c-4f55-b227-14eebdddc655
+[W 15:16:03.897 NotebookApp] 404 GET /api/me?1715094963872 (172.31.0.1) 3.580000ms referer=https://jupyter9.clearnasdss.synology.me/lab
+[I 2024-05-07 15:16:06.564 LabApp] Build is up to date
+[W 15:16:07.066 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7f3fd9fd4e80>
+[I 15:16:07.075 NotebookApp] Discarding 2 buffered messages for e68d848b-ee6e-440d-ab29-2ff21608b076:0732707f-9d5c-4f55-b227-14eebdddc655
+[I 15:16:13.320 NotebookApp] New terminal with automatic name: 3
+[W 15:16:29.269 NotebookApp] Notebook USERS/Scott/Silver/AgCl_solublespecies.ipynb is not trusted
+[I 15:16:33.521 NotebookApp] Kernel started: 9e11d1b8-17af-4214-9d85-02b941c877c3, name: octave
+[W 15:16:34.568 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7f3fd9e5fbe0>
+[W 15:16:35.440 NotebookApp] Got events for closed stream <zmq.eventloop.zmqstream.ZMQStream object at 0x7f3fd8465780>
+[I 15:18:29.364 NotebookApp] Saving file at /USERS/Scott/Silver/AgCl_solublespecies.ipynb
+[I 15:18:53.002 NotebookApp] Copying USERS/Scott/Silver/llnl_nosolubleAgCl.dat to /USERS/Ayat
+[I 15:20:29.394 NotebookApp] Saving file at /USERS/Scott/Silver/AgCl_solublespecies.ipynb
+[W 15:20:31.374 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7f3fd9e5c9d0>
+[I 15:20:40.104 NotebookApp] Starting buffering for e68d848b-ee6e-440d-ab29-2ff21608b076:8a124a05-91f5-4af7-bf21-d629d87ffdaf
+[I 15:20:41.720 NotebookApp] Starting buffering for 3b97e88f-497d-42bb-977c-362b3c80ed26:8ab43343-fa94-4c8a-b25f-21c59cc523bb
+[I 15:20:54.401 NotebookApp] New terminal with automatic name: 4
