@@ -7,9 +7,9 @@ SOLUTION 1
        pH      7
        temp      25
 -units mol/kgw
-Ag 0.0001 
-Cl 1e-05 
-Na 1e-05 
+Ag 1e-06 
+Cl 0.1 
+Na 0.1 
 
 KNOBS
 -iterations 200
