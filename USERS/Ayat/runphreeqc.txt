@@ -8,8 +8,8 @@ SOLUTION 1
        temp      25
 -units mol/kgw
 Ag 0.0001 
-Cl 10 
-Na 10 
+Cl 0.001 
+Na 0.001 
 
 KNOBS
 -iterations 200

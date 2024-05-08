@@ -1,9 +1,9 @@
-# Created by Octave 6.4.0, Tue May 07 14:50:23 2024 UTC <jovyan@d7fe81bfb56f>
+# Created by Octave 6.4.0, Wed May 08 04:10:14 2024 UTC <jovyan@d7fe81bfb56f>
 # name: Xguess
 # type: matrix
 # rows: 2
 # columns: 1
- 0.0001
- 10
+ 9.9999999999999995e-07
+ 0.001
 
 
