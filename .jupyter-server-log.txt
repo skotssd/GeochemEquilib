@@ -619,3 +619,46 @@ Please note that updating to Notebook 7 might break some of your extensions.
 [I 15:20:40.104 NotebookApp] Starting buffering for e68d848b-ee6e-440d-ab29-2ff21608b076:8a124a05-91f5-4af7-bf21-d629d87ffdaf
 [I 15:20:41.720 NotebookApp] Starting buffering for 3b97e88f-497d-42bb-977c-362b3c80ed26:8ab43343-fa94-4c8a-b25f-21c59cc523bb
 [I 15:20:54.401 NotebookApp] New terminal with automatic name: 4
+[W 23:53:52.804 NotebookApp] Collisions detected in /home/jovyan/.jupyter/jupyter_notebook_config.py and /home/jovyan/.jupyter/jupyter_notebook_config.json config files. /home/jovyan/.jupyter/jupyter_notebook_config.json has higher priority: {
+      "NotebookApp": {
+        "password": "'' ignored, using 'argon2:$argon2id$v=19$m=10240,t=10,p=8$8j6IC4DwUPWRPzsTS+v0DQ$w7EMh6aOAzy3M/SLszQ36+EYR8lW+YfCqWZTo/FwWeM'"
+      }
+    }
+
+  _   _          _      _
+ | | | |_ __  __| |__ _| |_ ___
+ | |_| | '_ \/ _` / _` |  _/ -_)
+  \___/| .__/\__,_\__,_|\__\___|
+       |_|
+                       
+Read the migration plan to Notebook 7 to learn about the new features and the actions to take if you are using extensions.
+
+https://jupyter-notebook.readthedocs.io/en/latest/migrate_to_notebook7.html
+
+Please note that updating to Notebook 7 might break some of your extensions.
+
+[I 23:53:53.413 NotebookApp] Loading IPython parallel extension
+[W 23:53:54.254 NotebookApp] Loading JupyterLab as a classic notebook (v6) extension.
+[W 2024-05-07 23:53:54.257 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2024-05-07 23:53:54.258 LabApp] 'token' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2024-05-07 23:53:54.258 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2024-05-07 23:53:54.258 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2024-05-07 23:53:54.266 LabApp] JupyterLab extension loaded from /srv/conda/envs/notebook/lib/python3.10/site-packages/jupyterlab
+[I 2024-05-07 23:53:54.266 LabApp] JupyterLab application directory is /srv/conda/envs/notebook/share/jupyter/lab
+[I 23:53:54.271 NotebookApp] Serving notebooks from local directory: /home/jovyan
+[I 23:53:54.272 NotebookApp] Jupyter Notebook 6.5.6 is running at:
+[I 23:53:54.272 NotebookApp] http://d7fe81bfb56f:8888/
+[I 23:53:54.272 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 23:53:54.276 NotebookApp] No web browser found: could not locate runnable browser.
+[W 23:53:56.747 NotebookApp] 404 GET /api/me?1715126036603 (172.31.0.1) 143.560000ms referer=https://jupyter9.clearnasdss.synology.me/lab
+[I 2024-05-07 23:53:58.760 LabApp] Build is up to date
+[W 23:54:01.300 NotebookApp] Notebook USERS/Scott/Silver/AgCl_solublespecies.ipynb is not trusted
+[I 23:54:01.495 NotebookApp] Kernel started: 35a6c550-9ecb-404e-9a69-88244b4b8fd1, name: octave
+[W 23:54:02.558 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f6ada80>
+[I 23:54:35.638 NotebookApp] Saving file at /USERS/Scott/Silver/AgCl_solublespecies.ipynb
+[I 23:54:37.618 NotebookApp] Starting buffering for 35a6c550-9ecb-404e-9a69-88244b4b8fd1:1de9e46c-870a-4d52-a30b-2ddaae60a2ef
+[W 01:22:42.542 NotebookApp] 404 GET /api/me?1715131362537 (172.31.0.1) 4.420000ms referer=https://jupyter9.clearnasdss.synology.me/lab
+[I 2024-05-08 01:22:45.224 LabApp] Build is up to date
+[W 01:22:45.741 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f3b9db0>
+[I 01:22:45.748 NotebookApp] Discarding 2 buffered messages for 35a6c550-9ecb-404e-9a69-88244b4b8fd1:1de9e46c-870a-4d52-a30b-2ddaae60a2ef
+[I 01:23:05.223 NotebookApp] New terminal with automatic name: 1

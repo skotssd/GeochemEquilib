@@ -69,3 +69,54 @@ PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
 export TERM=dumb PAGER=cat
 PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
 export TERM=dumb PAGER=cat
+PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
+export TERM=dumb PAGER=cat
+PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
+export TERM=dumb PAGER=cat
+PS1='PEXPE\[\]CT_PROMPT>' PS2='PEXPE\[\]CT_PROMPT_' PROMPT_COMMAND=''
+export TERM=dumb PAGER=cat
+git add .
+git commit -m "first set of Ayat changes"
+git push origin main
+git pull
+git add .
+git commit -m "add"
+git push origin main
+git pull
+git status
+nano .gitignore
+cat .gitignore
+echo "Xsolidsguess.mat" >> .gitingore
+cat .gitignore
+echo "Xsolidsguess.mat" >> .gitignore
+cat .gitignore
+rm .gitingore
+echo "Xsolutionguess.mat" >> .gitignore
+echo "originaltableau.mat" >> .gitignore
+echo "out.txt" >> .gitignore
+echo "runphreeqc.txt" >> .gitignore
+echo "selected.out" >> .gitignore
+echo ".ipynb_checkpoints" >> .gitignore
+echo "Xsolidsguess" >> .gitignore
+echo "*-checkpoint.ipynb" >> .gitignore
+git status
+echo ".jupyter-server-log.txt" >> .gitignore
+echo ".jupyter/lab/workspaces/" >> .gitignore
+echo ".local" >> .gitignore
+git status
+git push
+git pull
+git stash
+git pull
+git status
+pwd
+cd USERS
+cd SCott
+cd Scott
+cd Silver
+cat .gitignore
+cd ..
+pwd
+git pull
+git pull
+cat .gitignore
