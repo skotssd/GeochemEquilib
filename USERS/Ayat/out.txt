@@ -1,6 +1,6 @@
    Input file: runphreeqc.txt
   Output file: out.txt
-Database file: simplestAgCl.dat
+Database file: complexAgCl.dat
 
 ------------------
 Reading data base.
@@ -24,7 +24,7 @@ Reading input data for simulation 1.
 	       pH      7
 	       temp      25
 	units mol/kgw
-	Ag 0.0001 
+	Ag 1e-06 
 	Cl 0.001 
 	Na 0.001 
 	KNOBS
@@ -55,7 +55,7 @@ Reading input data for simulation 1.
 	water false
 	charge_balance false
 	percent_error false
-	molalities Ag+ Cl-  
+	molalities Ag+ Cl- AgCl AgCl2- AgCl3-2 AgCl4-3  
 	equilibrium_phases AgCls  
 -------------------------------------------
 Beginning of initial solution calculations.
@@ -67,7 +67,7 @@ Initial solution 1.
 
 	Elements           Molality       Moles
 
-	Ag                1.000e-04   1.000e-04
+	Ag                1.000e-06   1.000e-06
 	Cl                1.000e-03   1.000e-03
 	Na                1.000e-03   1.000e-03
 
@@ -76,14 +76,14 @@ Initial solution 1.
                                        pH  =   7.000    
                                        pe  =  13.750    
                         Activity of water  =   1.000
-                 Ionic strength (mol/kgw)  =   1.050e-03
+                 Ionic strength (mol/kgw)  =   9.999e-04
                        Mass of water (kg)  =   1.000e+00
-                 Total alkalinity (eq/kg)  =  -1.037e-07
+                 Total alkalinity (eq/kg)  =  -1.036e-07
                     Total carbon (mol/kg)  =   0.000e+00
                        Total CO2 (mol/kg)  =   0.000e+00
                          Temperature (°C)  =  25.00
-                  Electrical balance (eq)  =   1.001e-04
- Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   4.77
+                  Electrical balance (eq)  =   1.104e-06
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.06
                                Iterations  =   3
                                   Total H  = 1.110507e+02
                                   Total O  = 5.552735e+01
@@ -93,17 +93,25 @@ Initial solution 1.
                                                Log       Log       Log    mole V
    Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
 
-   H+              1.037e-07   1.000e-07    -6.984    -7.000    -0.016      0.00
+   H+              1.036e-07   1.000e-07    -6.985    -7.000    -0.015      0.00
    H2O-0.01        7.286e-10   7.286e-10    -9.138    -9.138    -0.000     (0)  
    H2O             5.553e+01   9.999e-01     1.744    -0.000     0.000     18.07
-Ag(1)         1.000e-04
-   Ag+             1.000e-04   9.642e-05    -4.000    -4.016    -0.016     (0)  
+Ag(1)         1.000e-06
+   AgCl            6.087e-07   6.089e-07    -6.216    -6.215     0.000     (0)  
+   Ag+             3.301e-07   3.186e-07    -6.481    -6.497    -0.015     (0)  
+   AgCl2-          6.109e-08   5.896e-08    -7.214    -7.229    -0.015     (0)  
+   AgCl3-2         4.454e-11   3.862e-11   -10.351   -10.413    -0.062     (0)  
+   AgCl4-3         2.423e-15   1.758e-15   -14.616   -14.755    -0.139     (0)  
 Cl(-1)        1.000e-03
-   Cl-             1.000e-03   9.642e-04    -3.000    -3.016    -0.016     (0)  
+   Cl-             9.993e-04   9.643e-04    -3.000    -3.016    -0.015     (0)  
+   AgCl            6.087e-07   6.089e-07    -6.216    -6.215     0.000     (0)  
+   AgCl2-          6.109e-08   5.896e-08    -7.214    -7.229    -0.015     (0)  
+   AgCl3-2         4.454e-11   3.862e-11   -10.351   -10.413    -0.062     (0)  
+   AgCl4-3         2.423e-15   1.758e-15   -14.616   -14.755    -0.139     (0)  
 H(0)          0.000e+00
    H2              0.000e+00   0.000e+00   -44.609   -44.609     0.000     (0)  
 Na            1.000e-03
-   Na+             1.000e-03   9.642e-04    -3.000    -3.016    -0.016     (0)  
+   Na+             1.000e-03   9.650e-04    -3.000    -3.015    -0.015     (0)  
 O(0)          2.022e-03
    O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
 
@@ -111,7 +119,7 @@ O(0)          2.022e-03
 
   Phase               SI** log IAP   log K(298 K,   1 atm)
 
-  AgCls             2.71     -7.03   -9.75  AgCl
+  AgCls             0.23     -9.51   -9.75  AgCl
   Fix_H+           -7.00     -7.00    0.00  H+
   Fix_pe          -13.75    -13.75    0.00  e-
   H2(g)           -41.50    -44.61   -3.10  H2
@@ -134,18 +142,18 @@ Using pure phase assemblage 1.
                                                       Moles in assemblage
 Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
 
-AgCls             0.00    -9.75     -9.75    0.000e+00   9.979e-05   9.979e-05
+AgCls             0.00    -9.75     -9.75    0.000e+00   4.148e-07   4.148e-07
 Fix_H+           -7.00    -7.00      0.00
-	 NaOH               is reactant       1.000e+01   1.000e+01  -1.768e-10
+	 NaOH               is reactant       1.000e+01   1.000e+01  -2.416e-13
 Fix_pe          -13.75   -13.75      0.00
-	 O2                 is reactant       1.000e+01   1.000e+01  -3.009e-08
+	 O2                 is reactant       1.000e+01   1.000e+01  -4.998e-11
 
 -----------------------------Solution composition------------------------------
 
 	Elements           Molality       Moles
 
-	Ag                2.141e-07   2.141e-07
-	Cl                9.002e-04   9.002e-04
+	Ag                5.852e-07   5.852e-07
+	Cl                9.996e-04   9.996e-04
 	Na                1.000e-03   1.000e-03
 
 ----------------------------Description of solution----------------------------
@@ -153,15 +161,15 @@ Fix_pe          -13.75   -13.75      0.00
                                        pH  =   7.000      Charge balance
                                        pe  =  13.750      Adjusted to redox equilibrium
                         Activity of water  =   1.000
-                 Ionic strength (mol/kgw)  =   9.503e-04
+                 Ionic strength (mol/kgw)  =   9.997e-04
                        Mass of water (kg)  =   1.000e+00
-                 Total alkalinity (eq/kg)  =  -1.035e-07
+                 Total alkalinity (eq/kg)  =  -1.036e-07
                     Total carbon (mol/kg)  =   0.000e+00
                        Total CO2 (mol/kg)  =   0.000e+00
                          Temperature (°C)  =  25.00
-                  Electrical balance (eq)  =   1.001e-04
- Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   5.27
-                               Iterations  =   6
+                  Electrical balance (eq)  =   1.104e-06
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.06
+                               Iterations  =   3
                                   Total H  = 1.110507e+02
                                   Total O  = 5.552735e+01
 
@@ -170,17 +178,25 @@ Fix_pe          -13.75   -13.75      0.00
                                                Log       Log       Log    mole V
    Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
 
-   H+              1.035e-07   1.000e-07    -6.985    -7.000    -0.015      0.00
+   H+              1.036e-07   1.000e-07    -6.985    -7.000    -0.015      0.00
    H2O-0.01        7.286e-10   7.286e-10    -9.138    -9.138    -0.000     (0)  
-   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
-Ag(1)         2.141e-07
-   Ag+             2.141e-07   2.068e-07    -6.669    -6.685    -0.015     (0)  
-Cl(-1)        9.002e-04
-   Cl-             9.002e-04   8.694e-04    -3.046    -3.061    -0.015     (0)  
+   H2O             5.553e+01   9.999e-01     1.744    -0.000     0.000     18.07
+Ag(1)         5.852e-07
+   AgCl            3.562e-07   3.563e-07    -6.448    -6.448     0.000     (0)  
+   Ag+             1.932e-07   1.864e-07    -6.714    -6.729    -0.015     (0)  
+   AgCl2-          3.575e-08   3.449e-08    -7.447    -7.462    -0.015     (0)  
+   AgCl3-2         2.606e-11   2.259e-11   -10.584   -10.646    -0.062     (0)  
+   AgCl4-3         1.417e-15   1.028e-15   -14.849   -14.988    -0.139     (0)  
+Cl(-1)        9.996e-04
+   Cl-             9.992e-04   9.642e-04    -3.000    -3.016    -0.015     (0)  
+   AgCl            3.562e-07   3.563e-07    -6.448    -6.448     0.000     (0)  
+   AgCl2-          3.575e-08   3.449e-08    -7.447    -7.462    -0.015     (0)  
+   AgCl3-2         2.606e-11   2.259e-11   -10.584   -10.646    -0.062     (0)  
+   AgCl4-3         1.417e-15   1.028e-15   -14.849   -14.988    -0.139     (0)  
 H(0)          0.000e+00
    H2              0.000e+00   0.000e+00   -44.609   -44.609     0.000     (0)  
 Na            1.000e-03
-   Na+             1.000e-03   9.658e-04    -3.000    -3.015    -0.015     (0)  
+   Na+             1.000e-03   9.650e-04    -3.000    -3.015    -0.015     (0)  
 O(0)          2.022e-03
    O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
 
@@ -206,6 +222,6 @@ Reading input data for simulation 2.
 ------------------------------------
 
 ----------------------------------
-End of Run after 0.003249 Seconds.
+End of Run after 0.005606 Seconds.
 ----------------------------------
 
