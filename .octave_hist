@@ -1,6 +1,3 @@
-% exact model
-Ksp=10^-9.7453;
-% check SI
 IAP=AgT*ClT;
 Agexact=AgT; Clexact=ClT; AgClsexact=0;
 if IAP>=Ksp
@@ -998,3 +995,6 @@ Clmasserrorcompare=[Clmasserror ClmasserrorPHREEQC]
 timecompare=[tableautime PHREEQCtime]
 _make_figures("/tmp/tmpb7gkmcl3", "png", "Figure", -1, -1, 0, 0)
 # Octave 6.4.0, Tue May 07 23:53:48 2024 UTC <jovyan@d7fe81bfb56f>
+PS1('PEXPECT_PROMPT>'); PS2('PEXPECT_PROMPT_')
+version
+# Octave 6.4.0, Mon May 13 17:25:32 2024 UTC <jovyan@d7fe81bfb56f>
