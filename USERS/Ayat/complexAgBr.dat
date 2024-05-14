@@ -31,8 +31,8 @@ SOLUTION_MASTER_SPECIES ###########################################
 
 Ag	     Ag+		    0.0	    Ag		        107.8682
 Ag(1)	 Ag+		    0	    Ag
-Cl       Cl-            0.0     Cl              35.4527
-Cl(-1)	 Cl-		    0	    Cl
+Br       Br-            0.0     Br              79.904
+Br(-1)	 Br-		    0	    Br
 E        e-             0.0     0.0             0.0
 H        H+             -1.     H               1.0079
 H(0)     H2             0.0     H
@@ -49,10 +49,10 @@ Ag+ =  Ag+
 	log_k 0
 	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Ag+
 
-Cl- =  Cl- 
-	#-llnl_gamma	3.0000	
+Br- =  Br- 
+	-llnl_gamma	3.0000	
 	log_k 0
-	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Cl-
+	-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Br-
 
 e- =  e- 
 	log_k 0
@@ -89,43 +89,37 @@ Na+ =  Na+
      #   -analytic 6.6835e+001 1.7172e-002 -1.8849e+004 -2.4092e+001 4.2501e+005
 #       -Range:  0-300
 
-
-
-1.0000 Cl- + 1.0000 Ag+  =  AgCl
+1.0000 Br- + 1.0000 Ag+  =  AgBr
 #        -llnl_gamma           3.0    
-        log_k           +3.2971
+        log_k           +4.6
 #	-delta_H	-15.1126	kJ/mol	# Calculated enthalpy of reaction	AgCl
 #	Enthalpy of formation:	-18.27 kcal/mol
 #        -analytic 1.0904e+002 3.5492e-002 -1.8455e+003 -4.4502e+001 -2.8830e+001
 #       -Range:  0-300
 
-2.0000 Cl- + 1.0000 Ag+  =  AgCl2-
+2.0000 Br- + 1.0000 Ag+  =  AgBr2-
 #        -llnl_gamma           4.0    
-        log_k           +5.2989
+        log_k           7.5
 #	-delta_H	-27.3592	kJ/mol	# Calculated enthalpy of reaction	AgCl2-
 #	Enthalpy of formation:	-61.13 kcal/mol
 #        -analytic 9.2164e+001 4.0261e-002 -1.6597e+002 -3.9721e+001 -2.6171e+000
 #       -Range:  0-300
 
-3.0000 Cl- + 1.0000 Ag+  =  AgCl3--
+3.0000 Br- + 1.0000 Ag+  =  AgBr3--
 #        -llnl_gamma           4.0    
-        log_k           +5.1310
+        log_k           +8.1
 #	-delta_H	-47.7645	kJ/mol	# Calculated enthalpy of reaction	AgCl3-2
 #	Enthalpy of formation:	-105.94 kcal/mol
 #        -analytic 4.3732e+000 2.9568e-002 3.9818e+003 -8.6428e+000 6.2131e+001
 #       -Range:  0-300
 
-4.0000 Cl- + 1.0000 Ag+  =  AgCl4---
+4.0000 Br- + 1.0000 Ag+  =  AgBr4---
 #        -llnl_gamma           4.0    
-        log_k           +3.8050
+        log_k           +8.7
 #	-delta_H	-32.4804	kJ/mol	# Calculated enthalpy of reaction	AgCl4-3
 #	Enthalpy of formation:	-142.22 kcal/mol
 #        -analytic -1.6176e+001 2.9523e-002 0.0000e+000 0.0000e+000 9.9602e+005
 #       -Range:  0-300
-
-
-
-
 
 PHASES #############################################################################
 
@@ -150,9 +144,9 @@ H2O(g)
       #  -analytic -1.4782e+001 1.0752e-003 2.7519e+003 2.7548e+000 4.2945e+001
 #       -Range:  0-300
 
-AgCls
-        AgCl  =  + 1.0000 Ag+ + 1.0000 Cl-
-        log_k           -9.7453
+AgBrs
+        AgBr  =  + 1.0000 Ag+ + 1.0000 Br-
+        log_k           -12.30
 	#-delta_H	65.739	kJ/mol	# Calculated enthalpy of reaction	Chlorargyrite
 #	Enthalpy of formation:	-30.37 kcal/mol
      #   -analytic -9.6834e+001 -3.4624e-002 -1.1820e+003 4.0962e+001 -1.8415e+001

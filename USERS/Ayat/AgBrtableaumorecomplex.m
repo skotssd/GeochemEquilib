@@ -1,20 +1,20 @@
-function [Ag,Cl,AgCls,MASSERR]=AgCltableaumorecomplex(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5)
+function [Ag,Br,AgBrs,MASSERR]=AgBrtableaumorecomplex(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5)
 
 % input tableau.  change this part % ----------------------------------------------
 
 Tableau=[...
-%H      e        Ag        Cl     logK                                phase    species1 
+%H      e        Ag        Br     logK                                phase    species1 
 1       0        0         0      0                                   0    {'H'}
 0       1        0         0      0                                   0    {'e'}
 0       0        1         0      0                                   0    {'Ag'}
-0       0        0         1      0                                   0    {'Cl'}
+0       0        0         1      0                                   0    {'Br'}
 -1      0        0         0      -14                                 0    {'OH'}
-0       0        1         1      3.2971                              0    {'AgCl'}
-0       0        1         2      5.2989                              0    {'AgCl2'}
-0       0        1         3      5.1310                              0    {'AgCl3'}
-0       0        1         4      3.8050                              0    {'AgCl3'}
+0       0        1         1      4.6                                 0    {'AgBr'}
+0       0        1         2      7.5                                 0    {'AgBr2'}
+0       0        1         3      8.1                                 0    {'AgBr3'}
+0       0        1         4      8.7                                 0    {'AgBr3'}
 %solids
-0       0        1         1      9.7453                              1    {'AgCls'}
+0       0        1         1      12.30                               1    {'AgBrs'}
 ];
 
 % end of tableau.  ------------------ % ----------------------------------------------

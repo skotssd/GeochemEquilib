@@ -88,38 +88,8 @@ Na+ =  Na+
 #	Enthalpy of formation:	-1 kcal/mol
      #   -analytic 6.6835e+001 1.7172e-002 -1.8849e+004 -2.4092e+001 4.2501e+005
 #       -Range:  0-300
-1.0000 Cl- + 1.0000 Ag+  =  AgCl
-#        -llnl_gamma           3.0    
-#        log_k           +3.2971
-#	-delta_H	-15.1126	kJ/mol	# Calculated enthalpy of reaction	AgCl
-#	Enthalpy of formation:	-18.27 kcal/mol
-        -analytic 1.0904e+002 3.5492e-002 -1.8455e+003 -4.4502e+001 -2.8830e+001
-#       -Range:  0-300
 
-2.0000 Cl- + 1.0000 Ag+  =  AgCl2-
-#        -llnl_gamma           4.0    
-#        log_k           +5.2989
-#	-delta_H	-27.3592	kJ/mol	# Calculated enthalpy of reaction	AgCl2-
-#	Enthalpy of formation:	-61.13 kcal/mol
-        -analytic 9.2164e+001 4.0261e-002 -1.6597e+002 -3.9721e+001 -2.6171e+000
-#       -Range:  0-300
-
-3.0000 Cl- + 1.0000 Ag+  =  AgCl3--
-#        -llnl_gamma           4.0    
-#        log_k           +5.1310
-#	-delta_H	-47.7645	kJ/mol	# Calculated enthalpy of reaction	AgCl3-2
-#	Enthalpy of formation:	-105.94 kcal/mol
-        -analytic 4.3732e+000 2.9568e-002 3.9818e+003 -8.6428e+000 6.2131e+001
-#       -Range:  0-300
-
-4.0000 Cl- + 1.0000 Ag+  =  AgCl4---
-#        -llnl_gamma           4.0    
-#        log_k           +3.8050
-#	-delta_H	-32.4804	kJ/mol	# Calculated enthalpy of reaction	AgCl4-3
-#	Enthalpy of formation:	-142.22 kcal/mol
-#        -analytic -1.6176e+001 2.9523e-002 0.0000e+000 0.0000e+000 9.9602e+005
-#       -Range:  0-300
-#PHASES #############################################################################
+PHASES #############################################################################
 
 Fix_H+
 	H+ = H+ ; log_k	0.0

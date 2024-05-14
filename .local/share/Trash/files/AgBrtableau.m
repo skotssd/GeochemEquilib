@@ -1,4 +1,4 @@
-function [Ag,Cl,AgCls,MASSERR]=AgCltableaumorecomplex(pH,pe,TOTALS',flag1,flag2,flag3,flag4,flag5)
+function [Ag,Cl,AgCls,MASSERR]=AgCltableau(pH,pe,T,flag1,flag2,flag3,flag4,flag5)
 
 % input tableau.  change this part % ----------------------------------------------
 
@@ -9,10 +9,6 @@ Tableau=[...
 0       0        1         0      0                                   0    {'Ag'}
 0       0        0         1      0                                   0    {'Cl'}
 -1      0        0         0      -14                                 0    {'OH'}
-0       0        1         1      3.2971                              0    {'AgCl'}
-0       0        1         2      5.2989                              0    {'AgCl2'}
-0       0        1         3      5.1310                              0    {'AgCl3'}
-0       0        1         4      3.8050                              0    {'AgCl3'}
 %solids
 0       0        1         1      9.7453                              1    {'AgCls'}
 ];

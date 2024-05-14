@@ -88,9 +88,6 @@ Na+ =  Na+
 #	Enthalpy of formation:	-1 kcal/mol
      #   -analytic 6.6835e+001 1.7172e-002 -1.8849e+004 -2.4092e+001 4.2501e+005
 #       -Range:  0-300
-
-
-
 1.0000 Cl- + 1.0000 Ag+  =  AgCl
 #        -llnl_gamma           3.0    
         log_k           +3.2971
@@ -122,11 +119,6 @@ Na+ =  Na+
 #	Enthalpy of formation:	-142.22 kcal/mol
 #        -analytic -1.6176e+001 2.9523e-002 0.0000e+000 0.0000e+000 9.9602e+005
 #       -Range:  0-300
-
-
-
-
-
 PHASES #############################################################################
 
 Fix_H+

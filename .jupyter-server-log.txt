@@ -1240,3 +1240,327 @@ Please note that updating to Notebook 7 might break some of your extensions.
 [I 2024-05-13 20:25:32.401 LabApp] Build is up to date
 [W 20:25:32.882 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c98aa70>
 [I 20:25:47.623 NotebookApp] New terminal with automatic name: 5
+[I 20:31:06.742 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:3ab7196b-ade1-445f-a26f-bf4dc45fc792
+[I 20:31:11.863 NotebookApp] Starting buffering for 1e30bf11-1885-4b28-90e5-cfd3b14bad24:4788b43a-d644-4d46-8a08-af95a83706ec
+[W 20:46:27.241 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f385660>
+[I 20:46:27.602 NotebookApp] Discarding 2 buffered messages for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:24436b07-52bb-4a56-a308-320acb3489da
+[W 20:50:15.787 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ee4d0>
+[W 20:55:08.574 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c98a980>
+[W 20:55:38.907 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f417ac0>
+[W 20:55:41.087 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f414850>
+[W 20:55:48.015 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ef2b0>
+[W 20:55:49.858 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ec580>
+[W 20:55:52.550 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ee7d0>
+[W 20:55:56.113 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ec790>
+[W 20:55:57.501 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4edcc0>
+[W 20:55:58.730 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ee7d0>
+[W 20:55:59.861 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4eeb60>
+[W 20:56:01.112 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4edf90>
+[W 20:56:02.122 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ec8b0>
+[W 20:56:03.508 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ec8b0>
+[I 20:56:27.110 NotebookApp] Saving file at /USERS/Ayat/AgCL complex example.ipynb
+[I 21:24:11.876 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[W 21:35:57.603 NotebookApp] WebSocket ping timeout after 119949 ms.
+[I 21:36:02.605 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:2f028a98-f0bd-4686-b221-ea819154aeec
+[W 22:47:47.683 NotebookApp] 404 GET /api/me?1715640467639 (172.31.0.1) 2.170000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/AgClspeciationplot.ipynb
+[I 2024-05-13 22:47:50.847 LabApp] Build is up to date
+[W 22:47:51.960 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f387ca0>
+[I 22:47:52.345 NotebookApp] Discarding 2 buffered messages for 1e30bf11-1885-4b28-90e5-cfd3b14bad24:4788b43a-d644-4d46-8a08-af95a83706ec
+[I 22:47:52.464 NotebookApp] Discarding 16 buffered messages for 0559fef8-5365-4894-93f3-7678399065ca:3ab7196b-ade1-445f-a26f-bf4dc45fc792
+[W 22:57:23.948 NotebookApp] 404 GET /api/me?1715641043914 (172.31.0.1) 3.690000ms referer=https://jupyter9.clearnasdss.synology.me/lab/workspaces/auto-x?reset
+[I 2024-05-13 22:57:26.843 LabApp] Build is up to date
+[I 22:57:51.844 NotebookApp] Creating new notebook in /USERS/Ayat
+[I 22:57:52.365 NotebookApp] Kernel started: f599ced5-c625-418b-826a-04a19e48ef23, name: octave
+[W 22:57:53.472 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4edcc0>
+[W 22:58:22.049 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c98a320>
+[W 22:58:23.666 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f49d9c0>
+[I 22:58:23.713 NotebookApp] Discarding 2 buffered messages for c5df574c-64f6-4ae3-810c-7304fc1e9a4e:31a7c350-4eb4-4aa5-9773-8e6b99b704cd
+[W 22:58:29.573 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9bb880>
+[W 22:58:36.728 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d7c10>
+[W 22:58:39.284 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9bbac0>
+[W 22:58:56.706 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d7730>
+[I 22:59:04.676 NotebookApp] 302 GET /lab (172.31.0.1) 0.880000ms
+[W 22:59:06.348 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d5660>
+[W 22:59:12.010 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d4a00>
+[W 22:59:13.016 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d4370>
+[W 22:59:25.894 NotebookApp] 404 GET /api/me?1715641165863 (172.31.0.1) 2.900000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Scott/Silver/AgCl.dat
+[I 22:59:29.883 NotebookApp] 302 GET /tree (172.31.0.1) 1.560000ms
+[W 22:59:35.783 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9ba5c0>
+[W 22:59:41.699 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9bb610>
+[I 22:59:52.304 NotebookApp] Saving file at /USERS/Ayat/Untitled.ipynb
+[W 23:00:01.656 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b8820>
+[W 23:00:05.665 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b8dc0>
+[W 23:00:20.832 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b8190>
+[I 23:00:21.906 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[W 23:00:24.398 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d4310>
+[W 23:00:35.257 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d4520>
+[W 23:00:44.225 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f49e620>
+[W 23:01:03.471 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f49e290>
+[W 23:01:10.992 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f49c190>
+[I 23:01:52.458 NotebookApp] Saving file at /USERS/Ayat/AgBr.ipynb
+[W 23:03:25.158 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d48b0>
+[W 23:03:29.267 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d5f00>
+[W 23:03:46.004 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9bada0>
+[W 23:03:47.153 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b9750>
+[I 23:03:52.652 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 23:04:22.072 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 23:04:23.515 NotebookApp] Saving file at /USERS/Ayat/AgCLsimple-example.ipynb
+[W 23:07:52.092 NotebookApp] WebSocket ping timeout after 119938 ms.
+[W 23:07:52.345 NotebookApp] WebSocket ping timeout after 119943 ms.
+[W 23:07:52.464 NotebookApp] WebSocket ping timeout after 119945 ms.
+[W 23:07:52.470 NotebookApp] WebSocket ping timeout after 119951 ms.
+[W 23:07:53.716 NotebookApp] WebSocket ping timeout after 119824 ms.
+[W 23:07:53.853 NotebookApp] WebSocket ping timeout after 119949 ms.
+[W 23:07:53.857 NotebookApp] WebSocket ping timeout after 119953 ms.
+[W 23:07:56.778 NotebookApp] WebSocket ping timeout after 119809 ms.
+[I 23:07:57.347 NotebookApp] Starting buffering for 1e30bf11-1885-4b28-90e5-cfd3b14bad24:c1c33b19-6b76-49d2-abb4-6e94abbee3bf
+[I 23:07:57.467 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:9ca98962-57c7-47f6-9644-885bec16c9b2
+[I 23:07:58.717 NotebookApp] Starting buffering for c5df574c-64f6-4ae3-810c-7304fc1e9a4e:c909924b-90ba-45ee-aebc-0ff2eaf03e80
+[I 23:07:58.858 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:b9d8103a-53aa-403e-be21-2b6f4e1a402f
+[I 23:08:01.779 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:a7187efc-447a-4e66-a682-4c55d31d11f9
+[I 23:17:55.023 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:93365c3b-6a7c-480f-9025-943f202ac0fb
+[W 23:18:00.545 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f49de70>
+[W 23:18:07.879 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f49fa00>
+[W 23:19:51.716 NotebookApp] Notebook USERS/Scott/Silver/AgCl_speciation_graph_PHREEQC.ipynb is not trusted
+[W 23:19:52.088 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c989150>
+[I 23:19:52.175 NotebookApp] Discarding 2 buffered messages for c72d175a-071d-4eac-bf46-31f2bce2a0cc:ff290dac-7c55-4204-b6c3-f6c6b420b1fa
+[W 23:20:00.492 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b9840>
+[W 23:21:21.706 NotebookApp] 404 GET /api/contents/USERS/Ayat/complexAgBr.dat?1715642481585 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/complexAgBr.dat'
+[W 23:21:21.706 NotebookApp] file or directory does not exist: 'USERS/Ayat/complexAgBr.dat'
+[W 23:21:21.707 NotebookApp] 404 GET /api/contents/USERS/Ayat/complexAgBr.dat?1715642481585 (172.31.0.1) 2.340000ms referer=https://jupyter9.clearnasdss.synology.me/lab/workspaces/auto-x/tree/USERS/Ayat/complexAgCl.dat
+[I 23:21:21.773 NotebookApp] Uploading file to /USERS/Ayat/complexAgBr.dat
+[W 23:34:22.175 NotebookApp] WebSocket ping timeout after 119948 ms.
+[I 23:34:27.177 NotebookApp] Starting buffering for c72d175a-071d-4eac-bf46-31f2bce2a0cc:acf00024-dcd5-48dd-9890-85c27b907794
+[W 02:59:08.294 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f416500>
+[W 02:59:09.239 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f415120>
+[W 02:59:25.596 NotebookApp] 400 GET /api/contents/USERS/Scott/Silver/out.txt?type=file&content=1&format=text&1715655565472 (172.31.0.1): /home/jovyan/USERS/Scott/Silver/out.txt is not UTF-8 encoded
+[W 02:59:25.596 NotebookApp] /home/jovyan/USERS/Scott/Silver/out.txt is not UTF-8 encoded
+[W 02:59:25.596 NotebookApp] 400 GET /api/contents/USERS/Scott/Silver/out.txt?type=file&content=1&format=text&1715655565472 (172.31.0.1) 2.130000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Scott/Silver/phreeqc.log
+[W 03:00:07.296 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f49faf0>
+[I 03:00:07.635 NotebookApp] Discarding 2 buffered messages for 4905f9f4-bb74-495e-ae36-8885eb7a50f4:8ee1f880-2614-4104-bcaf-7b162b6f2f87
+[W 03:00:14.943 NotebookApp] Notebook USERS/Scott/Silver/AgCl_speciation_graph_PHREEQC.ipynb is not trusted
+[W 03:00:15.339 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f3b9300>
+[I 03:00:15.362 NotebookApp] Discarding 2 buffered messages for c72d175a-071d-4eac-bf46-31f2bce2a0cc:acf00024-dcd5-48dd-9890-85c27b907794
+[W 03:03:58.692 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d6410>
+[W 03:04:00.474 NotebookApp] Notebook USERS/Scott/Silver/AgCl_solublespecies_graphing.ipynb is not trusted
+[W 03:06:31.835 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9bae90>
+[I 03:06:31.842 NotebookApp] Discarding 2 buffered messages for f599ced5-c625-418b-826a-04a19e48ef23:93365c3b-6a7c-480f-9025-943f202ac0fb
+[W 03:07:30.204 NotebookApp] delete /USERS/Ayat/complexAgBr.dat
+[I 03:07:44.597 NotebookApp] Starting buffering for 4905f9f4-bb74-495e-ae36-8885eb7a50f4:3eb43821-48e0-43d5-ac0c-94b87f864598
+[W 03:08:02.356 NotebookApp] Notebook USERS/Scott/Copper/pH8_0pt1uMCuT_electrodeA_allcalibs.ipynb is not trusted
+[W 03:09:40.053 NotebookApp] Notebook USERS/Scott/Europium/Eu_speciation.ipynb is not trusted
+[W 03:09:53.930 NotebookApp] Notebook USERS/Scott/Europium/Europium_MTM.ipynb is not trusted
+[W 03:10:02.851 NotebookApp] 400 GET /api/contents/USERS/Scott/Europium/Marsac2017EuIIIsolids.dat?type=file&content=1&format=text&1715656202719 (172.31.0.1): /home/jovyan/USERS/Scott/Europium/Marsac2017EuIIIsolids.dat is not UTF-8 encoded
+[W 03:10:02.852 NotebookApp] /home/jovyan/USERS/Scott/Europium/Marsac2017EuIIIsolids.dat is not UTF-8 encoded
+[W 03:10:02.852 NotebookApp] 400 GET /api/contents/USERS/Scott/Europium/Marsac2017EuIIIsolids.dat?type=file&content=1&format=text&1715656202719 (172.31.0.1) 5.090000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Scott/Europium/Europium_MTM.ipynb
+[W 03:10:04.766 NotebookApp] Notebook USERS/Scott/Europium/EuTvspH_fixedDOC_MTMmedia.ipynb is not trusted
+[I 03:10:39.474 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:6f4c746c-96d5-4206-9153-6c55f9bf3b43
+[W 03:12:58.233 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4edcc0>
+[I 03:13:00.472 NotebookApp] Starting buffering for c72d175a-071d-4eac-bf46-31f2bce2a0cc:844af109-56af-4d73-94c3-45e10abc938a
+[W 03:13:00.557 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ed990>
+[W 03:13:01.723 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ec580>
+[W 03:13:12.409 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ec760>
+[I 03:13:12.483 NotebookApp] Discarding 2 buffered messages for f599ced5-c625-418b-826a-04a19e48ef23:6f4c746c-96d5-4206-9153-6c55f9bf3b43
+[I 03:15:11.832 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 03:17:11.936 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 03:26:01.587 NotebookApp] 302 GET / (172.31.0.1) 0.720000ms
+[W 03:27:15.368 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c84f610>
+[I 03:27:15.390 NotebookApp] Discarding 4 buffered messages for 0559fef8-5365-4894-93f3-7678399065ca:9ca98962-57c7-47f6-9644-885bec16c9b2
+[I 03:29:15.136 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 03:35:38.721 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[W 04:43:42.483 NotebookApp] WebSocket ping timeout after 115515 ms.
+[W 04:43:45.391 NotebookApp] WebSocket ping timeout after 119970 ms.
+[I 04:43:47.485 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:d3f798af-0a52-4939-9709-fed7143af5db
+[I 04:43:50.393 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:3c2e4b72-5448-48b6-a8f2-fa43b1423357
+[W 05:33:01.244 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c84da50>
+[I 05:33:01.266 NotebookApp] Discarding 10 buffered messages for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:a7187efc-447a-4e66-a682-4c55d31d11f9
+[I 05:35:01.097 NotebookApp] Saving file at /USERS/Ayat/AgCL complex example.ipynb
+[I 05:37:01.218 NotebookApp] Saving file at /USERS/Ayat/AgCL complex example.ipynb
+[W 05:41:01.266 NotebookApp] WebSocket ping timeout after 119961 ms.
+[I 05:41:06.268 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:a49d5e1d-b4bd-4f4b-ac58-6279fb104549
+[W 05:45:29.062 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c84f9d0>
+[W 05:46:29.536 NotebookApp] 400 GET /api/contents/USERS/Ayat/out.txt?type=file&content=1&format=text&1715665589486 (172.31.0.1): /home/jovyan/USERS/Ayat/out.txt is not UTF-8 encoded
+[W 05:46:29.536 NotebookApp] /home/jovyan/USERS/Ayat/out.txt is not UTF-8 encoded
+[W 05:46:29.536 NotebookApp] 400 GET /api/contents/USERS/Ayat/out.txt?type=file&content=1&format=text&1715665589486 (172.31.0.1) 2.050000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/phreeqc.log
+[W 05:47:39.186 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c84d630>
+[W 05:49:35.600 NotebookApp] 404 GET /api/contents/USERS/Ayat/complexAgBr.dat?1715665775562 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/complexAgBr.dat'
+[W 05:49:35.602 NotebookApp] file or directory does not exist: 'USERS/Ayat/complexAgBr.dat'
+[W 05:49:35.603 NotebookApp] 404 GET /api/contents/USERS/Ayat/complexAgBr.dat?1715665775562 (172.31.0.1) 3.770000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/complexAgCl.dat
+[I 05:49:35.644 NotebookApp] Uploading file to /USERS/Ayat/complexAgBr.dat
+[I 05:51:35.916 NotebookApp] Saving file at /USERS/Ayat/complexAgBr.dat
+[I 05:53:36.486 NotebookApp] Saving file at /USERS/Ayat/complexAgBr.dat
+[W 13:15:37.697 NotebookApp] 404 GET /api/me?1715692537638 (172.31.0.1) 3.690000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/llnl_nosolubleAgCl.dat
+[I 2024-05-14 13:15:40.830 LabApp] Build is up to date
+[W 13:15:41.654 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f3562c0>
+[I 13:15:41.993 NotebookApp] Discarding 4 buffered messages for f599ced5-c625-418b-826a-04a19e48ef23:d3f798af-0a52-4939-9709-fed7143af5db
+[I 13:15:42.104 NotebookApp] Discarding 2 buffered messages for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:a49d5e1d-b4bd-4f4b-ac58-6279fb104549
+[W 13:20:04.460 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9bb6a0>
+[I 13:20:04.538 NotebookApp] Discarding 2 buffered messages for 0559fef8-5365-4894-93f3-7678399065ca:3c2e4b72-5448-48b6-a8f2-fa43b1423357
+[I 13:22:16.175 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[W 13:24:34.538 NotebookApp] WebSocket ping timeout after 119894 ms.
+[I 13:24:39.540 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:af523a29-fa42-4f3a-bddc-214b153af131
+[I 13:24:39.816 NotebookApp] Restoring connection for 0559fef8-5365-4894-93f3-7678399065ca:af523a29-fa42-4f3a-bddc-214b153af131
+[W 13:24:41.995 NotebookApp] WebSocket ping timeout after 119958 ms.
+[W 13:24:42.104 NotebookApp] WebSocket ping timeout after 119967 ms.
+[I 13:24:42.684 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:aeabcb70-cd2d-4b43-813e-39fbfd0a276f
+[I 13:24:42.788 NotebookApp] Restoring connection for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:aeabcb70-cd2d-4b43-813e-39fbfd0a276f
+[I 13:24:46.997 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[I 13:24:47.284 NotebookApp] Restoring connection for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[W 13:27:09.817 NotebookApp] WebSocket ping timeout after 119920 ms.
+[W 13:27:12.789 NotebookApp] WebSocket ping timeout after 119963 ms.
+[I 13:27:14.819 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:af523a29-fa42-4f3a-bddc-214b153af131
+[W 13:27:17.286 NotebookApp] WebSocket ping timeout after 119921 ms.
+[I 13:27:17.791 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:aeabcb70-cd2d-4b43-813e-39fbfd0a276f
+[I 13:27:22.288 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[W 14:10:17.111 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c94f700>
+[I 14:13:52.272 NotebookApp] Saving file at /USERS/Ayat/complexAgBr.dat
+[I 14:15:52.572 NotebookApp] Saving file at /USERS/Ayat/complexAgBr.dat
+[W 14:17:07.655 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f355f00>
+[W 14:17:14.322 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b95d0>
+[W 14:17:17.272 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b9e70>
+[W 14:17:22.314 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c94db70>
+[I 14:17:22.341 NotebookApp] Discarding 2 buffered messages for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:aeabcb70-cd2d-4b43-813e-39fbfd0a276f
+[I 14:18:37.223 NotebookApp] Restoring connection for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[I 14:18:37.231 NotebookApp] Replaying 2 buffered messages
+[I 14:19:52.260 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:21:52.372 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:31:52.655 NotebookApp] Saving file at /USERS/Ayat/complexAgBr.dat
+[I 14:33:52.472 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:33:52.758 NotebookApp] Saving file at /USERS/Ayat/complexAgBr.dat
+[W 14:34:03.003 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrtableau.m?1715697242914 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/AgBrtableau.m'
+[W 14:34:03.003 NotebookApp] file or directory does not exist: 'USERS/Ayat/AgBrtableau.m'
+[W 14:34:03.004 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrtableau.m?1715697242914 (172.31.0.1) 1.740000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/AgCltableau.m
+[I 14:34:03.046 NotebookApp] Uploading file to /USERS/Ayat/AgBrtableau.m
+[W 14:34:30.768 NotebookApp] delete /USERS/Ayat/AgBrtableau.m
+[W 14:34:42.756 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrtableaumorecomplex.m?1715697282659 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/AgBrtableaumorecomplex.m'
+[W 14:34:42.756 NotebookApp] file or directory does not exist: 'USERS/Ayat/AgBrtableaumorecomplex.m'
+[W 14:34:42.757 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrtableaumorecomplex.m?1715697282659 (172.31.0.1) 2.210000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/AgCltableaumorecomplex.m
+[I 14:34:42.805 NotebookApp] Uploading file to /USERS/Ayat/AgBrtableaumorecomplex.m
+[I 14:36:43.063 NotebookApp] Saving file at /USERS/Ayat/AgBrtableaumorecomplex.m
+[I 14:38:43.158 NotebookApp] Saving file at /USERS/Ayat/AgBrtableaumorecomplex.m
+[I 14:39:52.643 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[W 14:41:51.814 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrtableau.m?1715697711721 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/AgBrtableau.m'
+[W 14:41:51.814 NotebookApp] file or directory does not exist: 'USERS/Ayat/AgBrtableau.m'
+[W 14:41:51.815 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrtableau.m?1715697711721 (172.31.0.1) 2.600000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/AgCltableau.m
+[I 14:41:51.858 NotebookApp] Uploading file to /USERS/Ayat/AgBrtableau.m
+[I 14:43:52.163 NotebookApp] Saving file at /USERS/Ayat/AgBrtableau.m
+[I 14:43:52.767 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:45:52.872 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:47:52.995 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:49:53.167 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:51:53.272 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:53:53.542 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 14:59:52.253 NotebookApp] Saving file at /USERS/Ayat/AgBrtableau.m
+[I 14:59:53.716 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 15:00:43.248 NotebookApp] Saving file at /USERS/Ayat/AgBrtableaumorecomplex.m
+[I 15:00:51.930 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:174a33b5-2d92-42c2-aa34-0ce0ff807ac1
+[W 15:00:52.456 NotebookApp] 404 GET /api/me?1715698852304 (172.31.0.1) 10.750000ms referer=https://jupyter9.clearnasdss.synology.me/lab/workspaces/auto-x/tree/USERS/Ayat/AgCl%20complex%20example.ipynb
+[I 2024-05-14 15:00:55.443 LabApp] Build is up to date
+[W 15:00:56.413 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f413190>
+[I 15:00:56.507 NotebookApp] Discarding 2 buffered messages for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:174a33b5-2d92-42c2-aa34-0ce0ff807ac1
+[I 15:02:56.273 NotebookApp] Saving file at /USERS/Ayat/AgCl complex example.ipynb
+[I 15:05:53.925 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 15:06:43.333 NotebookApp] Saving file at /USERS/Ayat/AgBrtableaumorecomplex.m
+[I 15:06:56.300 NotebookApp] Saving file at /USERS/Ayat/AgCltableaumorecomplex.m
+[W 15:07:14.483 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f356ce0>
+[I 15:07:14.623 NotebookApp] Discarding 4 buffered messages for 0559fef8-5365-4894-93f3-7678399065ca:af523a29-fa42-4f3a-bddc-214b153af131
+[I 15:08:56.401 NotebookApp] Saving file at /USERS/Ayat/AgCl complex example.ipynb
+[I 15:09:14.388 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[W 15:11:12.515 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrspeciationplot.ipynb?1715699472391 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/AgBrspeciationplot.ipynb'
+[W 15:11:12.515 NotebookApp] file or directory does not exist: 'USERS/Ayat/AgBrspeciationplot.ipynb'
+[W 15:11:12.515 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgBrspeciationplot.ipynb?1715699472391 (172.31.0.1) 1.660000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/AgClspeciationplot.ipynb
+[I 15:11:12.638 NotebookApp] Uploading file to /USERS/Ayat/AgBrspeciationplot.ipynb
+[I 15:11:13.036 NotebookApp] Kernel started: 9b41f1f0-ae93-4c01-9d20-234fca141d72, name: octave
+[W 15:11:14.431 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c9b9420>
+[I 15:11:14.509 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 15:11:21.075 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 15:11:21.153 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:626b59c9-c349-4f4a-ac07-843d86bf239c
+[W 15:11:21.214 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f356ce0>
+[W 15:11:26.298 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c84d9f0>
+[I 15:13:12.924 NotebookApp] Saving file at /USERS/Ayat/AgBrspeciationplot.ipynb
+[I 15:15:13.027 NotebookApp] Saving file at /USERS/Ayat/AgBrspeciationplot.ipynb
+[I 15:17:13.141 NotebookApp] Saving file at /USERS/Ayat/AgBrspeciationplot.ipynb
+[I 15:19:13.250 NotebookApp] Saving file at /USERS/Ayat/AgBrspeciationplot.ipynb
+[I 15:21:13.414 NotebookApp] Saving file at /USERS/Ayat/AgBrspeciationplot.ipynb
+[I 15:25:13.535 NotebookApp] Saving file at /USERS/Ayat/AgBrspeciationplot.ipynb
+[W 15:26:23.572 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c84cf10>
+[W 15:26:27.680 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ed6c0>
+[W 15:26:39.936 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f354310>
+[I 15:26:40.011 NotebookApp] Discarding 2 buffered messages for 0559fef8-5365-4894-93f3-7678399065ca:626b59c9-c349-4f4a-ac07-843d86bf239c
+[W 15:29:14.945 NotebookApp] WebSocket ping timeout after 119967 ms.
+[W 15:29:14.947 NotebookApp] WebSocket ping timeout after 119969 ms.
+[I 15:29:19.949 NotebookApp] Starting buffering for 9b41f1f0-ae93-4c01-9d20-234fca141d72:c963c450-b925-4ba6-afce-f2e4f139000d
+[W 15:29:26.508 NotebookApp] WebSocket ping timeout after 119968 ms.
+[I 15:29:31.511 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:3ec6eb2b-14ef-498c-a697-ecdaafad0c3c
+[W 15:29:37.224 NotebookApp] WebSocket ping timeout after 119884 ms.
+[W 15:29:40.012 NotebookApp] WebSocket ping timeout after 119868 ms.
+[I 15:29:42.226 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[I 15:29:45.013 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:5fb38da7-2633-49b5-9004-2bec9eb743b6
+[I 15:39:53.563 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[W 16:03:12.550 NotebookApp] Notebook USERS/Scott/Silver/AgCl_speciation_graph_PHREEQC.ipynb is not trusted
+[W 16:03:12.974 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4edcc0>
+[I 16:03:13.083 NotebookApp] Discarding 4 buffered messages for c72d175a-071d-4eac-bf46-31f2bce2a0cc:844af109-56af-4d73-94c3-45e10abc938a
+[I 16:07:17.283 NotebookApp] Saving file at /USERS/Ayat/complexAgCl.dat
+[I 16:11:10.624 NotebookApp] Creating new notebook in /USERS/Ayat
+[I 16:11:11.173 NotebookApp] Kernel started: 7ec95c95-a957-4921-9b11-a19f24eddb13, name: octave
+[W 16:11:12.411 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d7e50>
+[I 16:11:21.510 NotebookApp] Kernel shutdown: 7ec95c95-a957-4921-9b11-a19f24eddb13
+[W 16:11:22.221 NotebookApp] delete /USERS/Ayat/Untitled.ipynb
+[W 16:11:22.353 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f2d45b0>
+[W 16:12:04.946 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgCl.dat?1715703124861 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/AgCl.dat'
+[W 16:12:04.946 NotebookApp] file or directory does not exist: 'USERS/Ayat/AgCl.dat'
+[W 16:12:04.947 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgCl.dat?1715703124861 (172.31.0.1) 1.740000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/simplest.AgCl.dat
+[I 16:12:04.994 NotebookApp] Uploading file to /USERS/Ayat/AgCl.dat
+[I 16:14:05.302 NotebookApp] Saving file at /USERS/Ayat/AgCl.dat
+[I 16:16:05.432 NotebookApp] Saving file at /USERS/Ayat/AgCl.dat
+[W 16:19:13.881 NotebookApp] delete /USERS/Ayat/AgCl.dat
+[W 16:19:28.067 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f356ec0>
+[W 16:19:33.871 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f356920>
+[W 16:22:26.357 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgCl.dat?1715703744253 (172.31.0.1): file or directory does not exist: 'USERS/Ayat/AgCl.dat'
+[W 16:22:26.357 NotebookApp] file or directory does not exist: 'USERS/Ayat/AgCl.dat'
+[W 16:22:26.358 NotebookApp] 404 GET /api/contents/USERS/Ayat/AgCl.dat?1715703744253 (172.31.0.1) 7.240000ms referer=https://jupyter9.clearnasdss.synology.me/lab/tree/USERS/Ayat/complexAgCl.dat
+[I 16:22:26.694 NotebookApp] Uploading file to /USERS/Ayat/AgCl.dat
+[W 16:23:51.600 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4ee1a0>
+[W 16:23:54.559 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06f4edcf0>
+[I 16:24:06.418 NotebookApp] Restoring connection for 0559fef8-5365-4894-93f3-7678399065ca:5fb38da7-2633-49b5-9004-2bec9eb743b6
+[I 16:24:06.429 NotebookApp] Replaying 6 buffered messages
+[I 16:24:27.259 NotebookApp] Saving file at /USERS/Ayat/AgCl.dat
+[W 16:24:31.458 NotebookApp] delete /USERS/Ayat/AgCl.dat
+[I 16:26:00.450 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[W 16:33:53.724 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c98b070>
+[I 16:34:00.581 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 16:34:14.882 NotebookApp] Restoring connection for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[I 16:34:14.891 NotebookApp] Replaying 2 buffered messages
+[I 16:35:41.473 NotebookApp] Saving file at /USERS/Ayat/AgBrcomplex.ipynb
+[I 16:39:37.609 NotebookApp] Starting buffering for c72d175a-071d-4eac-bf46-31f2bce2a0cc:499c8022-7cb3-47f2-8b53-5fba79e3f27f
+[W 16:39:38.002 NotebookApp] 404 GET /api/me?1715704777916 (172.31.0.1) 4.240000ms referer=https://jupyter9.clearnasdss.synology.me/lab/workspaces/auto-x/tree/USERS/Scott/Silver/AgCl_speciation_graph_PHREEQC.ipynb
+[I 2024-05-14 16:39:41.123 LabApp] Build is up to date
+[W 16:39:41.434 NotebookApp] Notebook USERS/Scott/Silver/AgCl_speciation_graph_PHREEQC.ipynb is not trusted
+[W 16:39:47.896 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c94cd90>
+[I 16:39:47.963 NotebookApp] Discarding 2 buffered messages for c72d175a-071d-4eac-bf46-31f2bce2a0cc:499c8022-7cb3-47f2-8b53-5fba79e3f27f
+[W 16:39:54.493 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c94ee00>
+[I 16:39:54.497 NotebookApp] Starting buffering for c72d175a-071d-4eac-bf46-31f2bce2a0cc:3a632b58-d121-44e9-be26-59be4d66e7ba
+[W 16:45:06.419 NotebookApp] WebSocket ping timeout after 119872 ms.
+[I 16:45:11.420 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:5fb38da7-2633-49b5-9004-2bec9eb743b6
+[W 16:45:14.883 NotebookApp] WebSocket ping timeout after 119969 ms.
+[W 16:45:17.959 NotebookApp] WebSocket ping timeout after 119939 ms.
+[I 16:45:19.885 NotebookApp] Starting buffering for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[I 16:45:22.961 NotebookApp] Starting buffering for 941adf2a-793e-4cd5-849b-3b063ab0d5e9:dce26b37-978a-4743-9aa0-ec4076ee2c51
+[I 17:09:40.070 NotebookApp] 302 GET /lab? (172.31.0.1) 1.100000ms
+[W 17:09:48.521 NotebookApp] Not allowing login redirect to '/lab?'
+[I 17:09:48.522 NotebookApp] 302 POST /login?next=%2Flab%3F (172.31.0.1) 180.630000ms
+[I 17:09:48.528 NotebookApp] 302 GET / (172.31.0.1) 0.670000ms
+[I 17:10:07.594 NotebookApp] Discarding 4 buffered messages for 9b41f1f0-ae93-4c01-9d20-234fca141d72:c963c450-b925-4ba6-afce-f2e4f139000d
+[I 17:10:21.140 NotebookApp] Starting buffering for 9b41f1f0-ae93-4c01-9d20-234fca141d72:00721720ce7344cb8720338b56f61ca1
+[I 17:12:27.629 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 17:14:26.761 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 17:16:27.642 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 17:18:26.735 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 17:20:26.737 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 17:22:26.733 NotebookApp] Saving file at /USERS/Ayat/AgClspeciationplot.ipynb
+[I 17:24:52.062 NotebookApp] Starting buffering for 0559fef8-5365-4894-93f3-7678399065ca:84db3460dd9445bb858a8c9bc61f8564
+[W 17:24:57.223 NotebookApp] 404 GET /api/me?1715707497182 (172.31.0.1) 2.680000ms referer=https://jupyter9.clearnasdss.synology.me/lab
+[I 2024-05-14 17:24:59.932 LabApp] Build is up to date
+[W 17:25:00.708 NotebookApp] Could not destroy zmq context for <jupyter_client.blocking.client.BlockingKernelClient object at 0x7fc06c87c370>
+[I 17:25:00.740 NotebookApp] Discarding 2 buffered messages for f599ced5-c625-418b-826a-04a19e48ef23:8e04cc81-b8a5-44a3-b5ff-ed66e759f27f
+[I 17:25:05.608 NotebookApp] New terminal with automatic name: 6
