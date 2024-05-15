@@ -9,14 +9,14 @@ selected.out
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 */.jupyter/*
-.jupter/*
+.jupyter/*
 */.local/*
 .local/*
 */.cache/*
 .cache/*
 .conda/*
 */.ipython/*
-/ipython/*
+.ipython/*
 .bash_history
 .bash_logout
 .bashrc
