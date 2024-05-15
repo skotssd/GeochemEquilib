@@ -12,7 +12,7 @@ dependencies:
 - compilers
 - make
 # for fltk graphictoolkit option
-- fltk
+#- fltk
 # for qt graphictoolkit option
-- qt
+#- qt
   
