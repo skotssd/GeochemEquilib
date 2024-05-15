@@ -1,4 +1,8 @@
 octave
 gnuplot
 ghostscript
+nano
+libgl1-mesa-dev
+xvfb
+
 
