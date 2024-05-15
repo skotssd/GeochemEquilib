@@ -4,8 +4,8 @@ ghostscript
 nano
 libgl1-mesa-dev
 xvfb
-fltk
-qt
+libfltk1.3-dev
+qt6-base-dev
 
 
 
