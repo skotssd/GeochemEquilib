@@ -7,15 +7,15 @@ SOLUTION 1
        pH      7
        temp      25
 -units mol/kgw
-Ag 1e-07 
-Br 0.1 
+Ag 0.01 
+Cl 0.1 
 Na 0.1 
 
 KNOBS
 -iterations 200
 
 EQUILIBRIUM_PHASES 1
-AgBrs   0.0   0
+AgCls   0.0   0
        Fix_H+ -7          NaOH 10.0
 -force_equality true
        Fix_pe -13.75          O2
@@ -41,5 +41,5 @@ SELECTED_OUTPUT
 -water false
 -charge_balance false
 -percent_error false
--molalities Ag+ Br- AgBr AgBr2- AgBr3-2 AgBr4-3  
--equilibrium_phases AgBrs  
+-molalities Ag+ Cl- AgCl AgCl2- AgCl3-2 AgCl4-3  
+-equilibrium_phases AgCls  
