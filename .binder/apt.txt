@@ -4,12 +4,9 @@ ghostscript
 nano
 libgl1-mesa-dev
 xvfb
-gnuplot-x11  
-libfltk1.3-dev 
-libqscintilla2-qt5-dev 
-qtbase5-dev 
-qttools5-dev 
-qttools5-dev-tools 
+fltk
+qt
+
 
 
 
