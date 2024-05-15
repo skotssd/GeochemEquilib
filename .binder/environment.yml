@@ -1,8 +1,8 @@
 name: xeus-octave
 channels:
-	- conda-forge
+- conda-forge
 dependencies:
-	- xeus-octave
-	- octave_kernel
-  # For Plotly graphical toolkit
-	- plotly
+- xeus-octave
+- octave_kernel
+# For Plotly graphical toolkit
+- plotly
