@@ -58,6 +58,11 @@ Br- =  Br-
 	log_k 0
 	-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Br-
     
+I- =  I- 
+#	-llnl_gamma	3.0000	
+	log_k 0
+#	-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	I-    
+    
 Cl- =  Cl- 
 	#-llnl_gamma	3.0000	
 	log_k 0
