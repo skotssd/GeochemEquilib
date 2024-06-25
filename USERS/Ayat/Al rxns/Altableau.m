@@ -1,16 +1,20 @@
-function [,MASSERR]=Altableau(pH,pe,T,flag1,flag2,flag3,flag4,flag5)
+function [Al,Al(OH)3,MASSERR]=Agltableau(pH,pe,T,flag1,flag2,flag3,flag4,flag5)
 
 % input tableau.  change this part % ----------------------------------------------
 
 Tableau=[...
-%H      e        Ag        Cl     logK                                phase    species1 
+%H      e        Al        OH     logK                                phase    species1 
 1       0        0         0      0                                   0    {'H'}
 0       1        0         0      0                                   0    {'e'}
-0       0        1         0      0                                   0    {''}
-0       0        0         1      0                                   0    {''}
--1      0        0         0      -14                                 0    {'OH'}
+0       0        1         0      0                                   0    {'Al'}
+-1      0        0         1      -14                                 0    {'OH'}
+-1      0        1         1      -4.9571                             0    {'AlOH'}
+-2      0        1         2      -10.5945                            0    {'Al(OH)2'}
+-2      0        2         2      -7.6902                             0    {'Al2(OH)2'}
+-4      0        3         4      -13.8803                            0    {'Al3(OH)4'}
 %solids
-0       0        1         1      9.7453                              1    {'AgCls'}
+-3      0        1         3      7.7560                              1    {'Al(OH)3'}
+
 ];
 
 % end of tableau.  ------------------ % ----------------------------------------------
