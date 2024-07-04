@@ -1,0 +1,217 @@
+# started from llnl database and simplified it to just O, H and H2O and e-
+# the add in other species as necessary
+# here added Na, Ag, Cl elements and species
+
+LLNL_AQUEOUS_MODEL_PARAMETERS
+-temperatures
+         0.0100   25.0000   60.0000  100.0000
+       150.0000  200.0000  250.0000  300.0000
+#debye huckel a (adh)
+-dh_a
+         0.4939    0.5114    0.5465    0.5995
+         0.6855    0.7994    0.9593    1.2180
+#debye huckel b (bdh)
+-dh_b
+         0.3253    0.3288    0.3346    0.3421
+         0.3525    0.3639    0.3766    0.3925
+-bdot
+         0.0374    0.0410    0.0438    0.0460
+         0.0470    0.0470    0.0340    0.0000
+#cco2   (coefficients for the Drummond (1981) polynomial)
+-co2_coefs
+        -1.0312              0.0012806
+          255.9                 0.4445
+      -0.001606
+
+NAMED_EXPRESSIONS
+
+SOLUTION_MASTER_SPECIES ###########################################
+
+#element species        alk     gfw_formula     element_gfw
+Fe       Fe+2           0.0     Fe              55.847
+Fe(+2)   Fe+2           0.0     Fe
+Fe(+3)   Fe+3           -2.0    Fe
+E        e-             0.0     0.0             0.0
+H        H+             -1.     H               1.0079
+H(0)     H2             0.0     H
+H(+1)    H+             -1.     0.0
+Na       Na+            0.0     Na              22.9898
+O        H2O            0.0     O               15.994
+O(-2)    H2O            0.0     0.0
+O(0)     O2             0.0     O
+
+SOLUTION_SPECIES ####################################################
+Fe+2 =  Fe+2 
+	-llnl_gamma	6.0000	
+	log_k 0
+	-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Fe+2
+#	Enthalpy of formation:	-22.05 kcal/mol
+
+
+e- =  e- 
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	e-
+#	Enthalpy of formation:	-0 kJ/mol
+
+H+ =  H+ 
+	#-llnl_gamma	9.0000	
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	H+
+
+H2O =  H2O 
+	#-llnl_gamma	3.0000	
+        log_k   0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	H2O
+#	Enthalpy of formation:	-68.317 kcal/mol
+
+2H2O =  O2 + 4H+ + 4e-  
+	#-CO2_llnl_gamma
+ 	log_k      -85.9951
+	#-delta_H	559.543	kJ/mol	# Calculated enthalpy of reaction	O2
+
+Na+ =  Na+ 
+	#-llnl_gamma	4.0000	
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Na+
+#	Enthalpy of formation:	-57.433 kcal/mol
+
+1.0000 H2O  =  H2 +0.5000 O2   
+	#-CO2_llnl_gamma
+        log_k           -46.1066
+	#-delta_H	275.588	kJ/mol	# Calculated enthalpy of reaction	H2
+#	Enthalpy of formation:	-1 kcal/mol
+     #   -analytic 6.6835e+001 1.7172e-002 -1.8849e+004 -2.4092e+001 4.2501e+005
+#       -Range:  0-300
+
+
+1.0000 H+ + 1.0000 Fe++ + 0.2500 O2  =  Fe+++ +0.5000 H2O 
+        -llnl_gamma           9.0    
+        log_k           +8.4899
+	-delta_H	-97.209	kJ/mol	# Calculated enthalpy of reaction	Fe+3
+#	Enthalpy of formation:	-11.85 kcal/mol
+        -analytic -1.7808e+001 -1.1753e-002 4.7609e+003 5.5866e+000 7.4295e+001
+#       -Range:  0-300
+
+2.0000 H2O + 1.0000 Fe++  =  Fe(OH)2 +2.0000 H+
+        -llnl_gamma           3.0    
+        log_k           -20.6
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe(OH)2
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+2.0000 H2O + 1.0000 Fe+++  =  Fe(OH)2+ +2.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -5.67
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe(OH)2+
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+3.0000 H2O + 1.0000 Fe+++  =  Fe(OH)3 +3.0000 H+
+        -llnl_gamma           3.0    
+        log_k           -12
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe(OH)3
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+3.0000 H2O + 1.0000 Fe++  =  Fe(OH)3- +3.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -31
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe(OH)3-
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+4.0000 H2O + 1.0000 Fe+++  =  Fe(OH)4- +4.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -21.6
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe(OH)4-
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+4.0000 H2O + 1.0000 Fe++  =  Fe(OH)4-- +4.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -46
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe(OH)4-2
+#	Enthalpy of formation:	-0 kcal/mol
+
+ 
+2.0000 H2O + 2.0000 Fe+++  =  Fe2(OH)2++++ +2.0000 H+
+        -llnl_gamma           5.5    
+        log_k           -2.95
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe2(OH)2+4
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+4.0000 H2O + 3.0000 Fe+++  =  Fe3(OH)4+5 +4.0000 H+
+        -llnl_gamma           6.0    
+        log_k           -6.3
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Fe3(OH)4+5
+#	Enthalpy of formation:	-0 kcal/mol
+1.0000 H2O + 1.0000 Fe++  =  FeOH+ +1.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -9.5
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	FeOH+
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+1.0000 H2O + 1.0000 Fe+++  =  FeOH++ +1.0000 H+
+        -llnl_gamma           4.5    
+        log_k           -2.19
+	-delta_H	0	      	# Not possible to calculate enthalpy of reaction	FeOH+2
+#	Enthalpy of formation:	-0 kcal/mol
+
+#PHASES #############################################################################
+
+Fix_H+
+	H+ = H+ ; log_k	0.0
+Fix_pe
+	e- = e- ; log_k	0.0
+
+H2(g)
+	H2 = H2
+	log_k	-3.1050
+	#-delta_H	-4.184	kJ/mol	# Calculated enthalpy of reaction	H2(g)
+#	Enthalpy of formation:	0 kcal/mol
+	#-analytic   -9.3114e+000    4.6473e-003   -4.9335e+001    1.4341e+000    1.2815e+005
+#	-Range:	0-300
+
+H2O(g)
+        H2O  =  + 1.0000 H2O       
+        log_k           1.5854
+	#-delta_H	-43.4383	kJ/mol	# Calculated enthalpy of reaction	H2O(g)
+#	Enthalpy of formation:	-57.935 kcal/mol
+      #  -analytic -1.4782e+001 1.0752e-003 2.7519e+003 2.7548e+000 4.2945e+001
+#       -Range:  0-300
+
+Fe
+       Fe +2.0000 H+ +0.5000 O2  =  + 1.0000 Fe++ + 1.0000 H2O
+        log_k           59.0325
+	-delta_H	-372.029	kJ/mol	# Calculated enthalpy of reaction	Fe
+#	Enthalpy of formation:	0 kcal/mol
+        -analytic -6.2882e+001 -2.0379e-002 2.0690e+004 2.3673e+001 3.2287e+002
+#       -Range:  0-300
+
+Fe(OH)2
+       Fe(OH)2 +2.0000 H+  =  + 1.0000 Fe++ + 2.0000 H2O
+        log_k           13.9045
+	-delta_H	-95.4089	kJ/mol	# Calculated enthalpy of reaction	Fe(OH)2
+#	Enthalpy of formation:	-568.525 kJ/mol
+        -analytic -8.6666e+001 -1.8440e-002 7.5723e+003 3.2597e+001 1.1818e+002
+#       -Range:  0-300
+
+Fe(OH)3
+       Fe(OH)3 +3.0000 H+  =  + 1.0000 Fe+++ + 3.0000 H2O
+        log_k           5.6556
+	-delta_H	-84.0824	kJ/mol	# Calculated enthalpy of reaction	Fe(OH)3
+#	Enthalpy of formation:	-823.013 kJ/mol
+        -analytic -1.3316e+002 -3.1284e-002 7.9753e+003 4.9052e+001 1.2449e+002
+#       -Range:  0-300
+
+Goethite
+        FeOOH +3.0000 H+  =  + 1.0000 Fe+++ + 2.0000 H2O
+        log_k           0.5345
+	-delta_H	-61.9291	kJ/mol	# Calculated enthalpy of reaction	Goethite
+#	Enthalpy of formation:	-559.328 kJ/mol
+        -analytic -6.0331e+001 -1.0847e-002 4.7759e+003 1.9429e+001 8.1122e+001
+#       -Range:  0-200
+
+Magnetite
+        Fe3O4 +8.0000 H+  =  + 1.0000 Fe++ + 2.0000 Fe+++ + 4.0000 H2O
+        log_k           10.4724
+	-delta_H	-216.597	kJ/mol	# Calculated enthalpy of reaction	Magnetite
+#	Enthalpy of formation:	-267.25 kcal/mol
+        -analytic -3.0510e+002 -7.9919e-002 1.8709e+004 1.1178e+002 2.9203e+002
+#       -Range:  0-300
+END

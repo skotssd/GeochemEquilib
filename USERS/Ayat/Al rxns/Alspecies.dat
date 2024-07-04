@@ -1,0 +1,211 @@
+# started from llnl database and simplified it to just O, H and H2O and e-
+# the add in other species as necessary
+# here added Na, Ag, Cl elements and species
+
+LLNL_AQUEOUS_MODEL_PARAMETERS
+-temperatures
+         0.0100   25.0000   60.0000  100.0000
+       150.0000  200.0000  250.0000  300.0000
+#debye huckel a (adh)
+-dh_a
+         0.4939    0.5114    0.5465    0.5995
+         0.6855    0.7994    0.9593    1.2180
+#debye huckel b (bdh)
+-dh_b
+         0.3253    0.3288    0.3346    0.3421
+         0.3525    0.3639    0.3766    0.3925
+-bdot
+         0.0374    0.0410    0.0438    0.0460
+         0.0470    0.0470    0.0340    0.0000
+#cco2   (coefficients for the Drummond (1981) polynomial)
+-co2_coefs
+        -1.0312              0.0012806
+          255.9                 0.4445
+      -0.001606
+
+NAMED_EXPRESSIONS
+
+SOLUTION_MASTER_SPECIES ###########################################
+
+#element species        alk     gfw_formula     element_gfw
+Al       Al+3           0.0     Al              26.9815
+E        e-             0.0     0.0             0.0
+H        H+             -1.     H               1.0079
+H(0)     H2             0.0     H
+H(+1)    H+             -1.     0.0
+Na       Na+            0.0     Na              22.9898
+Cl       Cl-            0.0     Cl              35.4527
+O        H2O            0.0     O               15.994
+O(-2)    H2O            0.0     0.0
+O(0)     O2             0.0     O
+
+SOLUTION_SPECIES ####################################################
+
+Al+3 =  Al+3 
+	#-llnl_gamma	9.0000	
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Al+3
+#	Enthalpy of formation:	-128.681 kcal/mol
+
+e- =  e- 
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	e-
+#	Enthalpy of formation:	-0 kJ/mol
+
+H+ =  H+ 
+	#-llnl_gamma	9.0000	
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	H+
+
+H2O =  H2O 
+	#-llnl_gamma	3.0000	
+        log_k   0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	H2O
+#	Enthalpy of formation:	-68.317 kcal/mol
+
+2H2O =  O2 + 4H+ + 4e-  
+	#-CO2_llnl_gamma
+ 	log_k      -85.9951
+	#-delta_H	559.543	kJ/mol	# Calculated enthalpy of reaction	O2
+
+Cl- =  Cl- 
+	-llnl_gamma	3.0000	
+	log_k 0
+	-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Cl-
+#	Enthalpy of formation:	-39.933 kcal/mol
+
+Na+ =  Na+ 
+	#-llnl_gamma	4.0000	
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Na+
+#	Enthalpy of formation:	-57.433 kcal/mol
+
+1.0000 H2O  =  H2 +0.5000 O2   
+	#-CO2_llnl_gamma
+        log_k           -46.1066
+	#-delta_H	275.588	kJ/mol	# Calculated enthalpy of reaction	H2
+#	Enthalpy of formation:	-1 kcal/mol
+     #   -analytic 6.6835e+001 1.7172e-002 -1.8849e+004 -2.4092e+001 4.2501e+005
+#       -Range:  0-300
+
+
+2.0000 H2O + 1.0000 Al+++  =  Al(OH)2+ +2.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -10.5945
+	#-delta_H	98.2822	kJ/mol	# Calculated enthalpy of reaction	Al(OH)2+
+#	Enthalpy of formation:	-241.825 kcal/mol
+        -analytic 4.4036e+001 2.0168e-002 -5.5455e+003 -1.6987e+001 -8.6545e+001
+#       -Range:  0-300
+
+28.0000 H2O + 13.0000 Al+++  =  Al13O4(OH)24+7 +32.0000 H+
+        -llnl_gamma           6.0    
+        log_k           -98.73
+	#-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Al13O4(OH)24+7
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+2.0000 H2O + 2.0000 Al+++  =  Al2(OH)2++++ +2.0000 H+
+        -llnl_gamma           5.5    
+        log_k           -7.6902
+	#-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Al2(OH)2+4
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+4.0000 H2O + 3.0000 Al+++  =  Al3(OH)4+5 +4.0000 H+
+        -llnl_gamma           6.0    
+        log_k           -13.8803
+	#-delta_H	0	      	# Not possible to calculate enthalpy of reaction	Al3(OH)4+5
+#	Enthalpy of formation:	-0 kcal/mol
+ 
+2.0000 H2O + 1.0000 Al+++  =  AlO2- +4.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -22.8833
+	-delta_H	180.899	kJ/mol	# Calculated enthalpy of reaction	AlO2-
+#	Enthalpy of formation:	-222.079 kcal/mol
+        -analytic 1.0803e+001 -3.4379e-003 -9.7391e+003 0.0000e+000 0.0000e+000
+#       -Range:  0-300
+
+2.0000 H2O + 1.0000 Al+++  =  HAlO2 +3.0000 H+
+        -llnl_gamma           3.0    
+        log_k           -16.4329
+	-delta_H	144.704	kJ/mol	# Calculated enthalpy of reaction	HAlO2
+#	Enthalpy of formation:	-230.73 kcal/mol
+        -analytic 4.2012e+001 1.9980e-002 -7.7847e+003 -1.5470e+001 -1.2149e+002
+#       -Range:  0-300
+
+1.0000 H2O + 1.0000 Al+++  =  AlOH++ +1.0000 H+
+        -llnl_gamma           4.5    
+        log_k           -4.9571
+	#-delta_H	49.798	kJ/mol	# Calculated enthalpy of reaction	AlOH+2
+#	Enthalpy of formation:	-185.096 kcal/mol
+        -analytic -2.6224e-001 8.8816e-003 -1.8686e+003 -4.3195e-001 -2.9158e+001
+#       -Range:  0-300
+
+
+#PHASES #############################################################################
+
+Fix_H+
+	H+ = H+ ; log_k	0.0
+Fix_pe
+	e- = e- ; log_k	0.0
+
+H2(g)
+	H2 = H2
+	log_k	-3.1050
+	#-delta_H	-4.184	kJ/mol	# Calculated enthalpy of reaction	H2(g)
+#	Enthalpy of formation:	0 kcal/mol
+	#-analytic   -9.3114e+000    4.6473e-003   -4.9335e+001    1.4341e+000    1.2815e+005
+#	-Range:	0-300
+
+H2O(g)
+        H2O  =  + 1.0000 H2O       
+        log_k           1.5854
+	#-delta_H	-43.4383	kJ/mol	# Calculated enthalpy of reaction	H2O(g)
+#	Enthalpy of formation:	-57.935 kcal/mol
+      #  -analytic -1.4782e+001 1.0752e-003 2.7519e+003 2.7548e+000 4.2945e+001
+#       -Range:  0-300
+
+Al(g)
+        Al +3.0000 H+ +0.7500 O2  =  + 1.0000 Al+++ + 1.5000 H2O 
+        log_k           200.6258
+	#-delta_H	-1288.06	kJ/mol	# Calculated enthalpy of reaction	Al(g)
+#	Enthalpy of formation:	330 kJ/mol
+        -analytic 9.6402e+000 -6.9301e-003 6.5270e+004 -1.0461e+001 1.1084e+003
+#       -Range:  0-200
+
+Al
+       Al +3.0000 H+ +0.7500 O2  =  + 1.0000 Al+++ + 1.5000 H2O
+        log_k           149.9292
+	-delta_H	-958.059	kJ/mol	# Calculated enthalpy of reaction	Al
+#	Enthalpy of formation:	0 kJ/mol
+        -analytic -1.8752e+002 -4.6187e-002 5.7127e+004 6.6270e+001 -3.8952e+005
+#       -Range:  0-300
+
+AlO2H +3.0000 H+  =  + 1.0000 Al+++ + 2.0000 H2O
+        log_k           7.5642
+	#-delta_H	-113.282	kJ/mol	# Calculated enthalpy of reaction	Boehmite
+#	Enthalpy of formation:	-238.24 kcal/mol
+        -analytic -1.2196e+002 -3.1138e-002 8.8643e+003 4.4075e+001 1.3835e+002
+#       -Range:  0-300
+
+Al2O3 +6.0000 H+  =  + 2.0000 Al+++ + 3.0000 H2O
+        log_k           18.3121
+	#-delta_H	-258.626	kJ/mol	# Calculated enthalpy of reaction	Corundum
+#	Enthalpy of formation:	-400.5 kcal/mol
+        -analytic -1.4278e+002 -7.8519e-002 1.3776e+004 5.5881e+001 2.1501e+002
+#       -Range:  0-300
+
+AlHO2 +3.0000 H+  =  + 1.0000 Al+++ + 2.0000 H2O
+        log_k           7.1603
+	#-delta_H	-110.42	kJ/mol	# Calculated enthalpy of reaction	Diaspore
+#	Enthalpy of formation:	-238.924 kcal/mol
+        -analytic -1.2618e+002 -3.1671e-002 8.8737e+003 4.5669e+001 1.3850e+002
+#       -Range:  0-300
+
+ Al(OH)3 +3.0000 H+  =  + 1.0000 Al+++ + 3.0000 H2O
+        log_k           7.7560
+	#-delta_H	-102.788	kJ/mol	# Calculated enthalpy of reaction	Gibbsite
+#	Enthalpy of formation:	-309.065 kcal/mol
+        -analytic -1.1403e+002 -3.6453e-002 7.7236e+003 4.3134e+001 1.2055e+002
+#       -Range:  0-300
+
+
+END
