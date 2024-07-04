@@ -111,14 +111,23 @@ hdr = strtrim(regexp(fgetl(fid),'\t','split')); hdr=hdr(1:2*NOOFSOLIDS+length(sp
 mat = cell2mat(textscan(fid,repmat('%f',1,numel(hdr))));
 fclose(fid);
  
-out_PHREEQC=mat';
-[n,m]=size(out_PHREEQC); out_PHREEQC=out_PHREEQC(1:n-1,:); 
-solutionspeciesconcs=out_PHREEQC(1:length(speciesexport),2);
-%solutionspeciesconcs=selectedconcs(1:n-2*NOOFSOLIDS);
-solidconcs=out_PHREEQC(length(speciesexport)+1:end,2);
-speciesnames=(hdr(1:n-2*NOOFSOLIDS,1));
-solidnames=(hdr(n-2*NOOFSOLIDS+1:n,1));
- 
+out_PHREEQC=mat'; [n,m]=size(out_PHREEQC); 
+if m==1
+    % set these equal to NaN
+    speciesnames=(hdr(1:n-2*NOOFSOLIDS,1));
+    solutionspeciesconcs=NaN(size(speciesnames));
+    solidnames=(hdr(n-2*NOOFSOLIDS+1:n,1));
+    solidconcs=NaN(size(solidnames));
+end
+
+if m>1
+    out_PHREEQC=out_PHREEQC(1:n-1,:); 
+    solutionspeciesconcs=out_PHREEQC(1:length(speciesexport),2);
+    %solutionspeciesconcs=selectedconcs(1:n-2*NOOFSOLIDS);
+    solidconcs=out_PHREEQC(length(speciesexport)+1:end,2);
+    speciesnames=(hdr(1:n-2*NOOFSOLIDS,1));
+    solidnames=(hdr(n-2*NOOFSOLIDS+1:n,1));
+end
 
 indx=ones(size(solidconcs));
 for i=1:size(solidconcs,1)

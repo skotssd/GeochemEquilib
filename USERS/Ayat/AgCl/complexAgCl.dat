@@ -53,6 +53,11 @@ Cl- =  Cl-
 	#-llnl_gamma	3.0000	
 	log_k 0
 	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Cl-
+    
+Al3+ =  Al3+ 
+	#-llnl_gamma	3.0000	
+	log_k 0
+	#-delta_H	0	kJ/mol	# Calculated enthalpy of reaction	Cl-
 
 e- =  e- 
 	log_k 0
