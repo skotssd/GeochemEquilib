@@ -1,4 +1,4 @@
-function [Al,Al(OH)3,MASSERR]=Altableau(pH,pe,T,flag1,flag2,flag3,flag4,flag5)
+function [Al13,AlOH3,MASSERR]=Altableau(pH,pe,T,flag1,flag2,flag3,flag4,flag5)
 
 % input tableau.  change this part % ----------------------------------------------
 
@@ -9,11 +9,12 @@ Tableau=[...
 0       0        1           0                            0        {'Al'}
 -1      0        0           -14                          0        {'OH'}
 -1      0        1           -4.9571                      0        {'AlOH'}
--2      0        1           -10.5945                     0        {'Al(OH)2'}
--2      0        2           -7.6902                      0        {'Al2(OH)2'}
--4      0        3           -13.8803                     0        {'Al3(OH)4'}
+-2      0        1           -10.5945                     0        {'AlOH2'}
+-2      0        2           -7.6902                      0        {'Al2OH2'}
+-4      0        3           -13.8803                     0        {'Al3OH4'}
+-4      0        3           -98.73                       0        {'Al13'}
 %solid
--3      0        1           7.7560                       1        {'Al(OH)3'}
+-3      0        1           7.7560                       1        {'AlOH3'}
 ];
 
 % end of tableau.  ------------------ % ----------------------------------------------
