@@ -26,7 +26,7 @@ if flag1==1
          SOLIDNAMES(i,:)=tst;
      end
      
-     [C, SPECIATIONNAMES,MASSERR,X]=NRX(KSOLID,ASOLID,SOLIDNAMES,KSOLUTION,ASOLUTION,SOLUTIONNAMES,T,flag1,flag2);
+     [C, SPECIATIONNAMES,MASSERR,X]=NRX(KSOLID,ASOLID,SOLIDNAMES,KSOLUTION,ASOLUTION,SOLUTIONNAMES,T,flag1,flag2,flag3);
 end
 
 if flag1==2
@@ -63,7 +63,7 @@ end
 
 %---------------__SOLVERS ------NRX NRlogX PHREEQC -----------------------------------
 
-function [C, SPECIATIONNAMES,MASSERR,X]=NRX(KSOLID,ASOLID,SOLIDNAMES,KSOLUTION,ASOLUTION,SOLUTIONNAMES,T,flag1,flag2)
+function [C, SPECIATIONNAMES,MASSERR,X]=NRX(KSOLID,ASOLID,SOLIDNAMES,KSOLUTION,ASOLUTION,SOLUTIONNAMES,T,flag1,flag2,flag3)
 
 FACTOR=1; LOOP=1;  Xguess=T;%./(1.1^FACTOR)
 %loop here to get a decent initial guess based on totals
@@ -82,7 +82,7 @@ end
 
     %Xguess=T./10; 
     TYPX=Xguess;
-    [Xguess,masserr,J,RSI,C] = nl_massbalancerrnosolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX);
+    [Xguess,masserr,J,RSI,C] = nl_massbalancerrnosolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag3);
 %     masserr
 % pause
     if masserr>1e-4
@@ -164,91 +164,91 @@ end
 if flag5==1; load Xsolidsguess.mat; XguessN=X; TYPX=ones(size(X)); end
 
 [X,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(XguessN,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag2,flag3);
-if flag3==1; max(abs(masserr))    
+if flag3==1; max(abs(masserr)) ;   
 end
 %pause
 
 if max((abs(masserr)))>1e-7 % change pH to make a better initial guess
     %TYPX=T./10;
-    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.2
+    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.2;
     load originaltableau.mat
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pH(oKSOLUTION,oKSOLID,oASOLUTION,oASOLID,pH);
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pe(rKSOLUTION,rKSOLID,rASOLUTION,rASOLID,pe);
     [Xguess,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(XguessN,rASOLUTION,rKSOLUTION,rASOLID,rKSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
     [X,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
 end
 
 if max((abs(masserr)))>1e-7 % change pH to make a better initial guess
     %TYPX=T./10;
-    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.4
+    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.4;
     load originaltableau.mat
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pH(oKSOLUTION,oKSOLID,oASOLUTION,oASOLID,pH);
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pe(rKSOLUTION,rKSOLID,rASOLUTION,rASOLID,pe);
     [Xguess,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(XguessN,rASOLUTION,rKSOLUTION,rASOLID,rKSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
     [X,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
-    %pause
+    max(abs(masserr));
+    %pause;
 end
 
 if max((abs(masserr)))>1e-7 % change pH to make a better initial guess
     %TYPX=T./10
-    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.6
+    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.6;
     load originaltableau.mat
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pH(oKSOLUTION,oKSOLID,oASOLUTION,oASOLID,pH);
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pe(rKSOLUTION,rKSOLID,rASOLUTION,rASOLID,pe);
     [Xguess,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(XguessN,rASOLUTION,rKSOLUTION,rASOLID,rKSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
     [X,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
 end
 
 if max((abs(masserr)))>1e-7 % change pH to make a better initial guess
     %TYPX=T./10;
-    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.8
+    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-0.8;
     load originaltableau.mat
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pH(oKSOLUTION,oKSOLID,oASOLUTION,oASOLID,pH);
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pe(rKSOLUTION,rKSOLID,rASOLUTION,rASOLID,pe);
     [Xguess,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(XguessN,rASOLUTION,rKSOLUTION,rASOLID,rKSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
     [X,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
 end
 
 if max((abs(masserr)))>1e-7 % change pH to make a better initial guess
     %TYPX=T./10;
-    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-1
+    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-1;
     load originaltableau.mat
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pH(oKSOLUTION,oKSOLID,oASOLUTION,oASOLID,pH);
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pe(rKSOLUTION,rKSOLID,rASOLUTION,rASOLID,pe);
     [Xguess,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(XguessN,rASOLUTION,rKSOLUTION,rASOLID,rKSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
     [X,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
 end
 
 if max((abs(masserr)))>1e-7 % change pH to make a better initial guess
     %TYPX=T./10;
-    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-1.5
+    pH=-1*KSOLUTION(1); pe=-1*KSOLUTION(2); pH=pH-1.5;
     load originaltableau.mat
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pH(oKSOLUTION,oKSOLID,oASOLUTION,oASOLID,pH);
     [rKSOLUTION,rKSOLID,rASOLUTION,rASOLID]=get_equilib_fixed_pe(rKSOLUTION,rKSOLID,rASOLUTION,rASOLID,pe);
     [Xguess,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(XguessN,rASOLUTION,rKSOLUTION,rASOLID,rKSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
     [X,masserr,J,RSI,C] = NRlogXnl_massbalancerrsolid_NR(Xguess,ASOLUTION,KSOLUTION,ASOLID,KSOLID,T,TYPX,flag2,flag3);
-    max(abs(masserr))
+    max(abs(masserr));
     %pause
 end
 

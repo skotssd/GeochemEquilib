@@ -1,6 +1,6 @@
 
 
-function [X,F,J,RSI,C] = nl_massbalancerrnosolid_NR(X,Asolution,Ksolution,Asolid,Ksolid,T,TYPX)
+function [X,F,J,RSI,C] = nl_massbalancerrnosolid_NR(X,Asolution,Ksolution,Asolid,Ksolid,T,TYPX,flag3)
 
 [Nc,Nx]=size(Asolution); %Xsolution=X(1:Nx);
 
@@ -84,7 +84,9 @@ del=1/one_over_del; X=X+del*deltaX;
     
 tst=sum(abs(R));
 
-if COUNT>=100; tst=0; disp('X no ITER EXEED no solid logX'); end % just  make sure don't  have infinite loop
+if COUNT>=100; tst=0; 
+    if flag3==1; disp('X no ITER EXEED no solid X'); end
+end % just  make sure don't  have infinite loop
 
 end
 
