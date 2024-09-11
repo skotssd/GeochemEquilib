@@ -1,4 +1,4 @@
-# started from llnl database and simplified it to just O, H and H2O and e-
+A.# started from llnl database and simplified it to just O, H and H2O and e-
 # the add in other species as necessary
 # here added Na, Ag, Cl elements and species
 
@@ -46,10 +46,14 @@ Fe+2 =  Fe+2
 	-llnl_gamma	6.0000	
 	log_k 0
 
+Fe+2 = Fe+3 + e-
+        log_k           -13.020
+        delta_h 9.680   kcal
+        -gamma    9.0000    0.0000
+        
 1.0000 H+ + 1.0000 Fe++ + 0.2500 O2  =  Fe+++ +0.5000 H2O 
         -llnl_gamma           9.0    
-        log_k           +8.4899
-
+        log_k           +8.4899   
 e- =  e- 
 	log_k 0
 
@@ -61,7 +65,6 @@ H2O =  H2O
 	#-llnl_gamma	3.0000	
         log_k   0
 
-
 2H2O =  O2 + 4H+ + 4e-  
 	#-CO2_llnl_gamma
  	log_k      -85.9951
@@ -71,11 +74,13 @@ Na+ =  Na+
 	#-llnl_gamma	4.0000	
 	log_k 0
 
-
 1.0000 H2O  =  H2 +0.5000 O2   
 	#-CO2_llnl_gamma
         log_k           -46.1066
 
+1.0000 H2O + 1.0000 Fe+++  =  FeOH++ +1.0000 H+
+       # -llnl_gamma           4.5    
+        log_k           -2.19
 
 2.0000 H2O + 1.0000 Fe+++  =  Fe(OH)2+ +2.0000 H+
        # -llnl_gamma           4.0    
@@ -83,7 +88,7 @@ Na+ =  Na+
 
 3.0000 H2O + 1.0000 Fe+++  =  Fe(OH)3 +3.0000 H+
        # -llnl_gamma           3.0    
-        log_k           -12
+        log_k           -12.56
  
 4.0000 H2O + 1.0000 Fe+++  =  Fe(OH)4- +4.0000 H+
        # -llnl_gamma           4.0    
@@ -97,17 +102,35 @@ Na+ =  Na+
        # -llnl_gamma           6.0    
         log_k           -6.3
 
-1.0000 H2O + 1.0000 Fe+++  =  FeOH++ +1.0000 H+
-       # -llnl_gamma           4.5    
-        log_k           -2.19
+
+
+1.0000 H2O + 1.0000 Fe++  =  FeOH+ +1.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -9.5
+        
+2.0000 H2O + 1.0000 Fe++  =  Fe(OH)2 +2.0000 H+
+        -llnl_gamma           3.0    
+        log_k           -20.6
+ 
+3.0000 H2O + 1.0000 Fe++  =  Fe(OH)3- +3.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -31
+ 
+4.0000 H2O + 1.0000 Fe++  =  Fe(OH)4-- +4.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -46
+ 
+1.0000 H2O + 1.0000 Fe++  =  FeOH+ +1.0000 H+
+        -llnl_gamma           4.0    
+        log_k           -9.5
 
 
 #PHASES #############################################################################
 
 Fix_H+
-	H+ = H+ ; log_k	0.0
+H+ = H+ ; log_k 0.0
 Fix_pe
-	e- = e- ; log_k	0.0
+e- = e- ; log_k 0.0
 
 #H2(g)
 #	H2 = H2
@@ -122,5 +145,9 @@ Fix_pe
 Fe(OH)3
        Fe(OH)3 +3.0000 H+  =  + 1.0000 Fe+++ + 3.0000 H2O
         log_k           5.6556
+Fe(OH)2
+       Fe(OH)2 +2.0000 H+  =  + 1.0000 Fe++ + 2.0000 H2O
+        log_k           13.9045
+
 
 END
