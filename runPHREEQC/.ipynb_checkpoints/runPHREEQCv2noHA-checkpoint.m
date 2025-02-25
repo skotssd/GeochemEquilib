@@ -1,7 +1,7 @@
 function [solutionspeciesconcs, speciesnames, SOLIDconcs, SOLIDnames]=...
     runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid);
 
-NOOFSOLIDS=size(minerals,1);
+NOOFSOLIDS=size(minerals,1); %also CO2(g) if present
 
 % Construct the text file to run PHREEQC from MATLAB-------------------
 fileID=fopen('runphreeqc.txt','w');
@@ -43,7 +43,11 @@ fprintf(fileID,'\n');
 % define equilibrium phases (solids, fix pH, pe) -------------------------
 fprintf(fileID,'EQUILIBRIUM_PHASES 1\n'); 
  for i=1:NOOFSOLIDS
+     tst=cell2mat(minerals(i)); T=startsWith(minerals(i),"CO2(g)"); if T==1
+    phasestxt=[cell2mat(minerals(i)), '   -3.5\n'];
+    else
     phasestxt=[cell2mat(minerals(i)), '   0.0   0\n'];
+    end
     fprintf(fileID,phasestxt);
  end
 pHfixline=['       Fix_H+ -',num2str(pH),'          ',acid,' 10.0\n']; 

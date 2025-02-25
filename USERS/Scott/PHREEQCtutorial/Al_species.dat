@@ -1,0 +1,137 @@
+#  $Id: llnl.dat 4023 2010-02-09 21:02:42Z dlpark $
+#Data are from 'thermo.com.V8.R6.230' prepared by Jim Johnson at
+#Lawrence Livermore National Laboratory, in Geochemist's Workbench
+#format. Converted to Phreeqc format by Greg Anderson with help from
+#David Parkhurst. A few organic species have been omitted.  
+
+#Delta H of reaction calculated from Delta H of formations given in
+#thermo.com.V8.R6.230 (8 Mar 2000).
+
+#Note that species have various valid temperature ranges, noted in
+#the Range parameter. However, Phreeqc at present makes no use of
+#this parameter, so it is the user's responsibility to remain in the
+#valid temperature range for all the data used.
+
+#This version is relatively untested. Kindly send comments or
+#corrections to Greg Anderson at greg@geology.utoronto.ca.
+
+LLNL_AQUEOUS_MODEL_PARAMETERS
+-temperatures
+         0.0100   25.0000   60.0000  100.0000
+       150.0000  200.0000  250.0000  300.0000
+#debye huckel a (adh)
+-dh_a
+         0.4939    0.5114    0.5465    0.5995
+         0.6855    0.7994    0.9593    1.2180
+#debye huckel b (bdh)
+-dh_b
+         0.3253    0.3288    0.3346    0.3421
+         0.3525    0.3639    0.3766    0.3925
+-bdot
+         0.0374    0.0410    0.0438    0.0460
+         0.0470    0.0470    0.0340    0.0000
+#cco2   (coefficients for the Drummond (1981) polynomial)
+-co2_coefs
+        -1.0312              0.0012806
+          255.9                 0.4445
+      -0.001606
+NAMED_EXPRESSIONS
+#
+# formation of O2 from H2O 
+# 2H2O =  O2 + 4H+ + 4e-  
+#
+	Log_K_O2
+	 	log_k      -85.9951
+		-delta_H	559.543	kJ/mol	# Calculated enthalpy of reaction	O2
+#	Enthalpy of formation:	-2.9 kcal/mol
+	        -analytic   38.0229    7.99407E-03   -2.7655e+004  -1.4506e+001  199838.45
+#	Range:  0-300
+
+
+SOLUTION_MASTER_SPECIES
+
+#element species        alk     gfw_formula     element_gfw
+
+Al       Al+3           0.0     Al              26.9815
+E        e-             0.0     0.0             0.0
+H        H+             -1.     H               1.0079
+H(0)     H2             0.0     H
+H(+1)    H+             -1.     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+O        H2O            0.0     O               15.994
+O(-2)    H2O            0.0     0.0
+O(0)     O2             0.0     O
+
+
+SOLUTION_SPECIES
+
+Al+3 =  Al+3 
+    log_k 0
+
+Cl- =  Cl- 
+    log_k 0
+
+H2O =  H2O 
+    log_k   0
+
+e- =  e- 
+    log_k 0
+
+H+ =  H+ 
+    log_k 0
+
+H2O =  H2O 
+   log_k   0
+
+2H2O =  O2 + 4H+ + 4e-  
+    log_k      -85.9951
+
+1.0000 H2O  =  OH- +1.0000 H+
+    log_k           -13.9951
+
+1.0000 H2O  =  H2 +0.5000 O2   
+    log_k           -46.1066
+
+2.0000 H2O + 1.0000 Al+++  =  Al(OH)2+ +2.0000 H+
+    log_k           -10.5945
+
+28.0000 H2O + 13.0000 Al+++  =  Al13O4(OH)24+7 +32.0000 H+
+    log_k           -98.73
+
+2.0000 H2O + 2.0000 Al+++  =  Al2(OH)2++++ +2.0000 H+
+    log_k           -7.6902
+ 
+4.0000 H2O + 3.0000 Al+++  =  Al3(OH)4+5 +4.0000 H+
+    log_k           -13.8803
+
+1.0000 H2O + 1.0000 Al+++  =  AlOH++ +1.0000 H+
+    log_k           -4.9571
+
+# from PHREEQC database
+
+Al+3 + 4 H2O = Al(OH)4- + 4 H+
+	-log_k	-22.7
+#	-delta_h 42.30	kcal
+#	-analytic	51.578	0.0	-11168.9	-14.865
+
+
+PHASES #############################################################################
+
+Fix_H+
+    H+ = H+ ; log_k 0.0
+Fix_pe
+    e- = e- ; log_k 0.0
+
+#H2(g)
+#    H2 = H2
+#    log_k      -3.1050
+
+
+#H2O(g)
+#        H2O  =  + 1.0000 H2O       
+#        log_k           1.5854
+
+Gibbsite
+        Al(OH)3 +3.0000 H+  =  + 1.0000 Al+++ + 3.0000 H2O
+        log_k           7.7560
