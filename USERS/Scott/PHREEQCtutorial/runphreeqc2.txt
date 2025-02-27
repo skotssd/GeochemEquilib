@@ -1,0 +1,39 @@
+SOLUTION_SPECIES
+H2O + 0.01e- = H2O-0.01
+log_k   -9.0
+
+SOLUTION 1
+       pe      13.75
+       pH      7 
+       Alkalinity 0.002
+       temp      25
+-units mol/kgw
+Ca 0.001 
+
+KNOBS
+-iterations 200
+
+EQUILIBRIUM_PHASES 1
+CO2(g)   -3.5
+SELECTED_OUTPUT
+-file selected.out
+-selected_out true
+-user_punch true
+-high_precision true
+-reset false
+-simulation false
+-state false
+-distance false
+-time false
+-step false
+-ph false
+-pe false
+-reaction false
+-temperature false
+-alkalinity false
+-ionic_strength false
+-water false
+-charge_balance false
+-percent_error false
+-molalities H+  
+-equilibrium_phases CO2(g)  
