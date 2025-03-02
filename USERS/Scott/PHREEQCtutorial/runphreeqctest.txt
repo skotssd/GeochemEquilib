@@ -1,0 +1,58 @@
+RATES
+Portlandite
+-start
+1   REM   PARM(1) = rate constant
+10  si_pp = SI("Portlandite")
+20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
+120 rate = PARM(1) *M* (1 - 10^(si_pp))
+200 SAVE moles
+   -end
+END
+
+EQUILIBRIUM_PHASES 1
+CO2(g)   -3.5
+END
+
+SOLUTION 1
+       pe      13.75
+       pH      7
+       temp      25
+-units mol/kgw
+END
+
+
+SELECTED_OUTPUT
+-file selected.out
+-selected_out true
+-user_punch true
+-high_precision true
+-reset false
+-simulation false
+-state false
+-distance false
+-time false
+-step false
+-ph false
+-pe false
+-reaction false
+-temperature false
+-alkalinity false
+-ionic_strength false
+-water false
+-charge_balance false
+-percent_error false
+-molalities H+ Ca+2  
+-equilibrium_phases CO2(g)  
+END
+
+
+KINETICS 1
+Portlandite
+  -tol   1e-8
+  -m0    10
+  -m     10
+  -parms 1e-3  # simple rate constant
+  -steps 1 2 3 4 5 6 7 8 9 10 day
+  -cvode
+ USE solution 1
+ USE equilibrium_phases 1

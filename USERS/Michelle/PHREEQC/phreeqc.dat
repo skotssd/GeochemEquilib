@@ -1,0 +1,11 @@
+   Input file: carbonate_distribution.pqi
+  Output file: phreeqc.dat
+Database file: phreeqc.dat
+
+------------------
+Reading data base.
+------------------
+
+ERROR: H2O not defined.
+ERROR: Neither H+ nor H3O+ are defined in solution_species.
+Stopping.

@@ -1,5 +1,5 @@
 function [solutionspeciesconcs, speciesnames, SOLIDconcs, SOLIDnames]=...
-    runPHREEQCv2noHA(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid,pHfixedcheck);
+    runPHREEQCv3(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid,pHfixedcheck);
 
 NOOFSOLIDS=size(minerals,1); %also CO2(g) if present
 
