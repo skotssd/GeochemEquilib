@@ -1,0 +1,11 @@
+SOLUTION 1
+    temp 25
+    pH 2.00
+    pe 20.75
+    units mol/kgw
+    C(4) 1.00000e-03
+SELECTED_OUTPUT
+    -file output.txt
+    -reset false
+    -molalities CO2(aq) HCO3- CO3-2
+END

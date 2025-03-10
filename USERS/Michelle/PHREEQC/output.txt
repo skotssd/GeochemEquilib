@@ -1,0 +1,105 @@
+   m_CO2(aq)	     m_HCO3-	     m_CO3-2	
+  0.0000e+00	  4.0109e-08	  2.3636e-16	
+c.dat
+
+------------------
+Reading data base.
+------------------
+
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES
+	EXCHANGE_MASTER_SPECIES
+	EXCHANGE_SPECIES
+	SURFACE_MASTER_SPECIES
+	SURFACE_SPECIES
+	RATES
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	SOLUTION 1
+	    temp 25
+	    pH 2.00
+	    pe 20.75
+	    units mol/kgw
+	    C(4) 1.00000e-03
+	SELECTED_OUTPUT
+	    file output.txt
+	    reset false
+	    molalities CO2(aq) HCO3- CO3-2
+	END
+WARNING: Did not find species, CO2(aq).
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+WARNING: Maximum iterations exceeded, 100
+
+WARNING: Maximum iterations exceeded, 100
+
+WARNING: The program has failed to converge to a numerical solution.
+
+The following equations were not satisfied:
+ERROR:                 C(4) has not converged. Total: 1.000000e-03	Calculated: 8.346805e-04	Residual: 1.653195e-04
+
+ERROR:               A(H2O) Activity of water has not converged. 	Residual: 1.700020e+01
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C(4)              8.347e-04   8.347e-04
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   2.000    
+                                       pe  =  20.750    
+      Specific Conductance (µS/cm,  25°C)  = 3556
+                          Density (g/cm³)  =  32.90247   (Program limit)
+                               Volume (L)  =   1.00297
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   5.366e-03
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -1.073e-02
+                       Total CO2 (mol/kg)  =   8.347e-04
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   1.073e-02
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  = 100.00
+                               Iterations  = 101
+                                  Total H  = 1.110232e+02
+                                  Total O  = 2.055508e+03
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              1.073e-02   1.000e-02    -1.969    -2.000    -0.031      0.00
+   OH-             1.084e-12   1.001e-12   -11.965   -12.000    -0.034     (0)  
+   H2O             5.551e+01   1.000e+00     1.744     0.000     0.000     18.07
+C(4)          8.347e-04
+   CO2             8.346e-04   8.357e-04    -3.079    -3.078     0.001     (0)  
+   HCO3-           4.011e-08   3.717e-08    -7.397    -7.430    -0.033     24.37
+   CO3-2           2.364e-16   1.743e-16   -15.626   -15.759    -0.132     -3.47
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -48.651   -48.650     0.001     (0)  
+O(0)          2.000e+03
+   O2              1.000e+03   1.000e+03     4.919     4.920     0.001     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  CO2(g)           -1.61     -3.08   -1.47  CO2
+  H2(g)           -45.50    -48.65   -3.15  H2
+  H2O(g)           -1.51      0.00    1.51  H2O
+  O2(g)             7.81      4.92   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+ERROR: Model failed to converge for initial solution  1.
+Stopping.
