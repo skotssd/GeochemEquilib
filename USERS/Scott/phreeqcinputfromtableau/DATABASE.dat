@@ -10,6 +10,8 @@ O        H2O            0.0     O               16.00
 O(0)     O2             0.0     O
 O(-2)    H2O            0.0     0.0
   
+Al		Al+3			  0 	 1 				 1 
+ 
 SOLUTION_SPECIES
 # use -gamma 1e10 0.0 to counteract automatic activity correction
   
@@ -35,13 +37,7 @@ H2O = OH- + H+
         log_k           -3.15
         -gamma          1e10     0.0
   
-PHASES  
-  
-O2(g)
-        O2 = O2
-        log_k           -2.960
-  
-H2(g) 
-        H2 = H2
-        log_k           -3.150
-
+Al+3=Al+3
+log_k=0.000
+-gamma  1e10 0.0
+ 
