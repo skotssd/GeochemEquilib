@@ -10,7 +10,7 @@ O        H2O            0.0     O               16.00
 O(0)     O2             0.0     O
 O(-2)    H2O            0.0     0.0
   
-Al		Al+3			  0 	 1 				 1 
+H		H+			  0 	 1 				 1e		e-			  0 	 1 				 1Al		Al+3			  0 	 1 				 1 
  
 SOLUTION_SPECIES
 # use -gamma 1e10 0.0 to counteract automatic activity correction
@@ -37,7 +37,44 @@ H2O = OH- + H+
         log_k           -3.15
         -gamma          1e10     0.0
   
+H+=H+
+log_k=0.000
+-gamma  1e10 0.0
+ 
+e-=e-
+log_k=0.000
+-gamma  1e10 0.0
+ 
 Al+3=Al+3
 log_k=0.000
 -gamma  1e10 0.0
+ 
+2H2O  + Al+3 = Al(OH)2+ + 2OH-  
+log_k=-10.5945
+-gamma  1e10 0.0
+ 
+1H2O  + Al+3 = Al(OH)+2 
+log_k=-4.9571
+-gamma  1e10 0.0
+ 
+4H2O  + Al+3 = Al(OH)4- + 4OH-  
+log_k=-22.7
+-gamma  1e10 0.0
+ 
+2H2O  + Al+3 = Al2(OH)2+4 + 2OH-  
+log_k=-7.7902
+-gamma  1e10 0.0
+ 
+4H2O  + Al+3 = Al3(OH)4+5 + 4OH-  
+log_k=-13.8803
+-gamma  1e10 0.0
+ 
+32H2O  + Al+3 = Al13(OH)32+7 + 32OH-  
+log_k=-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Al(OH)3s 
+3H2O  + Al+3 = Al(OH)3 + 3OH-  
+log_k=-7.756
  
