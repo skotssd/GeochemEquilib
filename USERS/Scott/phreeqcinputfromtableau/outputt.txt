@@ -1,0 +1,51 @@
+   Input file: runphreeqc.txt
+  Output file: outputt.txt
+Database file: DATABASE.dat
+
+------------------
+Reading data base.
+------------------
+
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=0.000
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=0.000
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=0.000
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=-10.5945
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=-4.9571
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=-22.7
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=-7.7902
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=-13.8803
+ERROR: No reaction defined before option, gamma.
+ERROR: NULL string detected in get_token, .
+ERROR: Parsing equation.
+ERROR: log_k=-98.73
+ERROR: No reaction defined before option, gamma.
+	PHASES 
+ERROR: Elements in species have not been tabulated, Al(OH)3.
+ERROR: Reaction for species has not been defined, Al(OH)3.
+ERROR: Calculations terminating due to input errors.
+Stopping.

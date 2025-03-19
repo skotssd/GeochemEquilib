@@ -9,8 +9,10 @@ E        e-             0.0     0.0             0.0
 O        H2O            0.0     O               16.00
 O(0)     O2             0.0     O
 O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
   
-H		H+			  0 	 1 				 1e		e-			  0 	 1 				 1Al		Al+3			  0 	 1 				 1 
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
  
 SOLUTION_SPECIES
 # use -gamma 1e10 0.0 to counteract automatic activity correction
@@ -25,6 +27,9 @@ e- = e-
 H2O = H2O
         log_k           0.000
   
+Cl- =  Cl- 
+    log_k 0
+  
 H2O = OH- + H+
         log_k           -14.000
         -gamma          1e10     0.0
@@ -37,44 +42,8544 @@ H2O = OH- + H+
         log_k           -3.15
         -gamma          1e10     0.0
   
-H+=H+
-log_k=0.000
--gamma  1e10 0.0
- 
-e-=e-
-log_k=0.000
--gamma  1e10 0.0
- 
 Al+3=Al+3
-log_k=0.000
+log_k 	 0.000
 -gamma  1e10 0.0
  
-2H2O  + Al+3 = Al(OH)2+ + 2OH-  
-log_k=-10.5945
+Cl-=Cl-
+log_k 	 0.000
 -gamma  1e10 0.0
  
-1H2O  + Al+3 = Al(OH)+2 
-log_k=-4.9571
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
 -gamma  1e10 0.0
  
-4H2O  + Al+3 = Al(OH)4- + 4OH-  
-log_k=-22.7
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
 -gamma  1e10 0.0
  
-2H2O  + Al+3 = Al2(OH)2+4 + 2OH-  
-log_k=-7.7902
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
 -gamma  1e10 0.0
  
-4H2O  + Al+3 = Al3(OH)4+5 + 4OH-  
-log_k=-13.8803
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
 -gamma  1e10 0.0
  
-32H2O  + Al+3 = Al13(OH)32+7 + 32OH-  
-log_k=-98.73
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
 -gamma  1e10 0.0
  
 PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
 Al(OH)3s 
-3H2O  + Al+3 = Al(OH)3 + 3OH-  
-log_k=-7.756
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
+ 
+SOLUTION_MASTER_SPECIES
+  
+#element species        alk     gfw_formula     element_gfw
+  
+H        H+             -1.     H               1.008
+H(0)     H2             0.0     H
+H(1)     H+             -1.     0.0
+E        e-             0.0     0.0             0.0
+O        H2O            0.0     O               16.00
+O(0)     O2             0.0     O
+O(-2)    H2O            0.0     0.0
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+  
+Al		Al+3			  0 	 1 				 1Cl		Cl-			  0 	 1 				 1 
+ 
+SOLUTION_SPECIES
+# use -gamma 1e10 0.0 to counteract automatic activity correction
+  
+H+ = H+
+      log_k           0.000
+      -gamma          1e10     0.0
+  
+e- = e-
+        log_k           0.000
+  
+H2O = H2O
+        log_k           0.000
+  
+Cl- =  Cl- 
+    log_k 0
+  
+H2O = OH- + H+
+        log_k           -14.000
+        -gamma          1e10     0.0
+  
+2 H2O = O2 + 4 H+ + 4 e-
+        log_k           -86.08
+        -gamma          1e10     0.0
+  
+2 H+ + 2 e- = H2
+        log_k           -3.15
+        -gamma          1e10     0.0
+  
+Al+3=Al+3
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+Cl-=Cl-
+log_k 	 0.000
+-gamma  1e10 0.0
+ 
+2 H2O  + 1Al+3 = Al(OH)2+ + 2 H+  
+log_k	-10.5945
+-gamma  1e10 0.0
+ 
+1 H2O  + 1Al+3 = Al(OH)+2 + 1 H+  
+log_k	-4.9571
+-gamma  1e10 0.0
+ 
+4 H2O  + 1Al+3 = Al(OH)4- + 4 H+  
+log_k	-22.7
+-gamma  1e10 0.0
+ 
+2 H2O  + 2Al+3 = Al2(OH)2+4 + 2 H+  
+log_k	-7.7902
+-gamma  1e10 0.0
+ 
+4 H2O  + 3Al+3 = Al3(OH)4+5 + 4 H+  
+log_k	-13.8803
+-gamma  1e10 0.0
+ 
+32 H2O  + 13Al+3 = Al13(OH)32+7 + 32 H+  
+log_k	-98.73
+-gamma  1e10 0.0
+ 
+PHASES 
+Fix_H+
+	 H+ = H+ ; log_k 0.0
+Fix_pe
+	 e- = e- ; log_k 0.0
+Al(OH)3s 
+Al(OH)3 + 3 H+  = 3H2O  + Al+3 
+log_k	7.756
  
