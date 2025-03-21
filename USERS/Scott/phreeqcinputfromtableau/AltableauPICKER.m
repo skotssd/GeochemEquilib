@@ -1,4 +1,4 @@
-function [Alp3,AlLOHR3s,Al13LOHR32p7,AlLOHR4m,MASSERR]=AltableauPICKER(pH,pe,T,flag0,flag1,flag2,flag3,flag4,flag5)
+function [Alp3,AlLOHR3s,Al13LOHR32p7,AlLOHR4m,Al2LOHR2p4,Al3LOHR4p5,MASSERR]=AltableauPICKER(pH,pe,T,flag0,flag1,flag2,flag3,flag4,flag5)
 
 % input tableau.  change this part % ----------------------------------------------
 
