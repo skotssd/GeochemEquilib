@@ -1,4 +1,4 @@
-   Input file: runphreeqc.txt
+   Input file: runphreeqcTST.txt
   Output file: outputt.txt
 Database file: DATABASE.dat
 
@@ -8,44 +8,515 @@ Reading data base.
 
 	SOLUTION_MASTER_SPECIES
 	SOLUTION_SPECIES
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=0.000
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=0.000
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=0.000
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=-10.5945
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=-4.9571
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=-22.7
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=-7.7902
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=-13.8803
-ERROR: No reaction defined before option, gamma.
-ERROR: NULL string detected in get_token, .
-ERROR: Parsing equation.
-ERROR: log_k=-98.73
-ERROR: No reaction defined before option, gamma.
 	PHASES 
-ERROR: Elements in species have not been tabulated, Al(OH)3.
-ERROR: Reaction for species has not been defined, Al(OH)3.
-ERROR: Calculations terminating due to input errors.
-Stopping.
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES 
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	SOLUTION 1
+	       pe      8.75
+	       pH      7
+	       temp      25
+	       units mol/kgw
+	       Al 0.0001 
+	       Cl 0.0003 
+	END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Al                1.000e-04   1.000e-04
+	Cl                3.000e-04   3.000e-04
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   8.750    
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   3.128e-04
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   2.743e-04
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -2.743e-04
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  = -75.63
+                               Iterations  =  16
+                                  Total H  = 1.110127e+02
+                                  Total O  = 5.550649e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma    cm³/mol
+
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   OH-             1.000e-07   1.000e-07    -7.000    -7.000    -0.000     (0)  
+   H2O             5.551e+01   1.000e+00     1.744    -0.000     0.000     18.07
+Al            1.000e-04
+   Al(OH)4-        1.835e-05   1.835e-05    -4.736    -4.736    -0.000     (0)  
+   Al13(OH)32+7    6.262e-06   6.262e-06    -5.203    -5.203    -0.000     (0)  
+   Al(OH)2+        2.339e-07   2.339e-07    -6.631    -6.631    -0.000     (0)  
+   Al(OH)+2        1.015e-08   1.015e-08    -7.994    -7.994    -0.000     (0)  
+   Al+3            9.196e-11   9.196e-11   -10.036   -10.036    -0.000     (0)  
+   Al2(OH)2+4      1.371e-14   1.371e-14   -13.863   -13.863    -0.000     (0)  
+   Al3(OH)4+5      1.024e-16   1.024e-16   -15.990   -15.990    -0.000     (0)  
+Cl(-1)        3.000e-04
+   Cl-             3.000e-04   3.000e-04    -3.523    -3.523    -0.000     (0)  
+H(0)          4.477e-35
+   H2              2.239e-35   2.239e-35   -34.650   -34.650     0.000     (0)  
+O(0)          1.664e-23
+   O2              8.318e-24   8.318e-24   -23.080   -23.080     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  Al(OH)3s          3.21     10.96    7.76  Al(OH)3
+  Fix_H+           -7.00     -7.00    0.00  H+
+  Fix_pe           -8.75     -8.75    0.00  e-
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+	USE solution 1
+	KNOBS
+	iterations 200
+	EQUILIBRIUM_PHASES 1
+	Al(OH)3s   0.0   0
+	Fix_H+ -7  HCl 10.0
+	force_equality true
+	Fix_pe -8.75 O2
+	force_equality true
+	PHASES
+	Fix_H+
+	H+ = H+ 
+	 log_k 0.0
+	Fix_pe
+	e- = e- 
+	 log_k 0.0
+	SELECTED_OUTPUT
+	file selectedtst.out
+	selected_out true
+	user_punch true
+	high_precision true
+	reset false
+	simulation false
+	state false
+	distance false
+	time false
+	step false
+	ph false
+	pe false
+	reaction false
+	temperature false
+	alkalinity false
+	ionic_strength false
+	water false
+	charge_balance false
+	percent_error false
+	USER_PUNCH
+	headings  Al+3     Al13(OH)32+7	        Al(OH)3s  
+	start
+	10 PUNCH MOL("Al+3"),  MOL("Al13(OH)32+7"), EQUI_DELTA("Al(OH)3s") 
+	end
+-----------------------------------------
+Beginning of batch-reaction calculations.
+-----------------------------------------
+
+Reaction step 1.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+Al(OH)3s          0.00     7.76      7.76    0.000e+00   9.999e-05   9.999e-05
+Fix_H+           -7.00    -7.00      0.00
+	 HCl                is reactant       1.000e+01   1.000e+01   2.575e-05
+Fix_pe           -8.75    -8.75      0.00
+	 O2                 is reactant       1.000e+01   1.000e+01   0.000e+00
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Al                1.153e-08   1.153e-08
+	Cl                2.742e-04   2.742e-04
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000      Charge balance
+                                       pe  =   8.750      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   1.372e-04
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   4.580e-08
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -2.743e-04
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  = -99.93
+                               Iterations  =   7
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550619e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma    cm³/mol
+
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   OH-             1.000e-07   1.000e-07    -7.000    -7.000    -0.000     (0)  
+   H2O             5.551e+01   1.000e+00     1.744    -0.000     0.000     18.07
+Al            1.153e-08
+   Al(OH)4-        1.138e-08   1.138e-08    -7.944    -7.944    -0.000     (0)  
+   Al(OH)2+        1.450e-10   1.450e-10    -9.838    -9.838    -0.000     (0)  
+   Al(OH)+2        6.294e-12   6.294e-12   -11.201   -11.201    -0.000     (0)  
+   Al+3            5.702e-14   5.702e-14   -13.244   -13.244    -0.000     (0)  
+   Al2(OH)2+4      5.270e-21   5.270e-21   -20.278   -20.278    -0.000     (0)  
+   Al3(OH)4+5      2.442e-26   2.442e-26   -25.612   -25.612    -0.000     (0)  
+   Al13(OH)32+7    0.000e+00   0.000e+00   -46.902   -46.902    -0.000     (0)  
+Cl(-1)        2.742e-04
+   Cl-             2.742e-04   2.742e-04    -3.562    -3.562    -0.000     (0)  
+H(0)          4.477e-35
+   H2              2.239e-35   2.239e-35   -34.650   -34.650     0.000     (0)  
+O(0)          1.664e-23
+   O2              8.318e-24   8.318e-24   -23.080   -23.080     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  Al(OH)3s          0.00      7.76    7.76  Al(OH)3
+  Fix_H+           -7.00     -7.00    0.00  H+
+  Fix_pe           -8.75     -8.75    0.00  e-
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 3.
+------------------------------------
+
+----------------------------------
+End of Run after 0.009332 Seconds.
+----------------------------------
+

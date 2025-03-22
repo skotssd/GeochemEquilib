@@ -9,7 +9,10 @@ E        e-             0.0     0.0             0.0
 O        H2O            0.0     O               16.00
 O(0)     O2             0.0     O
 O(-2)    H2O            0.0     0.0
-  
+Cl       Cl-            0.0     Cl              35.4527
+Cl(-1)   Cl-            0       Cl
+Na	   Na+ 	          0.0     Na		22.9898
+
 SOLUTION_SPECIES
 # use -gamma 1e10 0.0 to counteract automatic activity correction
   
@@ -34,9 +37,19 @@ H2O = OH- + H+
 2 H+ + 2 e- = H2
         log_k           -3.15
         -gamma          1e10     0.0
+Cl- = Cl-
+	log_k	0.0
+	-gamma	1e10 	0.0
+Na+ = Na+
+	log_k	0.0
+	-gamma	1e10 	0.075
   
 PHASES  
   
+Fix_H+
+    H+ = H+ ; log_k 0.0
+Fix_pe
+    e- = e- ; log_k 0.0
 O2(g)
         O2 = O2
         log_k           -2.960

@@ -187,6 +187,15 @@ for i=1:size(Asolid,1)
     fprintf(fileID,line)
     fprintf(fileID,' \n')
 end
+
+% write output file
+%punchboxtext=[...
+%{'USER_PUNCH\n'}
+%{'        -headings seconds  Ca  pH  \n'}
+%{'  10 PUNCH SIM_TIME, TOT("Al"), -LA("H+")\n'}
+%];
+%[nolinesPUNCH,length]=size(punchboxtext);
+
 fclose(fileID);
 
 end
