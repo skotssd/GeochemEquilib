@@ -1,0 +1,145 @@
+# FROM PHREEQC.DAT
+# SOLUTION MASTER SPECIES AND SOLUTION_SPECIES 
+# THESE ARE POSSIBLE COMPONENTS FOR TABLEAU
+
+SOLUTION_MASTER_SPECIES
+#element	species alk 	gfw_formula 	element_gfw
+H			H+	   -1.0	    H		1.008
+H(0)		H2	    0.0 	H
+H(1)		H+	   -1.0	    0.0
+E			e-	    0.0 	0.0 	0.0
+O			H2O 	0.0 	O		16.0
+O(0)		O2	    0.0 	O
+O(-2)		H2O 	0.0 	0.0
+Ca			Ca+2	0.0 	Ca		40.08
+Mg			Mg+2	0.0 	Mg		24.312
+Na			Na+ 	0.0 	Na		22.9898
+K			K+	    0.0 	K		39.102
+Fe			Fe+2	0.0 	Fe		55.847
+Fe(+2)		Fe+2	0.0 	Fe
+Fe(+3)		Fe+3	-2.0	Fe
+Mn			Mn+2	0.0 	Mn		54.938
+Mn(+2)		Mn+2	0.0 	Mn
+Al			Al+3	0.0 	Al		26.9815
+Ag			Ag+ 	0.0 	Ag		110
+Ba			Ba+2	0.0 	Ba		137.34
+Sr			Sr+2	0.0 	Sr		87.62
+Si			H4SiO4	0.0 	SiO2	28.0843
+Cl			Cl- 	0.0 	Cl		35.453
+C			CO3-2	2.0 	HCO3	12.0111
+C(+4)		CO3-2	2.0 	HCO3
+Alkalinity	CO3-2	1.0 	Ca0.5(CO3)0.5	50.05
+S			SO4-2	0.0 	SO4 	32.064
+S(6)		SO4-2	0.0 	SO4
+N			NO3-	0.0 	N		14.0067
+N(+5)		NO3-	0.0 	N
+B			H3BO3	0.0 	B		10.81
+P			PO4-3	2.0 	P		30.9738
+F			F-	    0.0 	F		18.9984
+Li			Li+ 	0.0 	Li		6.939
+Br			Br- 	0.0 	Br		79.904
+Zn			Zn+2	0.0 	Zn		65.37
+Cd			Cd+2	0.0 	Cd		112.4
+Pb			Pb+2	0.0 	Pb		207.19
+Cu			Cu+2	0.0 	Cu		63.546
+X           X-      0.0     X       1       1 # as if it is HCl but doesn't add Cl.  for pH control, no other react.
+A           A+      0.0     A       1       1 # as if it is NaOH but doesn't add Na.  for pH control, no other react.
+
+SOLUTION_SPECIES
+
+H+ = H+
+	log_k	0.0
+    -gamma          1e10     0.0
+e- = e-
+	log_k	0.0
+X- = X-
+	log_k	0.0
+    -gamma          1e10     0.0
+A+ = A+
+	log_k	0.0
+    -gamma          1e10     0.0
+H2O = H2O
+	log_k	0.0
+Ag+ = Ag+
+    log_k	0.0
+    -gamma          1e10     0.0
+Ca+2 = Ca+2
+    log_k	0.0
+	-gamma          1e10     0.0
+Mg+2 = Mg+2
+	log_k	0.0
+	-gamma          1e10     0.0
+Na+ = Na+
+	log_k	0.0
+	-gamma          1e10     0.0
+K+ = K+
+	log_k	0.0
+Fe+2 = Fe+2
+	log_k	0.0
+	-gamma          1e10     0.0
+Fe+2 = Fe+3 + e-
+	log_k	-13.02
+	-gamma          1e10     0.0
+Mn+2 = Mn+2
+	log_k	0.0
+	-gamma          1e10     0.0
+Al+3 = Al+3
+	log_k	0.0
+	-gamma          1e10     0.0
+Ba+2 = Ba+2
+	log_k	0.0
+	-gamma          1e10     0.0
+Sr+2 = Sr+2
+	log_k	0.0
+	-gamma          1e10     0.0
+H4SiO4 = H4SiO4
+	log_k	0.0
+    -gamma          1e10     0.0
+Cl- = Cl-
+	log_k	0.0
+	-gamma          1e10     0.0
+CO3-2 = CO3-2
+	log_k	0.0
+	-gamma          1e10     0.0
+SO4-2 = SO4-2
+	log_k	0.0
+	-gamma          1e10     0.0
+NO3- = NO3-
+	log_k	0.0
+	-gamma          1e10     0.0
+H3BO3 = H3BO3
+	log_k	0.0
+    -gamma          1e10     0.0
+PO4-3 = PO4-3
+	log_k	0.0
+	-gamma          1e10     0.0
+F- = F-
+	log_k	0.0
+	-gamma          1e10     0.0
+Li+ = Li+
+	log_k	0.0
+	-gamma          1e10     0.0
+Br- = Br-
+	log_k	0.0
+	-gamma          1e10     0.0
+Zn+2 = Zn+2
+	log_k	0.0
+	-gamma          1e10     0.0
+Cd+2 = Cd+2
+	log_k	0.0
+    -gamma          1e10     0.0
+Pb+2 = Pb+2
+	log_k	0.0
+    -gamma          1e10     0.0
+Cu+2 = Cu+2
+	log_k	0.0
+	-gamma          1e10     0.0
+H2O = OH- + H+
+	log_k	-14.0
+	-gamma          1e10     0.0
+2 H2O = O2 + 4 H+ + 4 e-
+	log_k	-86.08
+    -gamma          1e10     0.0
+2 H+ + 2 e- = H2
+	log_k	-3.15
+    -gamma          1e10     0.0

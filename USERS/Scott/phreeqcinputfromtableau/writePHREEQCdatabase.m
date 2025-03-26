@@ -1,4 +1,10 @@
 function [totalnames,speciesnames,minerals]=writePHREEQCdatabase(Tableau)
+
+%delete existing phreeqc files
+system("rm DATABASE.dat");
+%create empty phreeqc files
+system("touch DATABASE.dat");
+
 totalnames=[]; speciesnames=[]; % initialize outputs
 
 % parse the tableau
@@ -63,6 +69,7 @@ for i=3:length(components) % H+ and e- already written
     line=[componentnocharge,'\t\t',component,'\t\t\t  0 \t 1 \t\t\t\t 1'];
     % keep track of the element names
     fprintf(fileID,line)
+    fprintf(fileID,' \n')
 end
 fprintf(fileID,' \n');
 fprintf(fileID,' \n');
@@ -182,7 +189,8 @@ for i=1:size(Asolid,1)
     end
     fprintf(fileID,writestr);    
     fprintf(fileID,' \n');
-    logKval=-1*cell2mat(logKsolid(i)); Kstr=num2str((logKval)); % put in as dissosciation but tableau written as association
+    % put in as dissosciation but tableau written as association
+    logKval=-1*cell2mat(logKsolid(i)); Kstr=num2str((logKval)); 
     line=['log_k\t',Kstr,'\n'];
     fprintf(fileID,line)
     fprintf(fileID,' \n')
