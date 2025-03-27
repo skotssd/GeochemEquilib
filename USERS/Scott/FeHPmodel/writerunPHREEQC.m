@@ -1,7 +1,7 @@
 function [solutionspeciesconcs, speciesnames, SOLIDconcs, SOLIDnames]=...
     writerunPHREEQC(T,pH,pe,totalnames,totalvector,minerals,speciesexport,database,show,acid,pHfixedcheck);
 
-NOOFSOLIDS=size(minerals,1); %also CO2(g) if present
+NOOFSOLIDS=size(minerals,2); %also CO2(g) if present
 
 % Construct the text file to run PHREEQC from MATLAB-------------------
 fileID=fopen('runphreeqc.txt','w');

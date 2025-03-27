@@ -44,6 +44,8 @@ Pb			Pb+2	0.0 	Pb		207.19
 Cu			Cu+2	0.0 	Cu		63.546
 X           X-      0.0     X       1       1 # as if it is HCl but doesn't add Cl.  for pH control, no other react.
 A           A+      0.0     A       1       1 # as if it is NaOH but doesn't add Na.  for pH control, no other react.
+Hfos        Hfos-   0.0     Hfos    1       1 # for SCM of HFO
+Hfow        Hfow-   0.0     Hfow    1       1 # for SCM of HFO
 
 SOLUTION_SPECIES
 
@@ -56,6 +58,12 @@ X- = X-
 	log_k	0.0
     -gamma          1e10     0.0
 A+ = A+
+	log_k	0.0
+    -gamma          1e10     0.0
+Hfos- = Hfos-
+	log_k	0.0
+    -gamma          1e10     0.0
+Hfow- = Hfow-
 	log_k	0.0
     -gamma          1e10     0.0
 H2O = H2O

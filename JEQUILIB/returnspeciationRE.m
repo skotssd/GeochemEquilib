@@ -452,9 +452,10 @@ end
 % tst=[T Tcalc']
 % C
 % pause
-relERR=abs(100*((T-Tcalc')./T));
+%relERR=abs(100*((T-Tcalc')./T)); % can be screwy for small values
 %MASSERR=max(relERR);
-MASSERR=(relERR);
+%MASSERR=(relERR);
+MASSERR=T-Tcalc'; % do any processing on error (like relative and what not later)
 
 for i=1:size(SOLUTIONNAMES,1)
          tst=SOLUTIONNAMES(i,:);
