@@ -20,6 +20,7 @@ fprintf(fileID,['       pe      ' num2str(pe), '\n']); % the redox value
 fprintf(fileID,['       pH      ' num2str(pH), '\n']); % pH value
 fprintf(fileID,['       temp      ' num2str(T), '\n']); % the temperature
 fprintf(fileID,'-units mol/kgw\n'); % the unit of the input; usually mol/L is used
+
 % put in the totals
 
 for i=1:size(totalnames,1)

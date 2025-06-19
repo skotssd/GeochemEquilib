@@ -11,7 +11,7 @@ Tableau=[...
 0       0        0      0           1          0       0            0     0                           0          {'Cl-'}
 0       0        0      0           0          1       0            0     0                           0          {'Na+'}
 0       0        0      0           0          0       1            0     0                           0          {'Hfos-'}
-0       0        0      0           0          0       0            1     0                           0          {'Hfos+'}
+0       0        0      0           0          0       0            1     0                           0          {'Hfow-'}%%I was like: Hfos+ ; should be Hfow-
 % Kw
 -1      0        0      0           0          0       0            0   -14                           0          {'OH-'}
 % hydroloysis/redox products

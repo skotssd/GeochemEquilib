@@ -1,0 +1,44 @@
+TITLE TEST CO2 DISSOLUTION
+RATES
+CO2_dissolution
+20 k = parm(2) / 86400
+30 eq_HCO3 = 10^PARM(1)*10^LK_PHASE("CO2(g)")/ACT("H+")
+40 act_HCO3 = ACT("HCO3-")
+50 moles = k * (eq_HCO3 - act_HCO3) * TIME
+60 SAVE moles
+END
+SOLUTION
+       pe      13.75
+       pH      7
+       temp    25
+-units mol/kgw
+KINETICS
+CO2_dissolution
+-formula CO2 1
+-parm -3.5 1 # target log PCO2(g), rate constant 1/day
+-time 1500000 in 100
+
+ SELECTED_OUTPUT
+ -file CO2out.txt
+ -selected_out true
+ -user_punch true
+ -high_precision true
+ -reset false
+ -simulation false
+ -state false
+ -distance false
+ -time false
+ -step false
+ -ph false
+ -pe false
+ -reaction false
+ -temperature false
+ -alkalinity false
+ -ionic_strength false
+ -water false
+ -charge_balance false
+ -percent_error false
+
+USER_PUNCH
+        -headings seconds  pH  logHCO3 logCO3 logH2CO3 
+  10 PUNCH SIM_TIME, -LA("H+"), LA("HCO3-"), LA("CO3-2"), LA("H2CO3")
