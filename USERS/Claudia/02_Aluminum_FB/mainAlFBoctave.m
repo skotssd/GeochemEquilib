@@ -4,14 +4,14 @@ clear; clc; close all;
 AlT = 1.0e-5;
 pHvals = 2 : 0.1 : 12;
 
-%% 2) Llamar a la funcion que realiza los calculos
+%% 2) Call the function that performs the calculations
 [results, results2D] = Al_solid_complementarity_FB(AlT, pHvals);
 
-%% 3) Figuras (parte 1): Barrido 1D con subplots
+%% 3) Figures (part 1): 1D sweep with subplots
 
 figure('Name','1D: pH vs. speciation, 4 subplots');
 
-% (a) Algunas especies acuosas vs pH
+% (a) Some aqueous species vs pH
 subplot(2,2,1)
 iAl3   = find(strcmp(results.species,'Al^{3+}'));
 iAlOH4= find(strcmp(results.species,'Al(OH)4-'));
@@ -31,13 +31,13 @@ xlabel('pH'); ylabel('fraction Al');
 legend('Location','northeastoutside'); grid on
 title('(a) Main aqueous species');
 
-% (b) Solido
+% (b) Solid
 subplot(2,2,2)
 plot(results.pH, results.xcp./AlT, '-o','LineWidth',1.5);
 xlabel('pH'); ylabel('frac. Al in solid'); 
 title('(b) Al(OH)_3(s)'); grid on
 
-% (c) Error de masa
+% (c) Mass Error
 subplot(2,2,3)
 semilogy(results.pH, results.massErr, '-o','LineWidth',1.5);
 xlabel('pH'); ylabel('Mass balance error (M)');
@@ -50,7 +50,7 @@ xlabel('pH'); ylabel('SI(Al(OH)3)');
 title('(d) saturation index'); grid on
 
 
-%% 4) Figura semilogy de concentraciones acuosas y el sólido
+%% 4) Figure semilogy aqueous concentrations and the solid
 
 figure('Name','Semilogy comparison of species');
 iAl3plus    = find(strcmp(results.species,'Al^{3+}'));
@@ -75,7 +75,7 @@ ylim([1E-30 1e-4])
 grid on;
 
 
-%% 5) Superficie 3D con log10(Error)
+%% 5) Superface 3D with log10(Error)
 
 figure('Name','Surface 3D: pH vs AlT vs log10(error)');
 surf(results2D.PHmesh, log10(results2D.AlTmesh), log10(results2D.massErrSurf));
@@ -85,7 +85,7 @@ zlabel('log_{10}(massErr)');
 title('Surface pH vs AlT (error)'); 
 grid on
 
-%% 6) Superficie con zona gris para errores < 1e-20
+%% 6) Surface with gray area for errors < 1e-20
 threshold = results2D.threshold;  % 1e-20
 isTiny = results2D.isTiny;
 
@@ -107,7 +107,7 @@ zlabel('log_{10}(error)');
 title('Cells <1e-20 in gray');
 hold on
 
-% Celdas tiny en gris
+% Tiny cells in grey
 Z2 = Zplot;
 Z2(~isTiny) = NaN; 
 surf(Xmesh, Ymesh, Z2, ...
