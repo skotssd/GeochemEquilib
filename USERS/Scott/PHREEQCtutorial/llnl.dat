@@ -14871,6 +14871,7 @@ Polyhalite
 Portlandite
         Ca(OH)2 +2.0000 H+  =  + 1.0000 Ca++ + 2.0000 H2O
         log_k           22.5552
+        #log_k           4.5552 DSS edited as testing.
 	-delta_H	-128.686	kJ/mol	# Calculated enthalpy of reaction	Portlandite
 #	Enthalpy of formation:	-986.074 kJ/mol
         -analytic -8.3848e+001 -1.8373e-002 9.3154e+003 3.2584e+001 1.4538e+002

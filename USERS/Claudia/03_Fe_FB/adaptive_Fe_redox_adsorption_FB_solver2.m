@@ -372,7 +372,7 @@ end
 function [val, dval_da, dval_db] = fischerBurmeister(a,b)
     r = sqrt(a^2 + b^2);
     val = r - a - b;
-    epsVal = 1e-30;
+    epsVal = 1e-20;
     if nargout > 1
         if r < epsVal
             dval_da = a/(r+epsVal) - 1;
