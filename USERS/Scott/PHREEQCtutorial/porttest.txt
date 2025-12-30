@@ -36,8 +36,8 @@ CO2_dissolution
 KINETICS 1
 Portlandite
   -tol   1e-13
-  -m0    0.135
-  -m    0.135
+  -m0    0.0135
+  -m    0.0135
   -parms 1e-05
 Calcite
   -tol   1e-13
