@@ -35,22 +35,22 @@ title('(a) Main aqueous species');
 subplot(2,2,2)
 plot(results.pH, results.xcp./AlT, '-o','LineWidth',1.5);
 xlabel('pH'); ylabel('frac. Al in solid'); 
-title('(b) Al(OH)_3(s)'); grid on
+title('(b) Al(OH)_3 (s)'); grid on
 
 % (c) Mass Error
 subplot(2,2,3)
 semilogy(results.pH, results.massErr, '-o','LineWidth',1.5);
-xlabel('pH'); ylabel('Mass balance error (M)');
+xlabel('pH'); ylabel('Mass balance error (mol/L)');
 title('(c) mass error'); grid on
 
 % (d) Saturation Index
 subplot(2,2,4)
 plot(results.pH, results.SI, '-o','LineWidth',1.5);
-xlabel('pH'); ylabel('SI(Al(OH)3)');
+xlabel('pH'); ylabel('SI (Al(OH)3)');
 title('(d) saturation index'); grid on
 
 
-%% 4) Figure semilogy aqueous concentrations and the solid
+%% 3) Figure semilogy aqueous concentrations and the solid
 
 figure('Name','Semilogy comparison of species');
 iAl3plus    = find(strcmp(results.species,'Al^{3+}'));
@@ -69,13 +69,13 @@ semilogy(results.pH, results.Caq(iAl3plus,:), ...
          results.pH, results.xcp, 'LineWidth',1.2);
 legend('Al^{3+}','Al(OH)^{2+}','Al(OH)4^-','Al_{13}','Al_{2}','Al_{3}','Al(OH)_3(s)', ...
        'Location','northeastoutside');
-xlabel('pH'); ylabel('Concentration (M)');
+xlabel('pH'); ylabel('Concentration (mol/L)');
 title('Semilogy: Comparison of species concentrations');
 ylim([1E-30 1e-4])
 grid on;
 
 
-%% 5) Superface 3D with log10(Error)
+%% 4) Superface 3D with log10(Error)
 
 figure('Name','Surface 3D: pH vs AlT vs log10(error)');
 surf(results2D.PHmesh, log10(results2D.AlTmesh), log10(results2D.massErrSurf));

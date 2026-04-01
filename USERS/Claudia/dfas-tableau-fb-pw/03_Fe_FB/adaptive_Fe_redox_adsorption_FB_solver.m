@@ -1,4 +1,4 @@
-function adaptive_Fe_redox_adsorption_FB_solver3(pHvals, FeT, PT, peINT, HFOsi, HFOwi)
+function adaptive_Fe_redox_adsorption_FB_solver(pHvals, FeT, PT, peINT, HFOsi, HFOwi)
 % -------------------------------------------------------------------------
 % The script contains TWO versions of the Newton solver.
 % A condition on peINT is used to decide which one to use:
@@ -206,93 +206,78 @@ elapsedTime = toc(timeStart);
 fprintf('Simulation completed.\n');
 fprintf('Total execution time: %.2f seconds\n', elapsedTime);
 
-%% == (5) Plot Results in Separate Figures ==
-idx_SIT_S_in_A = find(strcmp(componentNames, 'SITE_S'));
-idx_SIT_W_in_A = find(strcmp(componentNames, 'SITE_W'));
-idx_PO4_comp_in_A= find(strcmp(componentNames, 'PO4-3'));
+%% == (5) Plot and Save (FIXED: Helper function accepts size) ==
+fprintf('Generating figures...\n');
+
+% --- Data Preparation ---
+idx_Fe3 = find(strcmp(spc_aq_surf,'Fe+3'));
+Fe3_aq_conc = Caq_surf_final_store(idx_Fe3,:);
 HFO_P_ads = zeros(1,nPts);
-for ip = 1:nPts
-    if ~isnan(Caq_surf_final_store(1,ip))
-        for k_spc = 1:num_aq_surf_species
-            is_surface_spc = A_aq_surf(k_spc, idx_SIT_S_in_A) > 0 || A_aq_surf(k_spc, idx_SIT_W_in_A) > 0;
-            contains_P     = A_aq_surf(k_spc, idx_PO4_comp_in_A) > 0;
-            if is_surface_spc && contains_P
-                HFO_P_ads(ip) = HFO_P_ads(ip) + A_aq_surf(k_spc, idx_PO4_comp_in_A) * Caq_surf_final_store(k_spc, ip);
-            end
-        end
+idx_P = find(strcmp(componentNames, 'PO4-3'));
+idx_Ss = find(strcmp(componentNames, 'SITE_S')); idx_Sw = find(strcmp(componentNames, 'SITE_W'));
+for ip=1:nPts, if ~isnan(Caq_surf_final_store(1,ip)), for k=1:num_aq_surf_species
+    if (A_aq_surf(k,idx_Ss)>0||A_aq_surf(k,idx_Sw)>0) && A_aq_surf(k,idx_P)>0
+        HFO_P_ads(ip) = HFO_P_ads(ip) + A_aq_surf(k,idx_P)*Caq_surf_final_store(k,ip);
     end
-end
-idx_aq_Fe3 = find(strcmp(spc_aq_surf,'Fe+3'));
-Fe3_aq_conc = Caq_surf_final_store(idx_aq_Fe3,:);
+end, end, end
 
-% --- Figure 1: Solids, Dissolved Fe(III), and Adsorbed P ---
-figure('Name', 'Solids, Dissolved Fe(III), and Adsorbed P');
-hold on; box on;
-plot(pHvals, xsolid_final_store(1,:), '-or', 'LineWidth', 1.5, 'DisplayName', 'Fe(OH)3s');
-plot(pHvals, xsolid_final_store(2,:), '-sb', 'LineWidth', 1.5, 'DisplayName', 'FePO4(s)');
-plot(pHvals, xsolid_final_store(3,:), '-^g', 'LineWidth', 1.5, 'DisplayName', 'Fe3(PO4)2(s)');
-plot(pHvals, Fe3_aq_conc, '-^m', 'LineWidth', 1.5, 'DisplayName', 'Fe^{3+} (aq)');
-plot(pHvals, HFO_P_ads, '-xy', 'LineWidth', 1.5, 'DisplayName', 'HFO-P (PO_4 ads)');
-hold off;
-title('Solids, dissolved Fe(III), and HFO-P');
-xlabel('pH'); ylabel('Conc (mol/L)');
-legend('Location', 'best'); grid on;
-if FeT > 0, ylim([0, FeT * 1.1]); end
-
-% --- Figure 2: Final Mass Balance Error for Fe and P ---
-figure('Name', 'Final Mass Balance Error');
-hold on; box on;
-semilogy(pHvals, abs(massErrFe_store), '-or', 'LineWidth', 1.5, 'DisplayName', 'Err Fe');
-semilogy(pHvals, abs(massErrP_store), '-sb', 'LineWidth', 1.5, 'DisplayName', 'Err P');
-hold off;
-title('Final Mass Balance'); xlabel('pH'); ylabel('Mass balance error (M)');
-legend('Location', 'best'); grid on;
-
-% --- Figure 3: Adsorption Site Errors and Totals ---
-figure('Name', 'Adsorption Site Errors and Totals');
-box on;
-x_left = pHvals;
-y_left1 = massErrSiteS_store;
-y_left2 = massErrSiteW_store;
-x_right = pHvals;
-y_right1 = SiteT_s_store;
-y_right2 = SiteT_w_store;
-[ax, h1, h2] = plotyy(x_left, y_left1, x_right, y_right1);
-hold(ax(1), 'on');
-hold(ax(2), 'on');
-h3 = plot(ax(1), x_left, y_left2);
-h4 = plot(ax(2), x_right, y_right2);
-set(h1, 'LineStyle', '-', 'Marker', 'o', 'Color', 'b', 'LineWidth', 1.5, 'MarkerFaceColor', 'none');
-set(h3, 'LineStyle', '--', 'Marker', 's', 'Color', 'b', 'LineWidth', 1.5);
-set(h2, 'LineStyle', '-', 'Marker', '^', 'Color', 'k', 'LineWidth', 1.5);
-set(h4, 'LineStyle', '--', 'Marker', 'v', 'Color', 'k', 'LineWidth', 1.5, 'MarkerFaceColor', 'k');
-ylabel(ax(1), 'Site balance error');
-set(ax(1), 'YColor', 'b');
-ylabel(ax(2), 'Total sites');
-set(ax(2), 'YColor', 'k');
-title('Adsorption Site Errors and Totals');
-xlabel('pH');
-grid on;
-h_legend = legend([h1, h3, h2, h4], ...
-       {'Error Hfos', 'Error Hfow', 'Site_s total', 'Site_w total'}, ...
-       'Location', 2);
-
-%% == (6) Calculate and Plot Maximum Error ==
-fprintf('\nCalculating maximum error for final check...\n');
-all_errors = [abs(massErrFe_store); abs(massErrP_store); abs(massErrSiteS_store); abs(massErrSiteW_store)];
-max_error_store = max(all_errors, [], 1);
-
-% --- Figure 4: Maximum System Error ---
-figure('Name', 'Maximum System Error');
-semilogy(pHvals, max_error_store, '-o', 'LineWidth',1.5);
-xlabel('pH');
-ylabel('Maximum Absolute Error (M or mol)');
-title('Maximum System Error vs. pH');
-grid on;
-
+% --- Internal Function to Save (UPDATED to accept size) ---
+function save_safe(h, name, w, h_in)
+    % Si no le damos ancho/alto, usa 10x6 por defecto
+    if nargin < 3, w = 10; h_in = 6; end 
+    
+    set(h, 'PaperUnits', 'inches'); 
+    set(h, 'PaperPosition', [0 0 w h_in]); 
+    set(h, 'PaperSize', [w h_in]);
+    
+    % Usamos driver PNG básico
+    print(h, name, "-dpng", "-r120");
+    close(h);
 end
 
-%% == (7) Helper Functions ==
+% --- Figure 1 ---
+h1 = figure(1, 'visible', 'off');
+plot(pHvals, xsolid_final_store(1,:), '-or', 'DisplayName', 'Fe(OH)3s'); hold on;
+plot(pHvals, xsolid_final_store(2,:), '-sb', 'DisplayName', 'FePO4(s)');
+plot(pHvals, xsolid_final_store(3,:), '-^g', 'DisplayName', 'Fe3(PO4)2(s)');
+plot(pHvals, Fe3_aq_conc, '--m', 'DisplayName', 'Fe^{3+} (aq)');
+plot(pHvals, HFO_P_ads, '-xk', 'DisplayName', 'HFO-P (ads)');
+legend("Location", "best"); grid on; 
+title('Species Distribution'); xlabel('pH'); ylabel('Concentration (mol/L)');
+save_safe(h1, "Fig1.png"); 
+
+% --- Figure 2 ---
+h2 = figure(2, 'visible', 'off');
+semilogy(pHvals, abs(massErrFe_store), '-r', 'DisplayName', 'Err Fe'); hold on;
+semilogy(pHvals, abs(massErrP_store), '-b', 'DisplayName', 'Err P');
+legend("Location", "best"); grid on; 
+title('Mass Balance Error'); xlabel('pH'); ylabel('Error (mol/L)');
+save_safe(h2, "Fig2.png"); 
+
+% --- Figure 3 
+h3 = figure(3, 'visible', 'off');
+subplot(2,1,1); 
+plot(pHvals, massErrSiteS_store, 'DisplayName', 'Err HFOs'); hold on; 
+plot(pHvals, massErrSiteW_store, 'DisplayName', 'Err HFOw');
+title('Site Balance Error'); xlabel('pH'); ylabel('Error (mol)'); legend('Location','best'); grid on;
+
+subplot(2,1,2); 
+plot(pHvals, SiteT_s_store, 'DisplayName', 'Total HFOs'); hold on; 
+plot(pHvals, SiteT_w_store, 'DisplayName', 'Total HFOw');
+title('Total Sites'); xlabel('pH'); ylabel('Sites (mol)'); legend('Location','best'); grid on;
+save_safe(h3, "Fig3.png", 12, 10); 
+
+% --- Figure 4 ---
+all_err = [abs(massErrFe_store); abs(massErrP_store); abs(massErrSiteS_store); abs(massErrSiteW_store)];
+h4 = figure(4, 'visible', 'off');
+semilogy(pHvals, max(all_err,[],1), '-k', 'LineWidth', 2);
+grid on; title('Max System Error'); xlabel('pH'); ylabel('Max error');
+save_safe(h4, "Fig4.png"); 
+
+fprintf('Done! Images saved.\n');
+end
+
+%% == (6) Helper Functions ==
 function [R, logC_aq_surf, C_aq_surf, SiteT_s, SiteT_w] = residualFun_fully_coupled(X, A_aq_surf, K_aq_surf, logH, logE, FeT, PT, HFOsi, HFOwi, ASFs, ASFw, A_solid, K_solid, componentNames)
     logFe3 = X(1); logPO4 = X(2); logSITE_S_free = X(3); logSITE_W_free = X(4);
     xFeOH3 = X(5); xFePO4 = X(6); xFe3PO42 = X(7);

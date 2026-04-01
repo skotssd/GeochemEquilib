@@ -6,7 +6,7 @@ function [results, results2D] = Al_solid_complementarity_FB(AlT, pHvals)
 % We ignore e- and Cl- columns, so A_solid and K_solid are scalars.
 %
 % Input:
-%   - AlT    : total aluminum concentration (M)
+%   - AlT    : total aluminum concentration (mol/L)
 %   - pHvals : vector of pH values for 1D sweep
 %
 % Output:
