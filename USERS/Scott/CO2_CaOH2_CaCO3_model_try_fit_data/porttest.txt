@@ -1,0 +1,88 @@
+TITLE TEST PORTLANDITE DISSOLUTION
+SOLUTION 1
+       pe      13.75
+       pH      7
+       temp    25
+-units mol/kgw
+
+RATES
+Portlandite
+-start
+1   REM   PARM(1) = rate constant. PARM(2) Ksp for portlandite 
+2 Ca=Act("Ca+2")
+3 OH=Act("OH-")
+4 IAP=Ca*OH^2
+5 Ksp=PARM(2)
+6 si_pp=log(IAP/Ksp)
+20  IF (M <= 0  and si_pp < 0) THEN GOTO 200
+120 rate = PARM(1) *M* (1 - 10^(si_pp))
+140 moles = rate*TIME
+200 SAVE moles
+   -end
+Calcite
+-start
+1   REM   PARM(1) = rate constant. Parm(2)=Ksp calcite
+2 Ca=Act("Ca+2")
+3 CO3=Act("CO3-2")
+4 IAP=Ca*CO3
+5 Ksp=PARM(2)
+6 si_cc=log(IAP/Ksp)
+20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
+120 rate = PARM(1) *M* (1 - 10^(si_cc))
+140 moles = rate*TIME
+200 SAVE moles
+   -end
+CO2_dissolution
+-start
+20 k = parm(2)
+30 eq_HCO3 = 10^PARM(1)*10^LK_PHASE("CO2(g)")/ACT("H+")
+40 act_HCO3 = ACT("HCO3-")
+50 moles = k * (1-(act_HCO3/eq_HCO3)) * TIME
+60 SAVE moles
+   -end
+
+KINETICS 1
+Portlandite
+  -tol   1e-13
+  -m0    0.016196
+  -m    0.016196
+  -parms 206.961 6.6069e-06
+Calcite
+  -tol   1e-13
+  -m0    1e-06
+  -m    1e-06
+  -parms 9.8722e-07 2.9651e-10
+CO2_dissolution
+  -tol   1e-13
+-formula CO2 1
+  -parms -3.3 0.1236
+ -steps 0 0 0.1 2 24 48 72 96 144 s
+  -cvode
+-runge_kutta      6
+
+ SELECTED_OUTPUT
+ -file portout.txt
+ -selected_out true
+ -user_punch true
+ -high_precision true
+ -reset false
+ -simulation false
+ -state false
+ -distance false
+ -time false
+ -step false
+ -ph false
+ -pe false
+ -reaction false
+ -temperature false
+ -alkalinity false
+ -ionic_strength false
+ -water false
+ -charge_balance false
+ -percent_error false
+
+USER_PUNCH
+        -headings seconds  Ca  pH Calcite  Portlandite DIC
+  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C") 
+
+END
