@@ -21,9 +21,9 @@ KspP=0.00000660693;  % from https://www.aqion.de/site/16 0.00000660693
 %KspC=3.31131121e-9;  % Ksp for calcite
 %KspC=4.7e-9;  % Ksp for calcite
 %KspC=3.4e-9;  % Ksp for calcite
-%KspC=10^-7.33; % Ksp for monhydrocalcite
-KspC=7.9e-8;
-KspC=10^-7.33;
+%KspC=10^-7.33; % Ksp for monhydrocalcite 
+KspC=10^-8.48; % for calcite from aquaion 
+%KspC=10^-7.33; %for monohydrate calcite aquaion page.https://www.aqion.de/site/16
 logPCO2=-3.3;   % PCO2. measured at 468.4 ppm average in the room 
 database=['llnl.dat'];
 

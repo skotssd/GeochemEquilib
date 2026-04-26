@@ -1,6 +1,6 @@
 function [detZtZ]=CO2CaCO3CaOH2kineticmodelerror(p,XP,time,data)
 
-kP=10^p(1); kC=10^p(2); kCO2=10^p(3); KspC=10^p(4);
+kP=10^p(1); kC=10^p(2); kCO2=10^p(3); %KspC=10^p(4);
 sampletime=data(:,1); samplepH=data(:,2); sampleDIC=(data(:,3)*1e-3); conduct=data(:,4); sampleCa=(data(:,5)*1e-3); 
 sampleSi=(data(:,6)*1e-3);
 
@@ -20,8 +20,10 @@ warning off
 XC=1e-6; % need seed crystal of calcite.  batstone paper used 1e-6
 %equilib constants
 KspP=0.00000660693;  % from https://www.aqion.de/site/16 0.00000660693
+%KspC=10^-8.46249;
+%KspC=10^-5.34117;
 %KspC=3.31131121e-9;  % Ksp for calcite
-%KspC=4.7e-9;  % Ksp for calcite
+KspC=4.7e-9;  % Ksp for calcite
 %KspC=10^-7.33; % Ksp for monhydrocalcite
 logPCO2=-3.3;   % PCO2. measured at 468.4 ppm average in the room
 database=['llnl.dat'];
@@ -29,8 +31,8 @@ database=['llnl.dat'];
 %write phreeqc file
 solutionboxtext=[...
 {'SOLUTION 1\n'}
-{'       pe      13.75\n'}
-{'       pH      7\n'}
+%{'       pe      13.75\n'}
+{'       pH      5.65\n'}
 {'       temp    25\n'}
 {'-units mol/kgw\n'}
    ];
@@ -191,16 +193,23 @@ Ca=Caphreeqc;
 pH=pHphreeqc;
 
 yi = interp1 (time, pH, sampletime);
-residual1=samplepH-yi;
+pHmax=max(samplepH); %scale factor
+residual1=samplepH./pHmax-yi./pHmax;
+%residual1=samplepH-yi;
 
 yi = interp1 (time, Ca, sampletime);
-residual2=sampleCa*1e3-yi*1e3;
+Camax=max(sampleCa);
+residual2=sampleCa./Camax-yi./Camax;
+%residual2=sampleCa-yi;
 
 yi = interp1 (time, DIC, sampletime);
-residual3=sampleDIC*1e3-yi*1e3;
+DICmax=max(sampleDIC);
+residual3=sampleDIC./DICmax-yi./DICmax;
+%residual3=sampleDIC-yi;
 
-Z=[residual1 residual2 residual3];
-%Z=[residual1 residual3];
-detZtZ=det(Z'*Z);
+%Z=[residual1 residual2 residual3];
+Z=[residual1 residual2];
+%Z=residual1;
+detZtZ=(det(Z'*Z));
 
 end
