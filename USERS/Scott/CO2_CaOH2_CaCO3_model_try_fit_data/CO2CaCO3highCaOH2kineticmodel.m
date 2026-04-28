@@ -1,4 +1,4 @@
-function [Ca,pH,DIC,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,time)
+function [Ca,pH,DIC,port,calcite,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,time)
 
 %stll need housekeeping?
 % set path to equilibrium solver
@@ -60,7 +60,7 @@ rateboxtext=[...
 {'5 Ksp=PARM(2)\n'}
 {'6 si_cc=log(IAP/Ksp)\n'}
 {'20  IF (M <= 0  and si_cc < 0) THEN GOTO 200\n'}
-{'120 rate = PARM(1) *M* (1 - (10^(si_cc))^1)\n'}
+{'120 rate = PARM(1) *M* (1 - (10^(si_cc))^0.63)\n'}
 {'140 moles = rate*TIME\n'}
 {'200 SAVE moles\n'}
 {'   -end\n'}
@@ -174,8 +174,8 @@ end
 fprintf(fileID,'\n');
 fprintf(fileID,'END');
 fclose(fileID);
-str=['system("phreeqc porttest.txt out.txt ', database,'");'];
-%str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
+%str=['system("phreeqc porttest.txt out.txt ', database,'");'];
+str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
 %eval(str); % output to the screen
 evalc(str); % so no screen output
 fid = fopen('portout.txt','rt');
@@ -189,5 +189,7 @@ calcitephreeqc=mat(2:nsize,4); portlanditephreeqc=mat(2:nsize,5);
 DIC=mat(2:nsize,6);
 Ca=Caphreeqc;
 pH=pHphreeqc;
+port=portlanditephreeqc;
+calcite=calcitephreeqc;
 
 end

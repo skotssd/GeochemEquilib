@@ -1,4 +1,7 @@
-function [Ca,pH,DIC,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,time)
+function [Ca,pH,DIC,port,calcite,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,time,flag)
+
+%flag=1; running on NAS
+%flag=2; running locally
 
 %stll need housekeeping?
 % set path to equilibrium solver
@@ -60,7 +63,8 @@ rateboxtext=[...
 {'5 Ksp=PARM(2)\n'}
 {'6 si_cc=log(IAP/Ksp)\n'}
 {'20  IF (M <= 0  and si_cc < 0) THEN GOTO 200\n'}
-{'120 rate = PARM(1) *M* (1 - (10^(si_cc))^1)\n'}
+{'120 rate = PARM(1) *M* (1 - (10^(si_cc))^0.48)\n'}
+%{'120 rate = PARM(1) *M* (1 - (10^(si_cc))^1)\n'}
 {'140 moles = rate*TIME\n'}
 {'200 SAVE moles\n'}
 {'   -end\n'}
@@ -69,7 +73,7 @@ rateboxtext=[...
 {'20 k = parm(2)\n'}
 {'30 eq_HCO3 = 10^PARM(1)*10^LK_PHASE("CO2(g)")/ACT("H+")\n'}
 {'40 act_HCO3 = ACT("HCO3-")\n'}
-{'50 moles = k * (1-(act_HCO3/eq_HCO3)) * TIME\n'}
+{'50 moles = k * (1-(act_HCO3/eq_HCO3)^1) * TIME\n'}
 {'60 SAVE moles\n'}
 {'   -end\n'}
 ];
@@ -174,8 +178,8 @@ end
 fprintf(fileID,'\n');
 fprintf(fileID,'END');
 fclose(fileID);
-str=['system("phreeqc porttest.txt out.txt ', database,'");'];
-%str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
+if flag==1; str=['system("phreeqc porttest.txt out.txt ', database,'");']; end
+if flag==2; str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");']; end
 eval(str); % output to the screen
 %evalc(str); % so no screen output
 fid = fopen('portout.txt','rt');
@@ -189,5 +193,7 @@ calcitephreeqc=mat(2:nsize,4); portlanditephreeqc=mat(2:nsize,5);
 DIC=mat(2:nsize,6);
 Ca=Caphreeqc;
 pH=pHphreeqc;
+port=portlanditephreeqc;
+calcite=calcitephreeqc;
 
 end
