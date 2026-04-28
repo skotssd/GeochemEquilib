@@ -1,4 +1,4 @@
-function [Ca,pH,DIC,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,sigmaP,time)
+function [Ca,pH,DIC,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,time)
 
 %stll need housekeeping?
 % set path to equilibrium solver
@@ -82,7 +82,6 @@ kCstr=num2str(kC);
 KspCstr=num2str(KspC);
 logPCO2str=num2str(logPCO2);
 kCO2str=num2str(kCO2);
-sigmaPstr=num2str(sigmaP);
 
 m0Pline=['  -m0    ',XPstr,'\n'];
 mPline=['  -m    ',XPstr,'\n'];
@@ -175,10 +174,10 @@ end
 fprintf(fileID,'\n');
 fprintf(fileID,'END');
 fclose(fileID);
-%str=['system("phreeqc porttest.txt out.txt ', database,'");'];
-str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
-%eval(str); % output to the screen
-evalc(str); % so no screen output
+str=['system("phreeqc porttest.txt out.txt ', database,'");'];
+%str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
+eval(str); % output to the screen
+%evalc(str); % so no screen output
 fid = fopen('portout.txt','rt');
 hdr = strtrim(regexp(fgetl(fid),'\t','split'));
 hdr=hdr(1:6)';

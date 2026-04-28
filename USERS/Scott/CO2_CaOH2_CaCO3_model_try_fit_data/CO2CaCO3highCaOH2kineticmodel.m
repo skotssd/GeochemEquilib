@@ -1,4 +1,4 @@
-function [Ca,pH,DIC,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,sigmaP,time)
+function [Ca,pH,DIC,time]=CO2CaCO3CaOH2kineticmodel(XP,kP,kC,kCO2,time)
 
 %stll need housekeeping?
 % set path to equilibrium solver
@@ -22,7 +22,7 @@ KspP=0.00000660693;  % from https://www.aqion.de/site/16 0.00000660693
 %KspC=4.7e-9;  % Ksp for calcite
 %KspC=3.4e-9;  % Ksp for calcite
 %KspC=10^-7.33; % Ksp for monhydrocalcite
-KspC=7.9e-8;
+%KspC=7.9e-8;
 KspC=10^-7.33;
 logPCO2=-3.3;   % PCO2. measured at 468.4 ppm average in the room 
 database=['llnl.dat'];
@@ -82,7 +82,6 @@ kCstr=num2str(kC);
 KspCstr=num2str(KspC);
 logPCO2str=num2str(logPCO2);
 kCO2str=num2str(kCO2);
-sigmaPstr=num2str(sigmaP);
 
 m0Pline=['  -m0    ',XPstr,'\n'];
 mPline=['  -m    ',XPstr,'\n'];
@@ -175,8 +174,8 @@ end
 fprintf(fileID,'\n');
 fprintf(fileID,'END');
 fclose(fileID);
-%str=['system("phreeqc porttest.txt out.txt ', database,'");'];
-str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
+str=['system("phreeqc porttest.txt out.txt ', database,'");'];
+%str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
 %eval(str); % output to the screen
 evalc(str); % so no screen output
 fid = fopen('portout.txt','rt');
