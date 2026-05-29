@@ -31,20 +31,6 @@ Calcite
 140 moles = rate*TIME
 200 SAVE moles
    -end
-Wollastonite
--start
-1   REM   PARM(1) = rate constant. Parm(2)=Ksp Wollastonite
-2 Ca=Act("Ca+2")
-3 HSiO3=Act("HSiO3-")
-4 H=Act("H+")
-5 IAP=(Ca*HSiO3)/H 
-6 Ksp=PARM(2)
-7 si_ww=log(IAP/Ksp)
-20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
-120 rate = PARM(1) *M* (1 - (10^(si_ww)))
-140 moles = rate*TIME
-200 SAVE moles
-   -end
 CO2_dissolution
 -start
 20 k = parm(2)
@@ -65,11 +51,6 @@ Calcite
   -m0    1e-06
   -m    1e-06
   -parms 0.0004 3.3113e-09
-Wollastonite
-  -tol   1e-13
-  -m0    0.0011
-  -m    0.0011
-  -parms 0.3 2511.8864
 CO2_dissolution
   -tol   1e-13
 -formula CO2 1
@@ -100,7 +81,7 @@ CO2_dissolution
  -percent_error false
 
 USER_PUNCH
-        -headings seconds  Ca  pH Calcite  Portlandite DIC Si
-  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C"), TOT("Si") 
+        -headings seconds  Ca  pH Calcite  Portlandite DIC
+  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C") 
 
 END

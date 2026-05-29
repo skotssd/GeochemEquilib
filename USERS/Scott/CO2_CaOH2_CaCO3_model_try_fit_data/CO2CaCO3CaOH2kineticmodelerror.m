@@ -1,7 +1,8 @@
-function [Ca,pH,DIC,port,calcite,Siaq,time]=CO2CaCO3CaOH2kineticmodel(XP,XW,kP,kC,kCO2,kW,time,flag)
+function [detZtZ]=CO2CaCO3CaOH2kineticmodelerror(p,XP,time,data)
 
-%flag=1; running on NAS
-%flag=2; running locally
+kP=10^p(1); kC=10^p(2); kCO2=10^p(3); %KspC=10^p(4);
+sampletime=data(:,1); samplepH=data(:,2); sampleDIC=(data(:,3)*1e-3); conduct=data(:,4); sampleCa=(data(:,5)*1e-3); 
+sampleSi=(data(:,6)*1e-3);
 
 %stll need housekeeping?
 % set path to equilibrium solver
@@ -13,22 +14,18 @@ JEQUILIBpath=[rootpath,'/JEQUILIB'];
 addpath(JEQUILIBpath)
 % turn off warnings
 warning off
-%graphics_toolkit ("notebook"); 
-graphics_toolkit ("plotly"); 
 
 % fixed variables
 
 XC=1e-6; % need seed crystal of calcite.  batstone paper used 1e-6
 %equilib constants
 KspP=0.00000660693;  % from https://www.aqion.de/site/16 0.00000660693
+%KspC=10^-8.46249;
+%KspC=10^-5.34117;
 %KspC=3.31131121e-9;  % Ksp for calcite
-%KspC=4.7e-9;  % Ksp for calcite
-%KspC=3.4e-9;  % Ksp for calcite
-%KspC=10^-7.33; % Ksp for monhydrocalcite 
-KspC=10^-8.48; % for calcite from aquaion 
-%KspC=10^-7.33; %for monohydrate calcite aquaion page.https://www.aqion.de/site/16
-KspW=10^3.4 %google AI reported the value. combine with SiO3+H=HSiO3 Ka value
-logPCO2=-3.3;   % PCO2. measured at 468.4 ppm average in the room 
+KspC=4.7e-9;  % Ksp for calcite
+%KspC=10^-7.33; % Ksp for monhydrocalcite
+logPCO2=-3.3;   % PCO2. measured at 468.4 ppm average in the room
 database=['llnl.dat'];
 
 %write phreeqc file
@@ -36,7 +33,6 @@ solutionboxtext=[...
 {'SOLUTION 1\n'}
 %{'       pe      13.75\n'}
 {'       pH      5.65\n'}
-%{'       Si      1e-6\n'}
 {'       temp    25\n'}
 {'-units mol/kgw\n'}
    ];
@@ -52,7 +48,7 @@ rateboxtext=[...
 {'5 Ksp=PARM(2)\n'}
 {'6 si_pp=log(IAP/Ksp)\n'}
 {'20  IF (M <= 0  and si_pp < 0) THEN GOTO 200\n'}
-{'120 rate = PARM(1) *M* (1 - (10^(si_pp))^1)\n'}
+{'120 rate = PARM(1) *M* (1 - 10^(si_pp))\n'}
 {'140 moles = rate*TIME\n'}
 {'200 SAVE moles\n'}
 {'   -end\n'}
@@ -65,22 +61,7 @@ rateboxtext=[...
 {'5 Ksp=PARM(2)\n'}
 {'6 si_cc=log(IAP/Ksp)\n'}
 {'20  IF (M <= 0  and si_cc < 0) THEN GOTO 200\n'}
-{'120 rate = PARM(1) *M* (1 - (10^(si_cc))^0.48)\n'}
-%{'120 rate = PARM(1) *M* (1 - (10^(si_cc))^1)\n'}
-{'140 moles = rate*TIME\n'}
-{'200 SAVE moles\n'}
-{'   -end\n'}
-{'Wollastonite\n'}
-{'-start\n'}
-{'1   REM   PARM(1) = rate constant. Parm(2)=Ksp Wollastonite\n'}
-{'2 Ca=Act("Ca+2")\n'}
-{'3 HSiO3=Act("HSiO3-")\n'}
-{'4 H=Act("H+")\n'}
-{'5 IAP=(Ca*HSiO3)/H \n'}
-{'6 Ksp=PARM(2)\n'}
-{'7 si_ww=log(IAP/Ksp)\n'}
-{'20  IF (M <= 0  and si_cc < 0) THEN GOTO 200\n'}
-{'120 rate = PARM(1) *M* (1 - (10^(si_ww)))\n'}
+{'120 rate = PARM(1) *M* (1 - 10^(si_cc))\n'}
 {'140 moles = rate*TIME\n'}
 {'200 SAVE moles\n'}
 {'   -end\n'}
@@ -89,7 +70,7 @@ rateboxtext=[...
 {'20 k = parm(2)\n'}
 {'30 eq_HCO3 = 10^PARM(1)*10^LK_PHASE("CO2(g)")/ACT("H+")\n'}
 {'40 act_HCO3 = ACT("HCO3-")\n'}
-{'50 moles = k * (1-(act_HCO3/eq_HCO3)^1) * TIME\n'}
+{'50 moles = k * (1-(act_HCO3/eq_HCO3)) * TIME\n'}
 {'60 SAVE moles\n'}
 {'   -end\n'}
 ];
@@ -100,11 +81,8 @@ XCstr=num2str(XC);
 kPstr=num2str(kP);
 kCstr=num2str(kC);
 KspCstr=num2str(KspC);
-KspWstr=num2str(KspW);
 logPCO2str=num2str(logPCO2);
 kCO2str=num2str(kCO2);
-XWstr=num2str(XW);
-kWstr=num2str(kW);
 
 m0Pline=['  -m0    ',XPstr,'\n'];
 mPline=['  -m    ',XPstr,'\n'];
@@ -112,9 +90,6 @@ parmsPline=['  -parms ',kPstr,' ',KspPstr,'\n'];
 m0Cline=['  -m0    ',XCstr,'\n'];
 mCline=['  -m    ',XCstr,'\n'];
 parmsCline=['  -parms ',kCstr,' ',KspCstr,'\n'];
-m0Wline=['  -m0    ',XWstr,'\n'];
-mWline=['  -m    ',XWstr,'\n'];
-parmsWline=['  -parms ',kWstr,' ',KspWstr,'\n'];
 parmsCO2line=['  -parms ',logPCO2str,' ',kCO2str,'\n'];
 timestr=mat2str([0 time]); timestr = regexprep(timestr,'\[','');  timestr = regexprep(timestr,'\]','');
 timeline=[' -steps ',timestr,' s\n'];
@@ -131,11 +106,6 @@ kineticsboxtext=[...
 {m0Cline}
 {mCline}
 {parmsCline}
-{'Wollastonite\n'}
-{'  -tol   1e-13\n'}
-{m0Wline}
-{mWline}
-{parmsWline}
 {'CO2_dissolution\n'}
 {'  -tol   1e-13\n'}
 {'-formula CO2 1\n'}
@@ -170,8 +140,8 @@ selectboxtext=[...
 [nolinesSEL,length]=size(selectboxtext);
 punchboxtext=[...
 {'USER_PUNCH\n'}
-{'        -headings seconds  Ca  pH Calcite  Portlandite DIC Si\n'}
-{'  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C"), TOT("Si") \n'}
+{'        -headings seconds  Ca  pH Calcite  Portlandite DIC\n'}
+{'  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C") \n'}
 ];
 [nolinesPUNCH,length]=size(punchboxtext);
 fileID=fopen('porttest.txt','w');
@@ -205,23 +175,41 @@ end
 fprintf(fileID,'\n');
 fprintf(fileID,'END');
 fclose(fileID);
-if flag==1; str=['system("phreeqc porttest.txt out.txt ', database,'");']; end
-if flag==2; str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");']; end
-eval(str); % output to the screen
-%evalc(str); % so no screen output
+%str=['system("phreeqc porttest.txt out.txt ', database,'");'];
+str=['system(" ',PHREEQCpath, '/phreeqc porttest.txt out.txt ', database,'");'];
+%eval(str); % output to the screen
+evalc(str); % so no screen output
 fid = fopen('portout.txt','rt');
 hdr = strtrim(regexp(fgetl(fid),'\t','split'));
-hdr=hdr(1:7)';
+hdr=hdr(1:6)';
 mat = cell2mat(textscan(fid,repmat('%f',1,numel(hdr))));
 [nsize,msize]=size(mat);
 time=mat(2:nsize,1); Caphreeqc=mat(2:nsize,2); pHphreeqc=mat(2:nsize,3);
 calcitephreeqc=mat(2:nsize,4); portlanditephreeqc=mat(2:nsize,5);
-Siaq=mat(2:nsize,7);
-
 DIC=mat(2:nsize,6);
+
+
 Ca=Caphreeqc;
 pH=pHphreeqc;
-port=portlanditephreeqc;
-calcite=calcitephreeqc;
+
+yi = interp1 (time, pH, sampletime);
+pHmax=max(samplepH); %scale factor
+residual1=samplepH./pHmax-yi./pHmax;
+%residual1=samplepH-yi;
+
+yi = interp1 (time, Ca, sampletime);
+Camax=max(sampleCa);
+residual2=sampleCa./Camax-yi./Camax;
+%residual2=sampleCa-yi;
+
+yi = interp1 (time, DIC, sampletime);
+DICmax=max(sampleDIC);
+residual3=sampleDIC./DICmax-yi./DICmax;
+%residual3=sampleDIC-yi;
+
+%Z=[residual1 residual2 residual3];
+Z=[residual1 residual2];
+%Z=residual1;
+detZtZ=(det(Z'*Z));
 
 end
