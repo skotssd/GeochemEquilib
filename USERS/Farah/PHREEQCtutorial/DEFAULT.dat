@@ -1,0 +1,353 @@
+# FROM $Id: minteq.v4.dat 794 2006-02-27 21:06:22Z dlpark $
+# SOLUTION MASTER SPECIES AND SOLUTION_SPECIES 
+# THESE ARE POSSIBLE COMPONENTS FOR TABLEAU
+
+SOLUTION_MASTER_SPECIES
+Alkalinity	CO3-2		2.0     HCO3    61.0173
+E		e-		0	0	0
+O		H2O		0	O	16.00
+O(-2)		H2O		0	O
+O(0)		O2		0	O
+Ag		Ag+		0.0	Ag	107.868
+Al		Al+3		0.0	Al	26.9815
+As		H3AsO4		-1.0	As	74.9216
+As(3)		H3AsO3		0.0	As
+As(5)		H3AsO4		-1.0	As
+B		H3BO3		0.0	B	10.81
+Ba		Ba+2		0.0	Ba	137.33
+Be		Be+2		0.0	Be	9.0122
+Br		Br-		0.0	Br	79.904
+C		CO3-2		2.0	CO3	12.0111
+C(4)		CO3-2		2.0	CO3	12.0111
+Cyanide		Cyanide-	1.0	Cyanide	26.0177
+Dom_a		Dom_a		0.0	C	12.0111
+Dom_b		Dom_b		0.0	C	12.0111
+Dom_c		Dom_c		0.0	C	12.0111
+Ca		Ca+2		0.0	Ca	40.078
+Cd		Cd+2		0.0	Cd	112.41
+Cl		Cl-		0.0	Cl	35.453
+Co		Co+3		-1.0	Co	58.9332
+Co(2)		Co+2		0.0	Co
+Co(3)		Co+3		-1.0	Co
+Cr		CrO4-2		1.0	Cr	51.996
+Cr(2)		Cr+2		0.0	Cr
+Cr(3)		Cr(OH)2+	0.0	Cr
+Cr(6)		CrO4-2		1.0	Cr
+Cu		Cu+2		0.0	Cu	63.546
+Cu(1)		Cu+		0.0	Cu
+Cu(2)		Cu+2		0.0	Cu
+F		F-		0.0	F	18.9984
+Fe		Fe+3		-2.0	Fe	55.847
+Fe(2)		Fe+2		0.0	Fe
+Fe(3)		Fe+3		-2.0	Fe
+H		H+		-1.0	H	1.0079
+H(0)		H2		0	H
+H(1)		H+		-1.0	H
+Hg		Hg(OH)2		0.0	Hg	200.59
+Hg(0)           Hg		0.0	Hg
+Hg(1)		Hg2+2		0.0	Hg
+Hg(2)		Hg(OH)2		0.0	Hg
+I		I-		0.0	I	126.904
+K		K+		0.0	K	39.0983
+Li		Li+		0.0	Li	6.941
+Mg		Mg+2		0.0	Mg	24.305
+Mn		Mn+3		0.0	Mn	54.938
+Mn(2)		Mn+2		0.0	Mn
+Mn(3)		Mn+3		0.0	Mn
+Mn(6)		MnO4-2		0.0	Mn
+Mn(7)		MnO4-		0.0	Mn
+Mo		MoO4-2		0.0	Mo	95.94
+N		NO3-		0.0	N	14.0067
+N(-3)		NH4+		0.0	N
+N(3)		NO2-		0.0	N
+N(5)		NO3-		0.0	N
+Na		Na+		0.0	Na	22.9898
+Ni		Ni+2		0.0	Ni	58.69
+P		PO4-3		2.0	P	30.9738
+Pb		Pb+2		0.0	Pb	207.2
+S		SO4-2		0.0	SO4	32.066
+S(-2)		HS-		1.0	S
+#S(0)		S		0.0	S
+S(6)		SO4-2		0.0	SO4
+Sb		Sb(OH)6-	0.0	Sb	121.75
+Sb(3)		Sb(OH)3		0.0	Sb
+Sb(5)		Sb(OH)6-	0.0	Sb
+Se		SeO4-2		0.0	Se	78.96
+Se(-2)		HSe-		0.0	Se
+Se(4)		HSeO3-		0.0	Se
+Se(6)		SeO4-2		0.0	Se
+Si		H4SiO4		0.0	SiO2	28.0843
+Sn		Sn(OH)6-2	0.0	Sn	118.71
+Sn(2)		Sn(OH)2		0.0	Sn
+Sn(4)		Sn(OH)6-2	0.0	Sn
+Sr		Sr+2		0.0	Sr	87.62
+Tl		Tl(OH)3		0.0	Tl	204.383
+Tl(1)		Tl+		0.0	Tl
+Tl(3)		Tl(OH)3		0.0	Tl
+U		UO2+2		0.0	U	238.029
+U(3)		U+3		0.0	U
+U(4)		U+4		-4.0	U
+U(5)		UO2+		0.0	U
+U(6)		UO2+2		0.0	U
+V		VO2+		-2.0	V	50.94
+V(2)		V+2		0.0	V
+V(3)		V+3		-3.0	V
+V(4)		VO+2		0.0	V
+V(5)		VO2+		-2.0	V
+Zn		Zn+2		0.0	Zn	65.39
+Benzoate	Benzoate-	0.0	121.116	121.116
+Phenylacetate	Phenylacetate-	0.0	135.142	135.142
+Isophthalate	Isophthalate-2	0.0	164.117	164.117
+Diethylamine	Diethylamine	1.0	73.138	73.138
+Butylamine	Butylamine	1.0	73.138	73.138
+Methylamine	Methylamine	1.0	31.057	31.057
+Dimethylamine	Dimethylamine	1.0	45.084	45.084
+Hexylamine	Hexylamine	1.0	101.192	101.192
+Ethylenediamine	Ethylenediamine	2.0	60.099	60.099
+Propylamine	Propylamine	1.0	59.111	59.111
+Isopropylamine	Isopropylamine	1.0	59.111	59.111
+Trimethylamine	Trimethylamine	1.0	59.111	59.111
+Citrate		Citrate-3	2.0	189.102	189.102
+Nta		Nta-3		1.0	188.117	188.117
+Edta		Edta-4		2.0	288.214	288.214
+Propionate	Propionate-	1.0	73.072	73.072
+Butyrate	Butyrate-	1.0	87.098	87.098
+Isobutyrate	Isobutyrate-	1.0	87.098	87.098
+Two_picoline	Two_picoline	1.0	93.128	93.128
+Three_picoline	Three_picoline	1.0	93.128	93.128
+Four_picoline	Four_picoline	1.0	93.128	93.128
+Formate		Formate-	0.0	45.018	45.018
+Isovalerate	Isovalerate-	1.0	101.125	101.125
+Valerate	Valerate-	1.0	101.125	101.125
+Acetate		Acetate-	1.0	59.045	59.045
+Tartarate	Tartarate-2	0.0	148.072	148.072
+Glycine		Glycine-	1.0	74.059	74.059
+Salicylate	Salicylate-2	1.0	136.107	136.107
+Glutamate	Glutamate-2	1.0	145.115	145.115
+Phthalate	Phthalate-2	1.0	164.117	164.117
+SOLUTION_SPECIES
+e- = e-
+	log_k 0
+H2O = H2O
+	log_k 0
+Ag+ = Ag+
+	log_k 0
+      -gamma          1e10     0.0
+Al+3 = Al+3
+	log_k 0
+      -gamma          1e10     0.0
+H3AsO4 = H3AsO4
+	log_k 0
+      -gamma          1e10     0.0
+H3BO3 = H3BO3
+	log_k 0
+      -gamma          1e10     0.0
+Ba+2 = Ba+2
+	log_k 0
+      -gamma          1e10     0.0
+Be+2 = Be+2
+	log_k 0
+      -gamma          1e10     0.0
+Br- = Br-
+	log_k 0
+      -gamma          1e10     0.0
+CO3-2 = CO3-2
+	log_k 0
+      -gamma          1e10     0.0
+Cyanide- = Cyanide- 
+	log_k 0
+      -gamma          1e10     0.0
+Dom_a = Dom_a
+	log_k 0
+      -gamma          1e10     0.0
+Dom_b = Dom_b
+	log_k 0
+      -gamma          1e10     0.0
+Dom_c = Dom_c
+	log_k 0
+      -gamma          1e10     0.0
+Ca+2 = Ca+2
+	log_k 0
+      -gamma          1e10     0.0
+Cd+2 = Cd+2
+	log_k 0
+      -gamma          1e10     0.0
+Cl- = Cl-
+	log_k 0
+      -gamma          1e10     0.0
+Co+3 = Co+3
+	log_k 0
+      -gamma          1e10     0.0
+CrO4-2 = CrO4-2
+	log_k 0
+      -gamma          1e10     0.0
+Cu+2 = Cu+2
+	log_k 0
+      -gamma          1e10     0.0
+F- = F-
+	log_k 0
+      -gamma          1e10     0.0
+Fe+3 = Fe+3
+	log_k 0
+      -gamma          1e10     0.0
+H+ = H+
+	log_k 0
+      -gamma          1e10     0.0
+Hg(OH)2 = Hg(OH)2
+	log_k 0
+      -gamma          1e10     0.0
+I- = I-
+	log_k 0
+      -gamma          1e10     0.0
+K+ = K+
+	log_k 0
+      -gamma          1e10     0.0
+Li+ = Li+
+	log_k 0
+      -gamma          1e10     0.0
+Mg+2 = Mg+2
+	log_k 0
+      -gamma          1e10     0.0
+Mn+3 = Mn+3
+	log_k 0
+      -gamma          1e10     0.0
+MoO4-2 = MoO4-2
+	log_k 0
+      -gamma          1e10     0.0
+NO3- = NO3-
+	log_k 0
+      -gamma          1e10     0.0
+Na+ = Na+
+	log_k 0
+      -gamma          1e10     0.0
+Ni+2 = Ni+2
+	log_k 0
+      -gamma          1e10     0.0
+PO4-3 = PO4-3
+	log_k 0
+      -gamma          1e10     0.0
+Pb+2 = Pb+2
+	log_k 0
+      -gamma          1e10     0.0
+SO4-2 = SO4-2
+	log_k 0
+      -gamma          1e10     0.0
+Sb(OH)6- = Sb(OH)6-
+	log_k 0
+      -gamma          1e10     0.0
+SeO4-2 = SeO4-2
+	log_k 0
+      -gamma          1e10     0.0
+H4SiO4 = H4SiO4
+	log_k 0
+      -gamma          1e10     0.0
+Sn(OH)6-2 = Sn(OH)6-2
+	log_k 0
+      -gamma          1e10     0.0
+Sr+2 = Sr+2
+	log_k 0
+      -gamma          1e10     0.0
+Tl(OH)3 = Tl(OH)3
+	log_k 0
+      -gamma          1e10     0.0
+UO2+2 = UO2+2
+	log_k 0
+      -gamma          1e10     0.0
+VO2+ = VO2+
+	log_k 0
+      -gamma          1e10     0.0
+Benzoate- = Benzoate-
+	log_k 0
+      -gamma          1e10     0.0
+Phenylacetate- = Phenylacetate-
+	log_k 0
+      -gamma          1e10     0.0
+Isophthalate-2 = Isophthalate-2
+	log_k 0
+      -gamma          1e10     0.0
+Zn+2 = Zn+2
+      -gamma          1e10     0.0
+	log_k 0
+      -gamma          1e10     0.0
+Diethylamine = Diethylamine
+      -gamma          1e10     0.0
+	log_k 0
+      -gamma          1e10     0.0
+Butylamine = Butylamine
+    log_k 0
+      -gamma          1e10     0.0
+Methylamine = Methylamine
+    log_k 0
+      -gamma          1e10     0.0
+Dimethylamine = Dimethylamine
+	log_k 0
+      -gamma          1e10     0.0
+Hexylamine = Hexylamine
+	log_k 0
+      -gamma          1e10     0.0
+Ethylenediamine = Ethylenediamine
+	log_k 0
+      -gamma          1e10     0.0
+Propylamine = Propylamine
+	log_k 0
+      -gamma          1e10     0.0
+Isopropylamine = Isopropylamine
+	log_k 0
+      -gamma          1e10     0.0
+Trimethylamine = Trimethylamine
+	log_k 0
+      -gamma          1e10     0.0
+Citrate-3 = Citrate-3
+	log_k 0
+      -gamma          1e10     0.0
+Nta-3 = Nta-3
+	log_k 0
+      -gamma          1e10     0.0
+Edta-4 = Edta-4
+	log_k 0
+      -gamma          1e10     0.0
+Propionate- = Propionate-
+	log_k 0
+      -gamma          1e10     0.0
+Butyrate- = Butyrate-
+	log_k 0
+      -gamma          1e10     0.0
+Isobutyrate- = Isobutyrate-
+	log_k 0
+      -gamma          1e10     0.0
+Two_picoline = Two_picoline
+	log_k 0
+      -gamma          1e10     0.0
+Three_picoline = Three_picoline
+	log_k 0
+      -gamma          1e10     0.0
+Four_picoline = Four_picoline
+	log_k 0
+      -gamma          1e10     0.0
+Formate- = Formate-
+	log_k 0
+      -gamma          1e10     0.0
+Isovalerate- = Isovalerate-
+	log_k 0
+      -gamma          1e10     0.0
+Valerate- = Valerate-
+	log_k 0
+      -gamma          1e10     0.0
+Acetate- = Acetate-
+	log_k 0
+      -gamma          1e10     0.0
+Tartarate-2 = Tartarate-2
+	log_k 0
+      -gamma          1e10     0.0
+Glycine- = Glycine-
+	log_k 0
+      -gamma          1e10     0.0
+Salicylate-2 = Salicylate-2
+	log_k 0
+      -gamma          1e10     0.0
+Glutamate-2 = Glutamate-2
+	log_k 0
+      -gamma          1e10     0.0
+Phthalate-2 = Phthalate-2
+	log_k 0
+      -gamma          1e10     0.0

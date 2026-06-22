@@ -1,0 +1,366 @@
+   Input file: fromweb.txt
+  Output file: outputweb.txt
+Database file: phreeqc.dat
+
+------------------
+Reading data base.
+------------------
+
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES
+	EXCHANGE_MASTER_SPECIES
+	EXCHANGE_SPECIES
+	SURFACE_MASTER_SPECIES
+	SURFACE_SPECIES
+	RATES
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	RATES
+	    Calcite
+	start
+	  1   REM   PARM(1) = specific surface area of calcite, cm^2/mol calcite
+	  2   REM   PARM(2) = exponent for M/M0
+	 10  si_cc = SI("Calcite")
+	 20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
+	 30  k1 = 10^(0.198 - 444.0 / TK )
+	 40  k2 = 10^(2.84 - 2177.0 /TK )
+	 50  IF TC <= 25 THEN k3 = 10^(-5.86 - 317.0 / TK)
+	 60  IF TC > 25 THEN k3 = 10^(-1.1 - 1737.0 / TK )
+	 80  IF M0 > 0 THEN area = PARM(1)*M0*(M/M0)^PARM(2) ELSE area = PARM(1)*M
+	110 rate = area * (k1 * ACT("H+") + k2 * ACT("CO2") + k3 * ACT("H2O"))
+	120 rate = rate * (1 - 10^(2/3*si_cc))
+	130 moles = rate * 0.001 * TIME
+	200 SAVE moles
+	end
+	END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+	PHASES
+	Fix_H+
+	    H+ = H+
+	    log_k     0
+	END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 3.
+------------------------------------
+
+	SOLUTION 1
+	    temp      25
+	    pH        6
+	    pe        4
+	    redox     pe
+	    units     mmol/kgw
+	    density   1
+	    C         1 Calcite    -2.3
+	    Ca        1
+	    water    1 # kg
+	END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.445e-03   1.445e-03  Equilibrium with Calcite
+	Ca                1.000e-03   1.000e-03
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   6.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 130
+                          Density (g/cm³)  =   0.99716
+                               Volume (L)  =   1.00296
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.223e-03
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   4.632e-04
+                       Total CO2 (mol/kg)  =   1.445e-03
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   1.537e-03
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  62.58
+                               Iterations  =   4
+                                  Total H  = 1.110129e+02
+                                  Total O  = 5.550957e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              1.050e-06   1.000e-06    -5.979    -6.000    -0.021      0.00
+   OH-             1.055e-08   1.001e-08    -7.977    -8.000    -0.023     (0)  
+   H2O             5.551e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00   -58.618   -58.618     0.000     (0)  
+C(4)          1.445e-03
+   CO2             9.810e-04   9.815e-04    -3.008    -3.008     0.000     (0)  
+   HCO3-           4.594e-04   4.365e-04    -3.338    -3.360    -0.022     24.34
+   CaHCO3+         4.753e-06   4.517e-06    -5.323    -5.345    -0.022     (0)  
+   CaCO3           2.788e-08   2.789e-08    -7.555    -7.555     0.000     (0)  
+   CO3-2           2.511e-08   2.047e-08    -7.600    -7.689    -0.089     -3.59
+Ca            1.000e-03
+   Ca+2            9.952e-04   8.110e-04    -3.002    -3.091    -0.089    -17.65
+   CaHCO3+         4.753e-06   4.517e-06    -5.323    -5.345    -0.022     (0)  
+   CaCO3           2.788e-08   2.789e-08    -7.555    -7.555     0.000     (0)  
+   CaOH+           1.418e-10   1.346e-10    -9.848    -9.871    -0.023     (0)  
+H(0)          1.415e-23
+   H2              7.076e-24   7.079e-24   -23.150   -23.150     0.000     (0)  
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -46.080   -46.080     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  Aragonite        -2.44    -10.78   -8.34  CaCO3
+  Calcite          -2.30    -10.78   -8.48  CaCO3
+  CH4(g)          -55.76    -58.62   -2.86  CH4
+  CO2(g)           -1.54     -3.01   -1.47  CO2
+  Fix_H+           -6.00     -6.00    0.00  H+
+  H2(g)           -20.00    -23.15   -3.15  H2
+  H2O(g)           -1.51     -0.00    1.51  H2O
+  O2(g)           -43.19    -46.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 4.
+------------------------------------
+
+	KINETICS 1
+	Calcite
+	    formula  Calcite  1
+	    m        4.5
+	    m0       4.5
+	    parms    100 1
+	    tol      1e-08
+	steps       86400 in 10 steps # seconds
+	step_divide 1
+	runge_kutta 3
+	bad_step_max 500
+	USE solution 1
+	EQUILIBRIUM_PHASES 1
+	    CO2(g)    -1.54 10
+	    Fix_H+    -6 HCl       10
+	USER_GRAPH 1
+	    -axis_titles            "Time, days" "Calcite dissolved, mmol" ""
+	    -initial_solutions      false
+	    -connect_simulations    true
+	    -plot_concentration_vs  x
+	  -start
+	10 GRAPH_X TOTAL_TIME/(3600*24)
+	20 GRAPH_y (4.5 - KIN("Calcite"))*1000
+	  -end
+	    -active                 true
+	END
+-----------------------------------------
+Beginning of batch-reaction calculations.
+-----------------------------------------
+
+Reaction step 1.
+
+WARNING: Maximum iterations exceeded, 100
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying smaller step size, pe step size 10, 5 ... 
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying reduced tolerance 1e-16 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying increased tolerance 1e-14 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying diagonal scaling ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying diagonal scaling and reduced tolerance 1e-16 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying scaling pure_phase columns 1e-10 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying scaling pure_phase columns and diagonal scale 1e-10 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying delay removal of equilibrium phases 1 ...
+
+WARNING: Maximum iterations exceeded, 100
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying increased scaling 1e-09 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Skipping optimize equations for first 5 iterations ...
+
+WARNING: Maximum iterations exceeded, 100
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Adding inequality to make concentrations greater than zero.
+
+WARNING: Maximum iterations exceeded, 100
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying reduced tolerance 1e-17 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: Trying reduced tolerance 1e-18 ...
+
+WARNING: Maximum iterations exceeded, 200
+
+WARNING: Numerical method failed with this set of convergence parameters.
+
+WARNING: The program has failed to converge to a numerical solution.
+
+The following equations were not satisfied:
+WARNING: Fix_H+, Pure phase with add formula has not converged.
+	 SI may be a local minimum.	Residual: -3.723566e-04
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 8640 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Calcite          -0.000e+00   4.500e+00   Calcite                   1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -1.54    -3.01     -1.47    1.000e+01   1.000e+01  -3.667e-07
+Fix_H+           -6.00    -6.00      0.00
+	 HCl                is reactant       1.000e+01   1.000e+01   1.000e-10
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.446e-03   1.446e-03
+	Ca                1.000e-03   1.000e-03
+	Cl                0.000e+00   0.000e+00
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   6.000      Charge balance
+                                       pe  =  12.685      Adjusted to redox equilibrium
+      Specific Conductance (µS/cm,  25°C)  = 130
+                          Density (g/cm³)  =   0.99716
+                               Volume (L)  =   1.00296
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.223e-03
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   4.632e-04
+                       Total CO2 (mol/kg)  =   1.446e-03
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   1.537e-03
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  62.58
+                               Iterations  = 201
+                                  Total H  = 1.110129e+02
+                                  Total O  = 5.550957e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              1.050e-06   1.000e-06    -5.979    -6.000    -0.021      0.00
+   OH-             1.055e-08   1.001e-08    -7.977    -8.000    -0.023     (0)  
+   H2O             5.551e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -128.099  -128.098     0.000     (0)  
+C(4)          1.446e-03
+   CO2             9.814e-04   9.819e-04    -3.008    -3.008     0.000     (0)  
+   HCO3-           4.594e-04   4.365e-04    -3.338    -3.360    -0.022     24.34
+   CaHCO3+         4.754e-06   4.517e-06    -5.323    -5.345    -0.022     (0)  
+   CaCO3           2.787e-08   2.788e-08    -7.555    -7.555     0.000     (0)  
+   CO3-2           2.511e-08   2.046e-08    -7.600    -7.689    -0.089     -3.59
+Ca            1.000e-03
+   Ca+2            9.952e-04   8.110e-04    -3.002    -3.091    -0.089    -17.65
+   CaHCO3+         4.754e-06   4.517e-06    -5.323    -5.345    -0.022     (0)  
+   CaCO3           2.787e-08   2.788e-08    -7.555    -7.555     0.000     (0)  
+   CaOH+           1.417e-10   1.345e-10    -9.849    -9.871    -0.023     (0)  
+Cl            0.000e+00
+   Cl-             0.000e+00   0.000e+00   -41.604   -41.627    -0.023     17.86
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -40.520   -40.520     0.000     (0)  
+O(0)          9.144e-12
+   O2              4.572e-12   4.574e-12   -11.340   -11.340     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  Aragonite        -2.44    -10.78   -8.34  CaCO3
+  Calcite          -2.30    -10.78   -8.48  CaCO3
+  CH4(g)         -125.24   -128.10   -2.86  CH4
+  CO2(g)           -1.54     -3.01   -1.47  CO2
+  Fix_H+           -6.00     -6.00    0.00  H+
+  H2(g)           -37.37    -40.52   -3.15  H2
+  H2O(g)           -1.51     -0.00    1.51  H2O
+  O2(g)            -8.45    -11.34   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+ERROR: Numerical method failed on all combinations of convergence parameters, cell/soln/mix 1
+Stopping.

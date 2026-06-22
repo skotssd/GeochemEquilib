@@ -1,0 +1,108 @@
+TITLE TEST PORTLANDITE DISSOLUTION
+SOLUTION 1
+       pe      13.75
+       pH      7
+       temp    25
+-units mol/kgw
+
+RATES
+Portlandite
+-start
+1   REM   PARM(1) = rate constant. PARM(2) Ksp for portlandite 
+2 Ca=Act("Ca+2")
+3 OH=Act("OH-")
+4 IAP=Ca*OH^2
+5 Ksp=PARM(2)
+6 si_pp=log(IAP/Ksp)
+20  IF (M <= 0  and si_pp < 0) THEN GOTO 200
+120 rate = PARM(1) *M* (1 - (10^(si_pp))^1)
+140 moles = rate*TIME
+200 SAVE moles
+   -end
+Calcite
+-start
+-start
+1   REM   PARM(1) = rate constant. Parm(2)=Ksp calcite
+2 Ca=Act("Ca+2")
+3 CO3=Act("CO3-2")
+4 IAP=Ca*CO3
+5 Ksp=PARM(2)
+6 si_cc=log(IAP/Ksp)
+20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
+120 rate = PARM(1) *M* (1 - (10^(si_cc))^0.48)
+140 moles = rate*TIME
+200 SAVE moles
+   -end
+Wollastonite
+-start
+1   REM   PARM(1) = rate constant. Parm(2)=Ksp Wollastonite
+2 Ca=Act("Ca+2")
+3 HSiO3=Act("HSiO3-")
+4 H=Act("H+")
+5 IAP=(Ca*HSiO3)/H 
+6 Ksp=PARM(2)
+7 si_ww=log(IAP/Ksp)
+20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
+120 rate = PARM(1) *M* (1 - (10^(si_ww)))
+140 moles = rate*TIME
+200 SAVE moles
+   -end
+CO2_dissolution
+-start
+20 k = parm(2)
+30 eq_HCO3 = 10^PARM(1)*10^LK_PHASE("CO2(g)")/ACT("H+")
+40 act_HCO3 = ACT("HCO3-")
+50 moles = k * (1-(act_HCO3/eq_HCO3)) * TIME
+60 SAVE moles
+   -end
+
+KINETICS 1
+Portlandite
+  -tol   1e-13
+  -m0    0.027
+  -m    0.027
+  -parms 0.9 6.6069e-06
+Calcite
+  -tol   1e-13
+  -m0    1e-06
+  -m    1e-06
+  -parms 0.0004 3.3113e-09
+Wollastonite
+  -tol   1e-13
+  -m0    0.0011
+  -m    0.0011
+  -parms 0.3 2511.8864
+CO2_dissolution
+  -tol   1e-13
+-formula CO2 1
+  -parms -3.3 0.00063
+ -steps 0 1.12201845430196 1.25892541179417 1.41253754462275 1.58489319246111 1.77827941003892 1.99526231496888 2.23872113856834 2.51188643150958 2.81838293126445 3.16227766016838 3.54813389233576 3.98107170553497 4.46683592150963 5.01187233627272 5.62341325190349 6.30957344480193 7.07945784384138 7.94328234724282 8.91250938133746 10 11.2201845430196 12.5892541179417 14.1253754462275 15.8489319246111 17.7827941003892 19.9526231496888 22.3872113856834 25.1188643150958 28.1838293126446 31.6227766016838 35.4813389233575 39.8107170553497 44.6683592150963 50.1187233627273 56.2341325190349 63.0957344480193 70.7945784384138 79.4328234724282 89.1250938133746 100 112.201845430196 125.892541179417 141.253754462275 158.489319246111 s
+  -cvode
+-runge_kutta      6
+
+ SELECTED_OUTPUT
+ -file portout.txt
+ -selected_out true
+ -user_punch true
+ -high_precision true
+ -reset false
+ -simulation false
+ -state false
+ -distance false
+ -time false
+ -step false
+ -ph false
+ -pe false
+ -reaction false
+ -temperature false
+ -alkalinity false
+ -ionic_strength false
+ -water false
+ -charge_balance false
+ -percent_error false
+
+USER_PUNCH
+        -headings seconds  Ca  pH Calcite  Portlandite DIC Si
+  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C"), TOT("Si") 
+
+END

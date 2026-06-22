@@ -1,0 +1,53 @@
+TITLE Calcite dissolution attempt.
+         
+##############################
+SOLUTION 0  HCl
+        units            mol/kgw
+        temp             25.0
+        pH               2.0     charge
+        Cl               0.01
+KINETICS 1
+Calcite
+	formula 	CaCO3	1
+	m		3.1
+	m0 		3.1
+	parms 		5.0 0.3
+	tol		1.e-8
+      -steps   86400 in 24
+RATES
+    Calcite
+-start
+  1   rem M = current number of moles of calcite
+  2   rem M0 = number of moles of calcite initially present
+  3   rem PARM(1) = A/V, cm^2/L
+  4   rem PARM(2) = exponent for M/M0
+ 10  si_cc = SI("Calcite")
+ 20  if (M <= 0 and si_cc < 0) then goto 200
+ 30    k1 = 10^(0.198 - 444.0 / TK )
+ 40    k2 = 10^(2.84 - 2177.0 / TK)
+ 50    if TC <= 25 then k3 = 10^(-5.86 - 317.0 / TK )
+ 60    if TC > 25 then k3  = 10^(-1.1 - 1737.0 / TK )
+ 70    t = 1
+ 80    if M0 > 0 then t = M/M0
+ 90    if t = 0 then t = 1
+100   area = PARM(1) * (t)^PARM(2)
+110   rf = k1*ACT("H+")+k2*ACT("CO2")+k3*ACT("H2O")
+120   rem 1e-3 converts mmol to mol
+130   rate = area * 1e-3 * rf * (1 - 10^(2/3*si_cc))
+140   moles = rate * TIME
+200 SAVE moles
+-end
+END
+USE solution 0
+USE kinetics 1
+USER_GRAPH 1
+    -headings               Time Delta_Calcite pH
+    -axis_titles            "Time, hours" "Delta Calcite, moles" "pH"
+    -initial_solutions      false
+    -connect_simulations    true
+    -plot_concentration_vs  time
+  -start
+ 5 GRAPH_X TOTAL_TIME/3600
+10 GRAPH_Y KIN_DELTA("Calcite")
+20 GRAPH_SY -LA("H+")
+  -end

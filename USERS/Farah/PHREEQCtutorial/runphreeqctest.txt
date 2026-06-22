@@ -1,0 +1,60 @@
+SOLUTION 1
+       pe      13.75
+       pH      7
+       temp    25
+-units mol/kgw
+
+EQUILIBRIUM_PHASES 1
+CO2(g)   -3.5
+
+RATES
+Portlandite
+-start
+1   REM   PARM(1) = rate constant
+10  si_pp = SI("Portlandite")
+20  IF (M <= 0  and si_pp < 0) THEN GOTO 200
+120 rate = PARM(1) *M* (1 - 10^(si_pp))
+140 moles = rate * TIME
+200 SAVE moles
+   -end
+
+KINETICS 1
+Portlandite
+  -tol   1e-8
+  -m0    0.1
+  -m     0.1
+  -parms 1e-5  # simple rate constant
+  -steps 0 10 20 30 40 50 60 70 80 90 100 s
+  -cvode
+
+SELECTED_OUTPUT
+-file porttest.out
+-selected_out true
+-user_punch true
+-high_precision true
+-reset false
+-simulation false
+-state false
+-distance false
+-time false
+-step false
+-ph false
+-pe false
+-reaction false
+-temperature false
+-alkalinity false
+-ionic_strength false
+-water false
+-charge_balance false
+-percent_error false
+-molalities H+ Ca+2  
+-equilibrium_phases CO2(g)  
+
+USER_PUNCH
+        -headings seconds  Ca  pH  
+  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+")
+
+END
+
+
+

@@ -1,0 +1,1027 @@
+   Input file: runphreeqctest.txt
+  Output file: output.txt
+Database file: llnl.dat
+
+------------------
+Reading data base.
+------------------
+
+	LLNL_AQUEOUS_MODEL_PARAMETERS
+	NAMED_EXPRESSIONS
+	SOLUTION_MASTER_SPECIES
+	SOLUTION_SPECIES
+	PHASES
+	EXCHANGE_MASTER_SPECIES
+	EXCHANGE_SPECIES
+	SURFACE_MASTER_SPECIES
+	SURFACE_SPECIES
+	RATES
+	END
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	RATES
+	Portlandite
+	start
+	1   REM   PARM(1) = rate constant
+	10  si_pp = SI("Portlandite")
+	20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
+	120 rate = PARM(1) *M* (1 - 10^(si_pp))
+	200 SAVE moles
+	   end
+	END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+	EQUILIBRIUM_PHASES 1
+	CO2(g)   -3.5
+	END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 3.
+------------------------------------
+
+	SOLUTION 1
+	       pe      13.75
+	       pH      7
+	       temp      25
+	units mol/kgw
+	END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Pure water     
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =  13.750    
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   9.821e-08
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                    Total carbon (mol/kg)  =   0.000e+00
+                       Total CO2 (mol/kg)  =   0.000e+00
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   1.86
+                               Iterations  =   2
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552735e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   OH-             9.638e-08   9.635e-08    -7.016    -7.016    -0.000     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 4.
+------------------------------------
+
+	SELECTED_OUTPUT
+	file selected.out
+	selected_out true
+	user_punch true
+	high_precision true
+	reset false
+	simulation false
+	state false
+	distance false
+	time false
+	step false
+	ph false
+	pe false
+	reaction false
+	temperature false
+	alkalinity false
+	ionic_strength false
+	water false
+	charge_balance false
+	percent_error false
+	molalities H+ Ca+2  
+	equilibrium_phases CO2(g)  
+	END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 5.
+------------------------------------
+
+	KINETICS 1
+	Portlandite
+	  tol   1e-8
+	  m0    10
+	  m     10
+	  parms 1e-3  # simple rate constant
+	  steps 1 2 3 4 5 6 7 8 9 10 day
+	  cvode
+	 USE solution 1
+	 USE equilibrium_phases 1
+-----------------------------------------
+Beginning of batch-reaction calculations.
+-----------------------------------------
+
+Reaction step 1.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 86400 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 2.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 172800 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 3.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 259200 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 4.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 345600 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 5.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 432000 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 6.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 518400 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 7.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 604800 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 8.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 691200 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 9.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 777600 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+Reaction step 10.
+
+Using solution 1.	
+Using pure phase assemblage 1.	
+Using kinetics 1.	
+
+Kinetics 1.	
+
+	Time step: 864000 seconds
+
+	Rate name       Delta Moles Total Moles   Reactant        Coefficient
+
+	Portlandite      -0.000e+00   1.000e+01   Portlandite               1
+
+-------------------------------Phase assemblage--------------------------------
+
+                                                      Moles in assemblage
+Phase               SI  log IAP  log K(T, P)   Initial       Final       Delta
+
+CO2(g)           -3.50   -11.33     -7.83    1.000e+01   1.000e+01  -1.305e-05
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	C                 1.305e-05   1.305e-05
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   5.664      Charge balance
+                                       pe  =  15.086      Adjusted to redox equilibrium
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   2.172e-06
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.655e-09
+                       Total CO2 (mol/kg)  =   1.305e-05
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   3.655e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.08
+                               Iterations  =  12
+                                  Total H  = 1.110507e+02
+                                  Total O  = 5.552737e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              2.174e-06   2.170e-06    -5.663    -5.664    -0.001      0.00
+   OH-             4.447e-09   4.440e-09    -8.352    -8.353    -0.001     (0)  
+   H2O             5.553e+01   1.000e+00     1.744    -0.000     0.000     18.07
+C(-2)         0.000e+00
+   C2H4            0.000e+00   0.000e+00  -268.089  -268.089     0.000     (0)  
+C(-3)         0.000e+00
+   C2H6            0.000e+00   0.000e+00  -240.702  -240.702     0.000     (0)  
+C(-4)         0.000e+00
+   CH4             0.000e+00   0.000e+00  -149.430  -149.430     0.000     (0)  
+C(2)          0.000e+00
+   CO              0.000e+00   0.000e+00   -51.505   -51.505     0.000     (0)  
+C(4)          1.305e-05
+   CO2             1.088e-05   1.088e-05    -4.963    -4.963     0.000     (0)  
+   HCO3-           2.166e-06   2.162e-06    -5.664    -5.665    -0.001     (0)  
+   CO3-2           4.450e-11   4.420e-11   -10.352   -10.355    -0.003     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.600   -44.600     0.000     (0)  
+O(0)          2.023e-03
+   O2              1.011e-03   1.011e-03    -2.995    -2.995     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  C               -72.48     -8.33   64.15  C
+  C(g)           -190.10     -8.33  181.77  C
+  CH4(g)         -146.59   -149.43   -2.84  CH4
+  CO(g)           -48.51    -51.50   -3.00  CO
+  CO2(g)           -3.50    -11.33   -7.83  CO2
+  H2(g)           -41.50    -44.60   -3.10  H2
+  H2O(g)           -1.59     -0.00    1.59  H2O
+  Ice              -0.14     -0.00    0.14  H2O
+  O2(g)            -0.10     -3.00   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 6.
+------------------------------------
+
+----------------------------------
+End of Run after 0.112532 Seconds.
+----------------------------------
+
