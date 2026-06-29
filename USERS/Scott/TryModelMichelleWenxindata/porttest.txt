@@ -15,7 +15,7 @@ Portlandite
 5 Ksp=PARM(2)
 6 si_pp=log(IAP/Ksp)
 20  IF (M <= 0  and si_pp < 0) THEN GOTO 200
-120 rate = PARM(1) *M* (1 - (10^(si_pp))^0.48)
+120 rate = PARM(1) *M* (1 - (10^(si_pp))^1)
 140 moles = rate*TIME
 200 SAVE moles
    -end
@@ -29,7 +29,7 @@ Calcite
 5 Ksp=PARM(2)
 6 si_cc=log(IAP/Ksp)
 20  IF (M <= 0  and si_cc < 0) THEN GOTO 200
-120 rate = PARM(1) *M* (1 - (10^(si_cc))^0.48)
+120 rate = PARM(1) *M* (1 - (10^(si_cc))^1)
 140 moles = rate*TIME
 200 SAVE moles
    -end
@@ -52,7 +52,7 @@ CO2_dissolution
 20 k = parm(2)
 30 eq_HCO3 = 10^PARM(1)*10^LK_PHASE("CO2(g)")/ACT("H+")
 40 act_HCO3 = ACT("HCO3-")
-50 moles = k * (1-(act_HCO3/eq_HCO3)^0.2) * TIME
+50 moles = k * (1-(act_HCO3/eq_HCO3)^1) * TIME
 60 SAVE moles
    -end
 
