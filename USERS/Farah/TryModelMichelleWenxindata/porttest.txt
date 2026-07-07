@@ -1,7 +1,7 @@
 TITLE TEST PORTLANDITE DISSOLUTION
 SOLUTION 1
        pe      13.75
-       pH      7
+       pH      5.65
        temp    25
 -units mol/kgw
 
@@ -59,8 +59,8 @@ CO2_dissolution
 KINETICS 1
 Portlandite
   -tol   1e-13
-  -m0    0.027
-  -m    0.027
+  -m0    0.02
+  -m    0.02
   -parms 0.9 6.6069e-06
 Calcite
   -tol   1e-13
