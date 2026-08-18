@@ -102,7 +102,7 @@ CO2_dissolution
  -percent_error false
 
 USER_PUNCH
-        -headings seconds  Ca  pH Calcite  Portlandite DIC Si
-  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C"), TOT("Si") 
+        -headings seconds  Ca  pH Calcite  Portlandite DIC Si CO2capture
+  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C"), TOT("Si"), KIN("CO2_dissolution") 
 
 END
