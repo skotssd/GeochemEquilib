@@ -59,8 +59,8 @@ CO2_dissolution
 KINETICS 1
 Portlandite
   -tol   1e-13
-  -m0    0.025
-  -m    0.025
+  -m0    0.05
+  -m    0.05
   -parms 0.9 6.6069e-06
 Calcite
   -tol   1e-13
@@ -102,7 +102,7 @@ CO2_dissolution
  -percent_error false
 
 USER_PUNCH
-        -headings seconds  Ca  pH Calcite  Portlandite DIC Si CO2capture
-  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C"), TOT("Si"), KIN("CO2_dissolution") 
+        -headings seconds  Ca  pH Calcite  Portlandite DIC Si
+  10 PUNCH SIM_TIME, TOT("Ca"), -LA("H+"), KIN("Calcite"), KIN("Portlandite"), TOT("C"), TOT("Si") 
 
 END
